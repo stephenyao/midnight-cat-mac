@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A4FC65F18FD560B62071C21 /* Pods_midnight_cat_mac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E3CBF9020FB087239EADA0 /* Pods_midnight_cat_mac.framework */; };
 		DD049DF621C4964B007E2DE6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD049DF521C4964B007E2DE6 /* AppDelegate.swift */; };
 		DD049DF821C4964B007E2DE6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD049DF721C4964B007E2DE6 /* ViewController.swift */; };
 		DD049DFA21C4964C007E2DE6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD049DF921C4964C007E2DE6 /* Assets.xcassets */; };
@@ -14,6 +15,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4FE61035D19B0F2EFC8607D4 /* Pods-midnight-cat-mac.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-midnight-cat-mac.release.xcconfig"; path = "Pods/Target Support Files/Pods-midnight-cat-mac/Pods-midnight-cat-mac.release.xcconfig"; sourceTree = "<group>"; };
+		A7E3CBF9020FB087239EADA0 /* Pods_midnight_cat_mac.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_midnight_cat_mac.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AED4F73B9F0F103CB34B112C /* Pods-midnight-cat-mac.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-midnight-cat-mac.debug.xcconfig"; path = "Pods/Target Support Files/Pods-midnight-cat-mac/Pods-midnight-cat-mac.debug.xcconfig"; sourceTree = "<group>"; };
 		DD049DF221C4964B007E2DE6 /* midnight-cat-mac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "midnight-cat-mac.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD049DF521C4964B007E2DE6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD049DF721C4964B007E2DE6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -28,17 +32,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A4FC65F18FD560B62071C21 /* Pods_midnight_cat_mac.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B39951A5DDA00A49178692AB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AED4F73B9F0F103CB34B112C /* Pods-midnight-cat-mac.debug.xcconfig */,
+				4FE61035D19B0F2EFC8607D4 /* Pods-midnight-cat-mac.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		D1A1111ED2C12EBBB1851741 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A7E3CBF9020FB087239EADA0 /* Pods_midnight_cat_mac.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		DD049DE921C4964B007E2DE6 = {
 			isa = PBXGroup;
 			children = (
 				DD049DF421C4964B007E2DE6 /* midnight-cat-mac */,
 				DD049DF321C4964B007E2DE6 /* Products */,
+				B39951A5DDA00A49178692AB /* Pods */,
+				D1A1111ED2C12EBBB1851741 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -70,9 +94,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DD049E0221C4964C007E2DE6 /* Build configuration list for PBXNativeTarget "midnight-cat-mac" */;
 			buildPhases = (
+				4748440DB67DB8E54DB8468E /* [CP] Check Pods Manifest.lock */,
 				DD049DEE21C4964B007E2DE6 /* Sources */,
 				DD049DEF21C4964B007E2DE6 /* Frameworks */,
 				DD049DF021C4964B007E2DE6 /* Resources */,
+				AED8BD5EE85B13E3F51FBB5A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -127,6 +153,47 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4748440DB67DB8E54DB8468E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-midnight-cat-mac-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AED8BD5EE85B13E3F51FBB5A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-midnight-cat-mac/Pods-midnight-cat-mac-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/NBNRequestKit/RequestKit.framework",
+				"${BUILT_PRODUCTS_DIR}/OctoKit.swift/Octokit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RequestKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Octokit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-midnight-cat-mac/Pods-midnight-cat-mac-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DD049DEE21C4964B007E2DE6 /* Sources */ = {
@@ -269,6 +336,7 @@
 		};
 		DD049E0321C4964C007E2DE6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AED4F73B9F0F103CB34B112C /* Pods-midnight-cat-mac.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "midnight-cat-mac/midnight_cat_mac.entitlements";
@@ -288,6 +356,7 @@
 		};
 		DD049E0421C4964C007E2DE6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4FE61035D19B0F2EFC8607D4 /* Pods-midnight-cat-mac.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "midnight-cat-mac/midnight_cat_mac.entitlements";

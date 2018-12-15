@@ -1,0 +1,20 @@
+PODS:
+  - NBNRequestKit (2.2.0)
+  - OctoKit.swift (0.8.0):
+    - NBNRequestKit (~> 2.0)
+
+DEPENDENCIES:
+  - OctoKit.swift
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - NBNRequestKit
+    - OctoKit.swift
+
+SPEC CHECKSUMS:
+  NBNRequestKit: 30c39d8e23e94f935bfc2a25789c44e4a6e1bfdd
+  OctoKit.swift: 2f51efbf888997fc625b91894777e76e9142d95b
+
+PODFILE CHECKSUM: 7054543a5c2c629b1a3e8e3efd8365981ecb23b3
+
+COCOAPODS: 1.6.0.beta.2

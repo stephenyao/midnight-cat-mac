@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import Octokit
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -32,6 +33,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
       let accessToken = queryItem.value
     else {
       return
+    }
+    
+    let config = TokenConfiguration(accessToken, url: "https://api.git.realestate.com.au")
+    Octokit(config).pullRequests(owner: "resi-mobile", repository: "resi-mobile-ios") { (response) in
+      switch response {
+      case .success(let pullRequest):
+        print(pullRequest.first?.body)
+      case .failure(let error):
+        print(error)
+      }
     }
     
     print("access token retrieved: \(accessToken)")
