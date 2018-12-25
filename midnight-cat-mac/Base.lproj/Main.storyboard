@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
-        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -683,7 +682,7 @@
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
             <objects>
-                <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
+                <windowController id="B8D-0N-5wS" customClass="MainWindowController" customModule="midnight_cat_mac" customModuleProvider="target" sceneMemberID="viewController">
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
@@ -693,91 +692,10 @@
                             <outlet property="delegate" destination="B8D-0N-5wS" id="98r-iN-zZc"/>
                         </connections>
                     </window>
-                    <connections>
-                        <segue destination="XfG-lQ-9wD" kind="relationship" relationship="window.shadowedContentViewController" id="cq2-FE-JQM"/>
-                    </connections>
                 </windowController>
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="75" y="250"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="hIz-AP-VOD">
-            <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="midnight_cat_mac" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <subviews>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ASk-Ag-CbG">
-                                <rect key="frame" x="40" y="179" width="30" height="17"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="URL" id="b8O-Ql-JHo">
-                                    <font key="font" usesAppearanceFont="YES"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="J8l-V9-sQQ">
-                                <rect key="frame" x="18" y="136" width="52" height="17"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="ClientID" id="212-cS-ao2">
-                                    <font key="font" usesAppearanceFont="YES"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="IVH-Mr-cKA">
-                                <rect key="frame" x="100" y="174" width="350" height="22"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="gyN-O4-HFf">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="VCb-IH-J6M">
-                                <rect key="frame" x="100" y="130" width="350" height="22"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="F9f-6o-ljn">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="enc-7d-k7G">
-                                <rect key="frame" x="199" y="83" width="82" height="32"/>
-                                <buttonCell key="cell" type="push" title="Sign In" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="erD-ZF-Vfq">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                            </button>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="g58-iW-Fgq">
-                                <rect key="frame" x="155" y="219" width="171" height="21"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="Github OAuth SignIn" id="pZQ-T3-NTp">
-                                    <font key="font" metaFont="systemBold" size="17"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                        </subviews>
-                        <constraints>
-                            <constraint firstItem="enc-7d-k7G" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="5co-sH-dZy"/>
-                            <constraint firstItem="VCb-IH-J6M" firstAttribute="leading" secondItem="IVH-Mr-cKA" secondAttribute="leading" id="6HM-CU-Rmp"/>
-                            <constraint firstItem="IVH-Mr-cKA" firstAttribute="leading" secondItem="ASk-Ag-CbG" secondAttribute="trailing" constant="32" id="Awp-7c-i9v"/>
-                            <constraint firstItem="ASk-Ag-CbG" firstAttribute="trailing" secondItem="J8l-V9-sQQ" secondAttribute="trailing" id="EOC-D3-MGX"/>
-                            <constraint firstItem="IVH-Mr-cKA" firstAttribute="top" secondItem="ASk-Ag-CbG" secondAttribute="top" id="GwR-pS-Z6p"/>
-                            <constraint firstAttribute="trailing" secondItem="IVH-Mr-cKA" secondAttribute="trailing" constant="30" id="OLg-Ul-FkH"/>
-                            <constraint firstItem="VCb-IH-J6M" firstAttribute="top" secondItem="IVH-Mr-cKA" secondAttribute="bottom" constant="22" id="SFl-tu-vgz"/>
-                            <constraint firstItem="J8l-V9-sQQ" firstAttribute="top" secondItem="ASk-Ag-CbG" secondAttribute="bottom" constant="26" id="TeK-jL-D2v"/>
-                            <constraint firstItem="VCb-IH-J6M" firstAttribute="width" secondItem="IVH-Mr-cKA" secondAttribute="width" id="Tpa-Km-VwC"/>
-                            <constraint firstItem="ASk-Ag-CbG" firstAttribute="top" secondItem="g58-iW-Fgq" secondAttribute="bottom" constant="23" id="eql-xW-9vD"/>
-                            <constraint firstItem="enc-7d-k7G" firstAttribute="firstBaseline" secondItem="VCb-IH-J6M" secondAttribute="baseline" constant="40" id="fAr-ct-MHE"/>
-                            <constraint firstItem="g58-iW-Fgq" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="lXM-Uh-4zV"/>
-                            <constraint firstItem="ASk-Ag-CbG" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="42" id="q0a-iH-Dya"/>
-                            <constraint firstItem="g58-iW-Fgq" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="30" id="tEg-36-OZd"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="75" y="655"/>
         </scene>
     </scenes>
 </document>

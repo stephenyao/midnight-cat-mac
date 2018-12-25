@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="OauthApplicationDetailsViewController" customModule="midnight_cat_mac" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="3OO-uv-UFw" id="Bz0-3H-oku"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <view wantsLayer="YES" id="3OO-uv-UFw">
+            <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="VNC-Zn-aY3">
+                    <rect key="frame" x="40" y="179" width="30" height="17"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="URL" id="B2a-QU-ySX">
+                        <font key="font" usesAppearanceFont="YES"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="CI6-xD-tal">
+                    <rect key="frame" x="18" y="136" width="52" height="17"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="ClientID" id="uQi-ml-Dzl">
+                        <font key="font" usesAppearanceFont="YES"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TnH-Mz-Ea5">
+                    <rect key="frame" x="100" y="174" width="350" height="22"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="uok-Ub-cky">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HhZ-zn-co3">
+                    <rect key="frame" x="100" y="130" width="350" height="22"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="soa-aw-qq5">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="K5o-Gs-daU">
+                    <rect key="frame" x="199" y="83" width="82" height="32"/>
+                    <buttonCell key="cell" type="push" title="Sign In" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="WGr-xS-C7r">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                </button>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hMA-ye-w1F">
+                    <rect key="frame" x="155" y="219" width="171" height="21"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="Github OAuth SignIn" id="PRi-vv-IaM">
+                        <font key="font" metaFont="systemBold" size="17"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+            <constraints>
+                <constraint firstItem="TnH-Mz-Ea5" firstAttribute="leading" secondItem="VNC-Zn-aY3" secondAttribute="trailing" constant="32" id="6K0-HM-gLi"/>
+                <constraint firstItem="VNC-Zn-aY3" firstAttribute="trailing" secondItem="CI6-xD-tal" secondAttribute="trailing" id="CXq-iJ-13g"/>
+                <constraint firstItem="K5o-Gs-daU" firstAttribute="firstBaseline" secondItem="HhZ-zn-co3" secondAttribute="baseline" constant="40" id="F6T-nk-fLy"/>
+                <constraint firstItem="TnH-Mz-Ea5" firstAttribute="top" secondItem="VNC-Zn-aY3" secondAttribute="top" id="Hd3-pX-A1m"/>
+                <constraint firstItem="hMA-ye-w1F" firstAttribute="top" secondItem="3OO-uv-UFw" secondAttribute="top" constant="30" id="OHZ-w0-vDX"/>
+                <constraint firstItem="HhZ-zn-co3" firstAttribute="top" secondItem="TnH-Mz-Ea5" secondAttribute="bottom" constant="22" id="Owm-zX-jWi"/>
+                <constraint firstAttribute="trailing" secondItem="TnH-Mz-Ea5" secondAttribute="trailing" constant="30" id="Vva-pw-Cl8"/>
+                <constraint firstItem="VNC-Zn-aY3" firstAttribute="top" secondItem="hMA-ye-w1F" secondAttribute="bottom" constant="23" id="YJw-fS-yAf"/>
+                <constraint firstItem="hMA-ye-w1F" firstAttribute="centerX" secondItem="3OO-uv-UFw" secondAttribute="centerX" id="a0o-dT-TK1"/>
+                <constraint firstItem="VNC-Zn-aY3" firstAttribute="leading" secondItem="3OO-uv-UFw" secondAttribute="leading" constant="42" id="mBV-jf-McZ"/>
+                <constraint firstItem="HhZ-zn-co3" firstAttribute="leading" secondItem="TnH-Mz-Ea5" secondAttribute="leading" id="nVG-Ym-gNU"/>
+                <constraint firstItem="CI6-xD-tal" firstAttribute="top" secondItem="VNC-Zn-aY3" secondAttribute="bottom" constant="26" id="nzb-FS-6Sy"/>
+                <constraint firstItem="K5o-Gs-daU" firstAttribute="centerX" secondItem="3OO-uv-UFw" secondAttribute="centerX" id="qk0-Gb-qwH"/>
+                <constraint firstItem="HhZ-zn-co3" firstAttribute="width" secondItem="TnH-Mz-Ea5" secondAttribute="width" id="wzq-iP-2Hg"/>
+            </constraints>
+            <point key="canvasLocation" x="-176" y="224"/>
+        </view>
+    </objects>
+</document>
