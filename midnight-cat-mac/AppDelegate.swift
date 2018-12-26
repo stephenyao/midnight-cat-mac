@@ -11,18 +11,17 @@ import Octokit
 
 class AppState {
   static var isSignedIn = false
+  static var endpoint: String!
+  static var clientID: String!
+  static var loginUrl: URL! {
+    return URL(string: "\(endpoint!)/login/oauth/authorize?scope=user&client_id=\(clientID!)")
+  }
 }
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
   
   @IBOutlet weak var window: NSWindow!
-
-  func applicationDidFinishLaunching(_ aNotification: Notification) {
-//    let clientID = "8a4b44c3d84d750edbc7"
-//    let loginUrl = URL(string: "https://git.realestate.com.au/login/oauth/authorize?scope=user&client_id=\(clientID)")!
-//    NSWorkspace.shared.open(loginUrl)
-  }
 
   func application(_ application: NSApplication, open urls: [URL]) {
     guard let url = urls.first else {

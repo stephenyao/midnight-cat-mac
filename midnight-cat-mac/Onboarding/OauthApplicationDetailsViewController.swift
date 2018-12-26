@@ -9,5 +9,20 @@
 import Cocoa
 
 class OauthApplicationDetailsViewController: NSViewController {
-
+  @IBOutlet var urlTextField: NSTextField!
+  @IBOutlet var clientIDTextField: NSTextField!
+  
+  @IBAction func onSignInTapped(_ sender: Any) {
+    guard
+      let url = URL(string: urlTextField.stringValue),
+      case let clientID = clientIDTextField.stringValue
+    else {
+      return
+    }
+  
+    AppState.endpoint = url.absoluteString
+    AppState.clientID = clientID
+    
+    NSWorkspace.shared.open(AppState.loginUrl)
+  }
 }
