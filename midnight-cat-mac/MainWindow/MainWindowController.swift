@@ -13,7 +13,7 @@ class MainWindowController: NSWindowController {
   override func windowDidLoad() {
     super.windowDidLoad()
     
-    if AppState.isSignedIn {
+    if AppState.sharedInstance.isSignedIn {
       
     } else {
       let loggedOutViewController = LoggedOutViewController.init(nibName: nil, bundle: nil)

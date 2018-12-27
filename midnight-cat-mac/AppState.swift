@@ -9,14 +9,16 @@
 import Foundation
 import Octokit
 
-struct AppState {
+final class AppState: AccessTokenStorage {
   
-  static var isSignedIn = false
-  static var endpoint: String?
-  static var clientID: String?
-  static var accessToken: String?
+  static var sharedInstance = AppState()
   
-  static var loginURL: URL? {
+  var endpoint: String?
+  var clientID: String?
+  var accessToken: String?
+  var isSignedIn = false
+  
+  var loginURL: URL? {
     guard
       let endpoint = endpoint,
       let clientID = clientID
@@ -27,7 +29,7 @@ struct AppState {
     return URL(string: "https://\(endpoint)/login/oauth/authorize?scope=user&client_id=\(clientID)")
   }
   
-  static var apiURL: URL? {
+  var apiURL: URL? {
     guard let endpoint = endpoint else {
       return nil
     }
@@ -35,7 +37,7 @@ struct AppState {
     return URL(string: "https://api.\(endpoint)")
   }
   
-  static var octokitConfig: TokenConfiguration? {
+  var octokitConfig: TokenConfiguration? {
     guard
       let apiURL = apiURL,
       let accessToken = accessToken
@@ -44,5 +46,9 @@ struct AppState {
     }
     
     return TokenConfiguration(accessToken, url: apiURL.absoluteString)
+  }
+  
+  func store(accessToken: String) {
+    self.accessToken = accessToken
   }
 }

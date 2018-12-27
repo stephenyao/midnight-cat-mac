@@ -12,26 +12,26 @@ import XCTest
 class AppStateTests: XCTestCase {
   
   override func setUp() {
-    AppState.endpoint = nil
-    AppState.clientID = nil
-    AppState.accessToken = nil
+    AppState.sharedInstance.endpoint = nil
+    AppState.sharedInstance.clientID = nil
+    AppState.sharedInstance.accessToken = nil
   }
 
   func testLoginURL() {
-    AppState.endpoint = "test"
-    AppState.clientID = "clientID"
-    XCTAssert(AppState.loginURL?.absoluteString == "https://test/login/oauth/authorize?scope=user&client_id=clientID")
+    AppState.sharedInstance.endpoint = "test"
+    AppState.sharedInstance.clientID = "clientID"
+    XCTAssert(AppState.sharedInstance.loginURL?.absoluteString == "https://test/login/oauth/authorize?scope=user&client_id=clientID")
   }
   
   func testApiURL() {
-    AppState.endpoint = "test"
-    XCTAssert(AppState.apiURL?.absoluteString == "https://api.test")
+    AppState.sharedInstance.endpoint = "test"
+    XCTAssert(AppState.sharedInstance.apiURL?.absoluteString == "https://api.test")
   }
   
   func testOctokitConfig() {
-    AppState.endpoint = "test"
-    AppState.accessToken = "1234"
-    XCTAssert(AppState.octokitConfig != nil)
+    AppState.sharedInstance.endpoint = "test"
+    AppState.sharedInstance.accessToken = "1234"
+    XCTAssert(AppState.sharedInstance.octokitConfig != nil)
   }
 
 }

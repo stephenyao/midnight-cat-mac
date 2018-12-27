@@ -13,25 +13,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   
   @IBOutlet weak var window: NSWindow!
   
+  private var router: Router!
+  
   func applicationDidFinishLaunching(_ notification: Notification) {
+    let authenticationRoutable = AuthenticationRoutable(accessTokenStorage: AppState.sharedInstance)
     
+    let router = Router(routables: [authenticationRoutable])
+    self.router = router
   }
 
   func application(_ application: NSApplication, open urls: [URL]) {
     
-    guard let url = urls.first else {
-      return
-    }
+    urls.forEach(self.router.route)
     
-    let components = URLComponents(url: url, resolvingAgainstBaseURL: false)
-    guard
-      let queryItem = components?.queryItems?.first(where: { $0.name == "access_token" }),
-      let accessToken = queryItem.value
-    else {
-      return
-    }
-    
-    AppState.accessToken = accessToken
   }
 
 }

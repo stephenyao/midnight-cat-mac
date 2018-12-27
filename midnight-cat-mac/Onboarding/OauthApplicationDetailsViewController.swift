@@ -23,10 +23,10 @@ class OauthApplicationDetailsViewController: NSViewController {
   
     self.signInButton.isEnabled = false
     
-    AppState.endpoint = url.absoluteString
-    AppState.clientID = clientID
+    AppState.sharedInstance.endpoint = url.absoluteString
+    AppState.sharedInstance.clientID = clientID
     
-    if let loginURL = AppState.loginURL {
+    if let loginURL = AppState.sharedInstance.loginURL {
       NSWorkspace.shared.open(loginURL)
     }    
   }
