@@ -8,9 +8,22 @@
 
 import Foundation
 
+protocol AccessTokenStorage {
+  
+  var accessToken: String? { get }
+  
+  func store(accessToken: String)
+  
+}
+
 final class AuthenticationRoutable: Routable {
   
   private var executedUrl: URL?
+  private var accessTokenStorage: AccessTokenStorage
+  
+  init(accessTokenStorage: AccessTokenStorage) {
+    self.accessTokenStorage = accessTokenStorage
+  }
   
   var url: URL {
     return URL(string: "midnight-cat://authorised")!
@@ -25,7 +38,7 @@ final class AuthenticationRoutable: Routable {
         return
     }
     
-    AppState.accessToken = accessToken
+    self.accessTokenStorage.store(accessToken: accessToken)
   }
   
 }
