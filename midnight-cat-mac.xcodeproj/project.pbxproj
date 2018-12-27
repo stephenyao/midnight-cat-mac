@@ -116,9 +116,9 @@
 			children = (
 				DD049DF521C4964B007E2DE6 /* AppDelegate.swift */,
 				DD442E4921D4B62B007E4325 /* AppState.swift */,
-				DD442E4D21D4E959007E4325 /* Router.swift */,
-				DD442E3521D263DE007E4325 /* Onboarding */,
 				DD442E1221D25A38007E4325 /* MainWindow */,
+				DD442E3521D263DE007E4325 /* Onboarding */,
+				DD442E4F21D4EF8F007E4325 /* Router */,
 				DD049DF921C4964C007E2DE6 /* Assets.xcassets */,
 				DD049DFB21C4964C007E2DE6 /* Main.storyboard */,
 				DD049DFE21C4964C007E2DE6 /* Info.plist */,
@@ -154,6 +154,14 @@
 				DD442E4321D4B14F007E4325 /* Info.plist */,
 			);
 			path = "midnight-cat-macTests";
+			sourceTree = "<group>";
+		};
+		DD442E4F21D4EF8F007E4325 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				DD442E4D21D4E959007E4325 /* Router.swift */,
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
