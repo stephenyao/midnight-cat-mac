@@ -20,6 +20,7 @@
 		DD442E4A21D4B62B007E4325 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD442E4921D4B62B007E4325 /* AppState.swift */; };
 		DD442E4C21D4B883007E4325 /* RouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD442E4B21D4B883007E4325 /* RouterTests.swift */; };
 		DD442E4E21D4E959007E4325 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD442E4D21D4E959007E4325 /* Router.swift */; };
+		DD442E5121D4EFB0007E4325 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD442E5021D4EFB0007E4325 /* Authentication.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		DD442E4921D4B62B007E4325 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		DD442E4B21D4B883007E4325 /* RouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterTests.swift; sourceTree = "<group>"; };
 		DD442E4D21D4E959007E4325 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		DD442E5021D4EFB0007E4325 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				DD442E4D21D4E959007E4325 /* Router.swift */,
+				DD442E5021D4EFB0007E4325 /* Authentication.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD442E5121D4EFB0007E4325 /* Authentication.swift in Sources */,
 				DD442E4A21D4B62B007E4325 /* AppState.swift in Sources */,
 				DD049DF621C4964B007E2DE6 /* AppDelegate.swift in Sources */,
 				DD442E1821D25BFA007E4325 /* MainWindowController.swift in Sources */,
