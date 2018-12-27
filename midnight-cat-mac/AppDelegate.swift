@@ -12,8 +12,13 @@ import Cocoa
 class AppDelegate: NSObject, NSApplicationDelegate {
   
   @IBOutlet weak var window: NSWindow!
+  
+  func applicationDidFinishLaunching(_ notification: Notification) {
+    
+  }
 
   func application(_ application: NSApplication, open urls: [URL]) {
+    
     guard let url = urls.first else {
       return
     }

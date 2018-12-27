@@ -71,8 +71,8 @@ private final class MockRoutable: Routable {
     return URL(string: self.urlString)!
   }
   
-  func executeRoute() {
-    self.executed = true
+  func executeRoute(from url: URL) {
+    self.executed = true    
   }
   
 }

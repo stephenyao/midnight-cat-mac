@@ -12,7 +12,7 @@ protocol Routable {
   
   var url: URL { get }
   
-  func executeRoute()
+  func executeRoute(from url: URL)
   
 }
 
@@ -34,7 +34,29 @@ final class Router {
       return
         routableComponents?.host == incomingURLComponents?.host &&
           routableComponents?.path == incomingURLComponents?.path
-      }?.executeRoute()
+      }?.executeRoute(from: url)
   }
   
+}
+
+final class AuthenticationRoutable: Routable {
+  
+  private var executedUrl: URL?
+
+  var url: URL {
+    return URL(string: "midnight-cat://authorised")!
+  }
+  
+  func executeRoute(from url: URL) {
+    let components = URLComponents(url: url, resolvingAgainstBaseURL: true)
+    guard
+      let queryItem = components?.queryItems?.first(where: { $0.name == "access_token" }),
+      let accessToken = queryItem.value
+      else {
+        return
+    }
+    
+    AppState.accessToken = accessToken
+  }
+
 }
