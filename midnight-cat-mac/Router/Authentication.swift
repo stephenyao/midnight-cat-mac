@@ -39,6 +39,8 @@ final class AuthenticationRoutable: Routable {
     }
     
     self.accessTokenStorage.store(accessToken: accessToken)
+    
+    NotificationCenter.default.post(name: AppNotifications.signInSuccess, object: nil)
   }
   
 }

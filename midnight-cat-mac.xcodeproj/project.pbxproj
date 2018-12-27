@@ -22,6 +22,10 @@
 		DD442E4E21D4E959007E4325 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD442E4D21D4E959007E4325 /* Router.swift */; };
 		DD442E5121D4EFB0007E4325 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD442E5021D4EFB0007E4325 /* Authentication.swift */; };
 		DD442E5321D4F08F007E4325 /* AuthenticationRoutableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD442E5221D4F08F007E4325 /* AuthenticationRoutableTests.swift */; };
+		DD442E5621D4FF30007E4325 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD442E5521D4FF30007E4325 /* Notifications.swift */; };
+		DD442E5921D50E84007E4325 /* RepositoriesSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD442E5721D50E84007E4325 /* RepositoriesSelectViewController.swift */; };
+		DD442E5A21D50E84007E4325 /* RepositoriesSelectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD442E5821D50E84007E4325 /* RepositoriesSelectViewController.xib */; };
+		DD442E5C21D50EC5007E4325 /* RepositoriesSelectCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD442E5B21D50EC5007E4325 /* RepositoriesSelectCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +61,10 @@
 		DD442E4D21D4E959007E4325 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		DD442E5021D4EFB0007E4325 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		DD442E5221D4F08F007E4325 /* AuthenticationRoutableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationRoutableTests.swift; sourceTree = "<group>"; };
+		DD442E5521D4FF30007E4325 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		DD442E5721D50E84007E4325 /* RepositoriesSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesSelectViewController.swift; sourceTree = "<group>"; };
+		DD442E5821D50E84007E4325 /* RepositoriesSelectViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositoriesSelectViewController.xib; sourceTree = "<group>"; };
+		DD442E5B21D50EC5007E4325 /* RepositoriesSelectCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesSelectCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +129,7 @@
 				DD049DF521C4964B007E2DE6 /* AppDelegate.swift */,
 				DD442E4921D4B62B007E4325 /* AppState.swift */,
 				DD442E1221D25A38007E4325 /* MainWindow */,
+				DD442E5421D4FF1C007E4325 /* Notifications */,
 				DD442E3521D263DE007E4325 /* Onboarding */,
 				DD442E4F21D4EF8F007E4325 /* Router */,
 				DD049DF921C4964C007E2DE6 /* Assets.xcassets */,
@@ -146,6 +155,9 @@
 				DD442E1421D25A8B007E4325 /* LoggedOutViewController.xib */,
 				DD442E3621D26410007E4325 /* OauthApplicationDetailsViewController.swift */,
 				DD442E3721D26410007E4325 /* OauthApplicationDetailsViewController.xib */,
+				DD442E5B21D50EC5007E4325 /* RepositoriesSelectCoordinator.swift */,
+				DD442E5721D50E84007E4325 /* RepositoriesSelectViewController.swift */,
+				DD442E5821D50E84007E4325 /* RepositoriesSelectViewController.xib */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -168,6 +180,14 @@
 				DD442E5021D4EFB0007E4325 /* Authentication.swift */,
 			);
 			path = Router;
+			sourceTree = "<group>";
+		};
+		DD442E5421D4FF1C007E4325 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				DD442E5521D4FF30007E4325 /* Notifications.swift */,
+			);
+			path = Notifications;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -253,6 +273,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD442E5A21D50E84007E4325 /* RepositoriesSelectViewController.xib in Resources */,
 				DD049DFA21C4964C007E2DE6 /* Assets.xcassets in Resources */,
 				DD442E3921D26410007E4325 /* OauthApplicationDetailsViewController.xib in Resources */,
 				DD442E1621D25A8B007E4325 /* LoggedOutViewController.xib in Resources */,
@@ -315,13 +336,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD442E5621D4FF30007E4325 /* Notifications.swift in Sources */,
 				DD442E5121D4EFB0007E4325 /* Authentication.swift in Sources */,
+				DD442E5C21D50EC5007E4325 /* RepositoriesSelectCoordinator.swift in Sources */,
 				DD442E4A21D4B62B007E4325 /* AppState.swift in Sources */,
 				DD049DF621C4964B007E2DE6 /* AppDelegate.swift in Sources */,
 				DD442E1821D25BFA007E4325 /* MainWindowController.swift in Sources */,
 				DD442E3821D26410007E4325 /* OauthApplicationDetailsViewController.swift in Sources */,
 				DD442E4E21D4E959007E4325 /* Router.swift in Sources */,
 				DD442E1521D25A8B007E4325 /* LoggedOutViewController.swift in Sources */,
+				DD442E5921D50E84007E4325 /* RepositoriesSelectViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

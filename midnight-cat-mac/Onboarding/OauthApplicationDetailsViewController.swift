@@ -13,6 +13,13 @@ class OauthApplicationDetailsViewController: NSViewController {
   @IBOutlet var clientIDTextField: NSTextField!
   @IBOutlet var signInButton: NSButton!
   
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    
+    NotificationCenter.default.addObserver(self, selector: #selector(onSignInSuccess), name: AppNotifications.signInSuccess, object: nil)
+    NotificationCenter.default.addObserver(self, selector: #selector(onSignInFailure), name: AppNotifications.signInFailed, object: nil)
+  }
+  
   @IBAction func onSignInTapped(_ sender: Any) {
     guard
       let url = URL(string: urlTextField.stringValue),
@@ -28,6 +35,15 @@ class OauthApplicationDetailsViewController: NSViewController {
     
     if let loginURL = AppState.sharedInstance.loginURL {
       NSWorkspace.shared.open(loginURL)
-    }    
+    }
+  }
+  
+  @objc private func onSignInSuccess() {
+    let nextCoordinator = RepositoriesSelectCoordinator()
+    nextCoordinator.load()
+  }
+  
+  @objc private func onSignInFailure() {
+    self.signInButton.isEnabled = true
   }
 }
