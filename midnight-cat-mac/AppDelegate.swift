@@ -7,23 +7,6 @@
 //
 
 import Cocoa
-import Octokit
-
-class AppState {
-  static var isSignedIn = false
-  static var endpoint: String!
-  static var clientID: String!
-  
-  static var loginURL: URL! {
-    return URL(string: "https://\(endpoint!)/login/oauth/authorize?scope=user&client_id=\(clientID!)")
-  }
-  
-  static var apiURL: URL! {
-    return URL(string: "https://api\(endpoint!)")
-  }
-  
-  static var octokitConfig: TokenConfiguration!
-}
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -43,7 +26,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
       return
     }
     
-    AppState.octokitConfig = TokenConfiguration(accessToken, url: AppState.apiURL.absoluteString)
+    AppState.accessToken = accessToken
   }
 
 }

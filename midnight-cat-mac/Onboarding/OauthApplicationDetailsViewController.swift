@@ -26,6 +26,8 @@ class OauthApplicationDetailsViewController: NSViewController {
     AppState.endpoint = url.absoluteString
     AppState.clientID = clientID
     
-    NSWorkspace.shared.open(AppState.loginURL)
+    if let loginURL = AppState.loginURL {
+      NSWorkspace.shared.open(loginURL)
+    }    
   }
 }

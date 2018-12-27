@@ -16,7 +16,8 @@
 		DD442E1821D25BFA007E4325 /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD442E1721D25BFA007E4325 /* MainWindowController.swift */; };
 		DD442E3821D26410007E4325 /* OauthApplicationDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD442E3621D26410007E4325 /* OauthApplicationDetailsViewController.swift */; };
 		DD442E3921D26410007E4325 /* OauthApplicationDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD442E3721D26410007E4325 /* OauthApplicationDetailsViewController.xib */; };
-		DD442E4221D4B14F007E4325 /* midnight_cat_macTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD442E4121D4B14F007E4325 /* midnight_cat_macTests.swift */; };
+		DD442E4221D4B14F007E4325 /* AppStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD442E4121D4B14F007E4325 /* AppStateTests.swift */; };
+		DD442E4A21D4B62B007E4325 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD442E4921D4B62B007E4325 /* AppState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,8 +46,9 @@
 		DD442E3621D26410007E4325 /* OauthApplicationDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OauthApplicationDetailsViewController.swift; sourceTree = "<group>"; };
 		DD442E3721D26410007E4325 /* OauthApplicationDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OauthApplicationDetailsViewController.xib; sourceTree = "<group>"; };
 		DD442E3F21D4B14F007E4325 /* midnight-cat-macTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "midnight-cat-macTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		DD442E4121D4B14F007E4325 /* midnight_cat_macTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = midnight_cat_macTests.swift; sourceTree = "<group>"; };
+		DD442E4121D4B14F007E4325 /* AppStateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStateTests.swift; sourceTree = "<group>"; };
 		DD442E4321D4B14F007E4325 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD442E4921D4B62B007E4325 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 				DD442E3521D263DE007E4325 /* Onboarding */,
 				DD442E1221D25A38007E4325 /* MainWindow */,
 				DD049DF521C4964B007E2DE6 /* AppDelegate.swift */,
+				DD442E4921D4B62B007E4325 /* AppState.swift */,
 				DD049DF921C4964C007E2DE6 /* Assets.xcassets */,
 				DD049DFB21C4964C007E2DE6 /* Main.storyboard */,
 				DD049DFE21C4964C007E2DE6 /* Info.plist */,
@@ -141,7 +144,7 @@
 		DD442E4021D4B14F007E4325 /* midnight-cat-macTests */ = {
 			isa = PBXGroup;
 			children = (
-				DD442E4121D4B14F007E4325 /* midnight_cat_macTests.swift */,
+				DD442E4121D4B14F007E4325 /* AppStateTests.swift */,
 				DD442E4321D4B14F007E4325 /* Info.plist */,
 			);
 			path = "midnight-cat-macTests";
@@ -292,6 +295,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD442E4A21D4B62B007E4325 /* AppState.swift in Sources */,
 				DD049DF621C4964B007E2DE6 /* AppDelegate.swift in Sources */,
 				DD442E1821D25BFA007E4325 /* MainWindowController.swift in Sources */,
 				DD442E3821D26410007E4325 /* OauthApplicationDetailsViewController.swift in Sources */,
@@ -303,7 +307,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD442E4221D4B14F007E4325 /* midnight_cat_macTests.swift in Sources */,
+				DD442E4221D4B14F007E4325 /* AppStateTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,6 +454,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "midnight-cat-mac/midnight_cat_mac.entitlements";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = XTHK4B78Z7;
@@ -460,6 +465,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.silverbear.midnight-cat-mac";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
@@ -470,6 +476,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "midnight-cat-mac/midnight_cat_mac.entitlements";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = XTHK4B78Z7;
@@ -480,6 +487,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.silverbear.midnight-cat-mac";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
@@ -488,9 +496,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 5FQ33QXJZ3;
+				DEVELOPMENT_TEAM = XTHK4B78Z7;
 				INFOPLIST_FILE = "midnight-cat-macTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -499,6 +508,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.silverbear.midnight-cat-macTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/midnight-cat-mac.app/Contents/MacOS/midnight-cat-mac";
 			};
@@ -508,9 +518,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 5FQ33QXJZ3;
+				DEVELOPMENT_TEAM = XTHK4B78Z7;
 				INFOPLIST_FILE = "midnight-cat-macTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -519,6 +530,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.silverbear.midnight-cat-macTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/midnight-cat-mac.app/Contents/MacOS/midnight-cat-mac";
 			};
