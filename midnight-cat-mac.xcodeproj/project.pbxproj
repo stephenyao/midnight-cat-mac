@@ -18,6 +18,8 @@
 		DD442E3921D26410007E4325 /* OauthApplicationDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD442E3721D26410007E4325 /* OauthApplicationDetailsViewController.xib */; };
 		DD442E4221D4B14F007E4325 /* AppStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD442E4121D4B14F007E4325 /* AppStateTests.swift */; };
 		DD442E4A21D4B62B007E4325 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD442E4921D4B62B007E4325 /* AppState.swift */; };
+		DD442E4C21D4B883007E4325 /* RouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD442E4B21D4B883007E4325 /* RouterTests.swift */; };
+		DD442E4E21D4E959007E4325 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD442E4D21D4E959007E4325 /* Router.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		DD442E4121D4B14F007E4325 /* AppStateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStateTests.swift; sourceTree = "<group>"; };
 		DD442E4321D4B14F007E4325 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD442E4921D4B62B007E4325 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		DD442E4B21D4B883007E4325 /* RouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterTests.swift; sourceTree = "<group>"; };
+		DD442E4D21D4E959007E4325 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,10 +114,11 @@
 		DD049DF421C4964B007E2DE6 /* midnight-cat-mac */ = {
 			isa = PBXGroup;
 			children = (
-				DD442E3521D263DE007E4325 /* Onboarding */,
-				DD442E1221D25A38007E4325 /* MainWindow */,
 				DD049DF521C4964B007E2DE6 /* AppDelegate.swift */,
 				DD442E4921D4B62B007E4325 /* AppState.swift */,
+				DD442E4D21D4E959007E4325 /* Router.swift */,
+				DD442E3521D263DE007E4325 /* Onboarding */,
+				DD442E1221D25A38007E4325 /* MainWindow */,
 				DD049DF921C4964C007E2DE6 /* Assets.xcassets */,
 				DD049DFB21C4964C007E2DE6 /* Main.storyboard */,
 				DD049DFE21C4964C007E2DE6 /* Info.plist */,
@@ -145,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				DD442E4121D4B14F007E4325 /* AppStateTests.swift */,
+				DD442E4B21D4B883007E4325 /* RouterTests.swift */,
 				DD442E4321D4B14F007E4325 /* Info.plist */,
 			);
 			path = "midnight-cat-macTests";
@@ -299,6 +305,7 @@
 				DD049DF621C4964B007E2DE6 /* AppDelegate.swift in Sources */,
 				DD442E1821D25BFA007E4325 /* MainWindowController.swift in Sources */,
 				DD442E3821D26410007E4325 /* OauthApplicationDetailsViewController.swift in Sources */,
+				DD442E4E21D4E959007E4325 /* Router.swift in Sources */,
 				DD442E1521D25A8B007E4325 /* LoggedOutViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -307,6 +314,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD442E4C21D4B883007E4325 /* RouterTests.swift in Sources */,
 				DD442E4221D4B14F007E4325 /* AppStateTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
