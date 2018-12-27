@@ -9,10 +9,6 @@
 import Cocoa
 
 class LoggedOutViewController: NSViewController {
-
-  override func viewDidAppear() {
-    print("log out view appear")
-  }
   
   @IBAction func onLoginTapped(_ sender: Any) {
     let applicationDetailsViewController = OauthApplicationDetailsViewController.init(nibName: nil, bundle: nil)

@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		2A4FC65F18FD560B62071C21 /* Pods_midnight_cat_mac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E3CBF9020FB087239EADA0 /* Pods_midnight_cat_mac.framework */; };
 		DD049DF621C4964B007E2DE6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD049DF521C4964B007E2DE6 /* AppDelegate.swift */; };
-		DD049DF821C4964B007E2DE6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD049DF721C4964B007E2DE6 /* ViewController.swift */; };
 		DD049DFA21C4964C007E2DE6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD049DF921C4964C007E2DE6 /* Assets.xcassets */; };
 		DD049DFD21C4964C007E2DE6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD049DFB21C4964C007E2DE6 /* Main.storyboard */; };
 		DD442E1521D25A8B007E4325 /* LoggedOutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD442E1321D25A8B007E4325 /* LoggedOutViewController.swift */; };
@@ -27,7 +26,6 @@
 		AED4F73B9F0F103CB34B112C /* Pods-midnight-cat-mac.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-midnight-cat-mac.debug.xcconfig"; path = "Pods/Target Support Files/Pods-midnight-cat-mac/Pods-midnight-cat-mac.debug.xcconfig"; sourceTree = "<group>"; };
 		DD049DF221C4964B007E2DE6 /* midnight-cat-mac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "midnight-cat-mac.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD049DF521C4964B007E2DE6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DD049DF721C4964B007E2DE6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DD049DF921C4964C007E2DE6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD049DFC21C4964C007E2DE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DD049DFE21C4964C007E2DE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -94,7 +92,6 @@
 				DD442E3521D263DE007E4325 /* Onboarding */,
 				DD442E1221D25A38007E4325 /* MainWindow */,
 				DD049DF521C4964B007E2DE6 /* AppDelegate.swift */,
-				DD049DF721C4964B007E2DE6 /* ViewController.swift */,
 				DD049DF921C4964C007E2DE6 /* Assets.xcassets */,
 				DD049DFB21C4964C007E2DE6 /* Main.storyboard */,
 				DD049DFE21C4964C007E2DE6 /* Info.plist */,
@@ -241,7 +238,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDAF4F8021C53510009A0401 /* RepositoriesSelectViewController.swift in Sources */,
-				DD049DF821C4964B007E2DE6 /* ViewController.swift in Sources */,
 				DD049DF621C4964B007E2DE6 /* AppDelegate.swift in Sources */,
 				DD442E1821D25BFA007E4325 /* MainWindowController.swift in Sources */,
 				DD442E3821D26410007E4325 /* OauthApplicationDetailsViewController.swift in Sources */,

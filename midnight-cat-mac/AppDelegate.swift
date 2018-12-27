@@ -13,9 +13,16 @@ class AppState {
   static var isSignedIn = false
   static var endpoint: String!
   static var clientID: String!
-  static var loginUrl: URL! {
-    return URL(string: "\(endpoint!)/login/oauth/authorize?scope=user&client_id=\(clientID!)")
+  
+  static var loginURL: URL! {
+    return URL(string: "https://\(endpoint!)/login/oauth/authorize?scope=user&client_id=\(clientID!)")
   }
+  
+  static var apiURL: URL! {
+    return URL(string: "https://api\(endpoint!)")
+  }
+  
+  static var octokitConfig: TokenConfiguration!
 }
 
 @NSApplicationMain
@@ -36,17 +43,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
       return
     }
     
-    let config = TokenConfiguration(accessToken, url: "https://api.git.realestate.com.au")
-    Octokit(config).pullRequests(owner: "resi-mobile", repository: "resi-mobile-ios") { (response) in
-      switch response {
-      case .success(let pullRequest):
-        print(pullRequest.first?.body)
-      case .failure(let error):
-        print(error)
-      }
-    }
-    
-    print("access token retrieved: \(accessToken)")
+    AppState.octokitConfig = TokenConfiguration(accessToken, url: AppState.apiURL.absoluteString)
   }
 
 }

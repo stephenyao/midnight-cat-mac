@@ -8,6 +8,7 @@
         <customObject id="-2" userLabel="File's Owner" customClass="OauthApplicationDetailsViewController" customModule="midnight_cat_mac" customModuleProvider="target">
             <connections>
                 <outlet property="clientIDTextField" destination="HhZ-zn-co3" id="gBu-6x-UId"/>
+                <outlet property="signInButton" destination="K5o-Gs-daU" id="Ynj-cz-i5G"/>
                 <outlet property="urlTextField" destination="TnH-Mz-Ea5" id="T9l-Ck-68S"/>
                 <outlet property="view" destination="3OO-uv-UFw" id="Bz0-3H-oku"/>
             </connections>
@@ -36,7 +37,7 @@
                 </textField>
                 <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TnH-Mz-Ea5">
                     <rect key="frame" x="100" y="174" width="350" height="22"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" title="https://git.realestate.com.au" placeholderString="https://git.realestate.com.au" drawsBackground="YES" id="uok-Ub-cky">
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" title="git.realestate.com.au" placeholderString="git.realestate.com.au" drawsBackground="YES" id="uok-Ub-cky">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
