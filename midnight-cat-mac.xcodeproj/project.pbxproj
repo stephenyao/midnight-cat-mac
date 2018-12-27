@@ -16,9 +16,18 @@
 		DD442E1821D25BFA007E4325 /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD442E1721D25BFA007E4325 /* MainWindowController.swift */; };
 		DD442E3821D26410007E4325 /* OauthApplicationDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD442E3621D26410007E4325 /* OauthApplicationDetailsViewController.swift */; };
 		DD442E3921D26410007E4325 /* OauthApplicationDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD442E3721D26410007E4325 /* OauthApplicationDetailsViewController.xib */; };
-		DDAF4F8021C53510009A0401 /* RepositoriesSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAF4F7E21C53510009A0401 /* RepositoriesSelectViewController.swift */; };
-		DDAF4F8121C53510009A0401 /* RepositoriesSelectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDAF4F7F21C53510009A0401 /* RepositoriesSelectViewController.xib */; };
+		DD442E4221D4B14F007E4325 /* midnight_cat_macTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD442E4121D4B14F007E4325 /* midnight_cat_macTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DD442E4421D4B14F007E4325 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD049DEA21C4964B007E2DE6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DD049DF121C4964B007E2DE6;
+			remoteInfo = "midnight-cat-mac";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		4FE61035D19B0F2EFC8607D4 /* Pods-midnight-cat-mac.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-midnight-cat-mac.release.xcconfig"; path = "Pods/Target Support Files/Pods-midnight-cat-mac/Pods-midnight-cat-mac.release.xcconfig"; sourceTree = "<group>"; };
@@ -35,8 +44,9 @@
 		DD442E1721D25BFA007E4325 /* MainWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
 		DD442E3621D26410007E4325 /* OauthApplicationDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OauthApplicationDetailsViewController.swift; sourceTree = "<group>"; };
 		DD442E3721D26410007E4325 /* OauthApplicationDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OauthApplicationDetailsViewController.xib; sourceTree = "<group>"; };
-		DDAF4F7E21C53510009A0401 /* RepositoriesSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesSelectViewController.swift; sourceTree = "<group>"; };
-		DDAF4F7F21C53510009A0401 /* RepositoriesSelectViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositoriesSelectViewController.xib; sourceTree = "<group>"; };
+		DD442E3F21D4B14F007E4325 /* midnight-cat-macTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "midnight-cat-macTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD442E4121D4B14F007E4325 /* midnight_cat_macTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = midnight_cat_macTests.swift; sourceTree = "<group>"; };
+		DD442E4321D4B14F007E4325 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +55,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A4FC65F18FD560B62071C21 /* Pods_midnight_cat_mac.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD442E3C21D4B14F007E4325 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				DD049DF421C4964B007E2DE6 /* midnight-cat-mac */,
+				DD442E4021D4B14F007E4325 /* midnight-cat-macTests */,
 				DD049DF321C4964B007E2DE6 /* Products */,
 				B39951A5DDA00A49178692AB /* Pods */,
 				D1A1111ED2C12EBBB1851741 /* Frameworks */,
@@ -82,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				DD049DF221C4964B007E2DE6 /* midnight-cat-mac.app */,
+				DD442E3F21D4B14F007E4325 /* midnight-cat-macTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -96,8 +115,6 @@
 				DD049DFB21C4964C007E2DE6 /* Main.storyboard */,
 				DD049DFE21C4964C007E2DE6 /* Info.plist */,
 				DD049DFF21C4964C007E2DE6 /* midnight_cat_mac.entitlements */,
-				DDAF4F7E21C53510009A0401 /* RepositoriesSelectViewController.swift */,
-				DDAF4F7F21C53510009A0401 /* RepositoriesSelectViewController.xib */,
 			);
 			path = "midnight-cat-mac";
 			sourceTree = "<group>";
@@ -119,6 +136,15 @@
 				DD442E3721D26410007E4325 /* OauthApplicationDetailsViewController.xib */,
 			);
 			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		DD442E4021D4B14F007E4325 /* midnight-cat-macTests */ = {
+			isa = PBXGroup;
+			children = (
+				DD442E4121D4B14F007E4325 /* midnight_cat_macTests.swift */,
+				DD442E4321D4B14F007E4325 /* Info.plist */,
+			);
+			path = "midnight-cat-macTests";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,6 +169,24 @@
 			productReference = DD049DF221C4964B007E2DE6 /* midnight-cat-mac.app */;
 			productType = "com.apple.product-type.application";
 		};
+		DD442E3E21D4B14F007E4325 /* midnight-cat-macTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD442E4621D4B14F007E4325 /* Build configuration list for PBXNativeTarget "midnight-cat-macTests" */;
+			buildPhases = (
+				DD442E3B21D4B14F007E4325 /* Sources */,
+				DD442E3C21D4B14F007E4325 /* Frameworks */,
+				DD442E3D21D4B14F007E4325 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DD442E4521D4B14F007E4325 /* PBXTargetDependency */,
+			);
+			name = "midnight-cat-macTests";
+			productName = "midnight-cat-macTests";
+			productReference = DD442E3F21D4B14F007E4325 /* midnight-cat-macTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -155,6 +199,10 @@
 				TargetAttributes = {
 					DD049DF121C4964B007E2DE6 = {
 						CreatedOnToolsVersion = 10.1;
+					};
+					DD442E3E21D4B14F007E4325 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = DD049DF121C4964B007E2DE6;
 					};
 				};
 			};
@@ -172,6 +220,7 @@
 			projectRoot = "";
 			targets = (
 				DD049DF121C4964B007E2DE6 /* midnight-cat-mac */,
+				DD442E3E21D4B14F007E4325 /* midnight-cat-macTests */,
 			);
 		};
 /* End PBXProject section */
@@ -185,7 +234,13 @@
 				DD442E3921D26410007E4325 /* OauthApplicationDetailsViewController.xib in Resources */,
 				DD442E1621D25A8B007E4325 /* LoggedOutViewController.xib in Resources */,
 				DD049DFD21C4964C007E2DE6 /* Main.storyboard in Resources */,
-				DDAF4F8121C53510009A0401 /* RepositoriesSelectViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD442E3D21D4B14F007E4325 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,7 +292,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDAF4F8021C53510009A0401 /* RepositoriesSelectViewController.swift in Sources */,
 				DD049DF621C4964B007E2DE6 /* AppDelegate.swift in Sources */,
 				DD442E1821D25BFA007E4325 /* MainWindowController.swift in Sources */,
 				DD442E3821D26410007E4325 /* OauthApplicationDetailsViewController.swift in Sources */,
@@ -245,7 +299,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DD442E3B21D4B14F007E4325 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD442E4221D4B14F007E4325 /* midnight_cat_macTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DD442E4521D4B14F007E4325 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DD049DF121C4964B007E2DE6 /* midnight-cat-mac */;
+			targetProxy = DD442E4421D4B14F007E4325 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		DD049DFB21C4964C007E2DE6 /* Main.storyboard */ = {
@@ -382,13 +452,13 @@
 				CODE_SIGN_ENTITLEMENTS = "midnight-cat-mac/midnight_cat_mac.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 5FQ33QXJZ3;
+				DEVELOPMENT_TEAM = XTHK4B78Z7;
 				INFOPLIST_FILE = "midnight-cat-mac/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.rea-group.midnight-cat-mac";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.silverbear.midnight-cat-mac";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 			};
@@ -402,15 +472,55 @@
 				CODE_SIGN_ENTITLEMENTS = "midnight-cat-mac/midnight_cat_mac.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 5FQ33QXJZ3;
+				DEVELOPMENT_TEAM = XTHK4B78Z7;
 				INFOPLIST_FILE = "midnight-cat-mac/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.rea-group.midnight-cat-mac";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.silverbear.midnight-cat-mac";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
+			};
+			name = Release;
+		};
+		DD442E4721D4B14F007E4325 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 5FQ33QXJZ3;
+				INFOPLIST_FILE = "midnight-cat-macTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.silverbear.midnight-cat-macTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/midnight-cat-mac.app/Contents/MacOS/midnight-cat-mac";
+			};
+			name = Debug;
+		};
+		DD442E4821D4B14F007E4325 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 5FQ33QXJZ3;
+				INFOPLIST_FILE = "midnight-cat-macTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.silverbear.midnight-cat-macTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/midnight-cat-mac.app/Contents/MacOS/midnight-cat-mac";
 			};
 			name = Release;
 		};
@@ -431,6 +541,15 @@
 			buildConfigurations = (
 				DD049E0321C4964C007E2DE6 /* Debug */,
 				DD049E0421C4964C007E2DE6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DD442E4621D4B14F007E4325 /* Build configuration list for PBXNativeTarget "midnight-cat-macTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD442E4721D4B14F007E4325 /* Debug */,
+				DD442E4821D4B14F007E4325 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
