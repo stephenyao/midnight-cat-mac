@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="ZeroStateViewController" customModule="midnight_cat_mac" customModuleProvider="target">
+            <connections>
+                <outlet property="onAddButtonTapped" destination="Jh1-Tp-xc6" id="Qtc-Lk-QmM"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1jW-mQ-MeC">
+                    <rect key="frame" x="102" y="148" width="276" height="17"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="You're not currently tracking any repositories" id="MHu-ld-y2R">
+                        <font key="font" usesAppearanceFont="YES"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Jh1-Tp-xc6">
+                    <rect key="frame" x="208" y="99" width="65" height="32"/>
+                    <buttonCell key="cell" type="push" title="Add" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="xwi-Pl-tiH">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                        <connections>
+                            <action selector="onAddButtonTapped:" target="-2" id="MZx-2R-47x"/>
+                        </connections>
+                    </buttonCell>
+                </button>
+            </subviews>
+            <constraints>
+                <constraint firstItem="1jW-mQ-MeC" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" constant="-20" id="NYY-wX-5fU"/>
+                <constraint firstItem="Jh1-Tp-xc6" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" constant="20" id="mBS-rh-1wO"/>
+                <constraint firstItem="Jh1-Tp-xc6" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="o6d-vJ-Oei"/>
+                <constraint firstItem="1jW-mQ-MeC" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="syd-az-9Fh"/>
+            </constraints>
+        </customView>
+    </objects>
+</document>

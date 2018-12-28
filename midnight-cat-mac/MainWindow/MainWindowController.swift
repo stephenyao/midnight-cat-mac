@@ -14,7 +14,8 @@ class MainWindowController: NSWindowController {
     super.windowDidLoad()
     
     if AppState.sharedInstance.isSignedIn {
-      
+      let zeroStateViewController = ZeroStateViewController.init(nibName: nil, bundle: nil)
+      self.window?.contentViewController = zeroStateViewController
     } else {
       let loggedOutViewController = LoggedOutViewController.init(nibName: nil, bundle: nil)
       self.window?.contentViewController = loggedOutViewController

@@ -26,6 +26,8 @@
 		DD442E5921D50E84007E4325 /* RepositoriesSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD442E5721D50E84007E4325 /* RepositoriesSelectViewController.swift */; };
 		DD442E5A21D50E84007E4325 /* RepositoriesSelectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD442E5821D50E84007E4325 /* RepositoriesSelectViewController.xib */; };
 		DD442E5C21D50EC5007E4325 /* RepositoriesSelectCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD442E5B21D50EC5007E4325 /* RepositoriesSelectCoordinator.swift */; };
+		DD442E6021D618E2007E4325 /* ZeroStateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD442E5E21D618E2007E4325 /* ZeroStateViewController.swift */; };
+		DD442E6121D618E2007E4325 /* ZeroStateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD442E5F21D618E2007E4325 /* ZeroStateViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +67,8 @@
 		DD442E5721D50E84007E4325 /* RepositoriesSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesSelectViewController.swift; sourceTree = "<group>"; };
 		DD442E5821D50E84007E4325 /* RepositoriesSelectViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositoriesSelectViewController.xib; sourceTree = "<group>"; };
 		DD442E5B21D50EC5007E4325 /* RepositoriesSelectCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesSelectCoordinator.swift; sourceTree = "<group>"; };
+		DD442E5E21D618E2007E4325 /* ZeroStateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeroStateViewController.swift; sourceTree = "<group>"; };
+		DD442E5F21D618E2007E4325 /* ZeroStateViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZeroStateViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +130,7 @@
 		DD049DF421C4964B007E2DE6 /* midnight-cat-mac */ = {
 			isa = PBXGroup;
 			children = (
+				DD442E5D21D618CE007E4325 /* ZeroState */,
 				DD049DF521C4964B007E2DE6 /* AppDelegate.swift */,
 				DD442E4921D4B62B007E4325 /* AppState.swift */,
 				DD442E1221D25A38007E4325 /* MainWindow */,
@@ -188,6 +193,15 @@
 				DD442E5521D4FF30007E4325 /* Notifications.swift */,
 			);
 			path = Notifications;
+			sourceTree = "<group>";
+		};
+		DD442E5D21D618CE007E4325 /* ZeroState */ = {
+			isa = PBXGroup;
+			children = (
+				DD442E5E21D618E2007E4325 /* ZeroStateViewController.swift */,
+				DD442E5F21D618E2007E4325 /* ZeroStateViewController.xib */,
+			);
+			path = ZeroState;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,6 +291,7 @@
 				DD049DFA21C4964C007E2DE6 /* Assets.xcassets in Resources */,
 				DD442E3921D26410007E4325 /* OauthApplicationDetailsViewController.xib in Resources */,
 				DD442E1621D25A8B007E4325 /* LoggedOutViewController.xib in Resources */,
+				DD442E6121D618E2007E4325 /* ZeroStateViewController.xib in Resources */,
 				DD049DFD21C4964C007E2DE6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -338,6 +353,7 @@
 			files = (
 				DD442E5621D4FF30007E4325 /* Notifications.swift in Sources */,
 				DD442E5121D4EFB0007E4325 /* Authentication.swift in Sources */,
+				DD442E6021D618E2007E4325 /* ZeroStateViewController.swift in Sources */,
 				DD442E5C21D50EC5007E4325 /* RepositoriesSelectCoordinator.swift in Sources */,
 				DD442E4A21D4B62B007E4325 /* AppState.swift in Sources */,
 				DD049DF621C4964B007E2DE6 /* AppDelegate.swift in Sources */,
