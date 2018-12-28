@@ -16,6 +16,21 @@ class AppStateTests: XCTestCase {
     AppState.sharedInstance.clientID = nil
     AppState.sharedInstance.accessToken = nil
   }
+  
+  func testSettingEndpoint() {
+    AppState.sharedInstance.endpoint = "test"
+    XCTAssert(AppState.sharedInstance.endpoint == "test")
+  }
+  
+  func testSettingClientID() {
+    AppState.sharedInstance.clientID = "clientID"
+    XCTAssert(AppState.sharedInstance.clientID == "clientID")
+  }
+  
+  func testSettingAccessToken() {
+    AppState.sharedInstance.accessToken = "accessToken"
+    XCTAssert(AppState.sharedInstance.accessToken == "accessToken")
+  }
 
   func testLoginURL() {
     AppState.sharedInstance.endpoint = "test"

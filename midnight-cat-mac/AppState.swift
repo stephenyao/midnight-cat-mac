@@ -13,10 +13,39 @@ final class AppState: AccessTokenStorage {
   
   static var sharedInstance = AppState()
   
-  var endpoint: String?
-  var clientID: String?
-  var accessToken: String?
-  var isSignedIn = false
+  var endpoint: String? {
+    get {
+      return UserDefaults.standard.string(forKey: "endpoint")
+    }
+    set {
+      UserDefaults.standard.setValue(newValue, forKey: "endpoint")
+      UserDefaults.standard.synchronize()
+    }
+  }
+  
+  var clientID: String? {
+    get {
+      return UserDefaults.standard.string(forKey: "clientID")
+    }
+    set {
+      UserDefaults.standard.setValue(newValue, forKey: "clientID")
+      UserDefaults.standard.synchronize()
+    }
+  }
+  
+  var accessToken: String? {
+    get {
+      return UserDefaults.standard.string(forKey: "accessToken")
+    }
+    set {
+      UserDefaults.standard.setValue(newValue, forKey: "accessToken")
+      UserDefaults.standard.synchronize()
+    }
+  }
+  
+  var isSignedIn: Bool {
+    return self.accessToken != nil
+  }
   
   var loginURL: URL? {
     guard
