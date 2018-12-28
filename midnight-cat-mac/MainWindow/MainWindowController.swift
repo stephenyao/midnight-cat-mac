@@ -14,12 +14,26 @@ class MainWindowController: NSWindowController {
     super.windowDidLoad()
     
     if AppState.sharedInstance.isSignedIn {
-      let zeroStateViewController = ZeroStateViewController.init(nibName: nil, bundle: nil)
-      self.window?.contentViewController = zeroStateViewController
+      presentZeroState()
     } else {
-      let loggedOutViewController = LoggedOutViewController.init(nibName: nil, bundle: nil)
-      self.window?.contentViewController = loggedOutViewController
+      presentLoggedOutState()
     }
+    
+    NotificationCenter.default.addObserver(self, selector: #selector(onSignInSuccess), name: AppNotifications.signInSuccess, object: nil)
+  }
+  
+  @objc private func onSignInSuccess() {    
+    presentZeroState()
+  }
+  
+  private func presentZeroState() {
+    let zeroStateViewController = ZeroStateViewController.init(nibName: nil, bundle: nil)
+    self.window?.contentViewController = zeroStateViewController
+  }
+  
+  private func presentLoggedOutState() {
+    let loggedOutViewController = LoggedOutViewController.init(nibName: nil, bundle: nil)
+    self.window?.contentViewController = loggedOutViewController
   }
   
 }
