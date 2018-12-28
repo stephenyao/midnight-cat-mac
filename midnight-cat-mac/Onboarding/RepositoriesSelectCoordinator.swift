@@ -11,7 +11,7 @@ import Octokit
 
 final class RepositoriesSelectCoordinator {
   
-  func load() {
+  func load(from window: NSWindow) {
     guard let config = AppState.sharedInstance.octokitConfig else {
       return
     }
@@ -21,7 +21,11 @@ final class RepositoriesSelectCoordinator {
     let _ = octokit.repositories { (response) in
       switch response {
       case .success(let repositories):
-        repositories.forEach { print($0) }
+        DispatchQueue.main.async {
+          let viewController = RepositoriesSelectViewController.init(nibName: nil, bundle: nil)
+          viewController.viewModel = RepositoriesSelectViewModel(ownedRepositories: repositories, starredRepositories: [])        
+          window.contentViewController = viewController
+        }
       case .failure(let error):
         print(error.localizedDescription)
       }

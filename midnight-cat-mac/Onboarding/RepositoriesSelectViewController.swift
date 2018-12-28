@@ -7,12 +7,18 @@
 //
 
 import Cocoa
+import Octokit
+
+struct RepositoriesSelectViewModel {
+  let sectionData: [[Repository]]
+  
+  init(ownedRepositories: [Repository], starredRepositories: [Repository]) {
+    self.sectionData = [ownedRepositories, starredRepositories]
+  }
+}
 
 class RepositoriesSelectViewController: NSViewController {
   
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    // Do view setup here.
-  }
+  var viewModel: RepositoriesSelectViewModel!
   
 }
