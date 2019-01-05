@@ -10,11 +10,8 @@ import Cocoa
 
 class ZeroStateViewController: NSViewController {
 
-  @IBAction func onAddButtonTapped(_ sender: Any) {
-    let window = NSWindow.init()
-    window.makeKeyAndOrderFront(nil)
-    
+  @IBAction func onAddButtonTapped(_ sender: Any) {    
     let nextCoordinator = RepositoriesSelectCoordinator()
-    nextCoordinator.load(from: window)    
+    nextCoordinator.load(from: nil)
   }
 }

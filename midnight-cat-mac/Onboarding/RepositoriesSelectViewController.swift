@@ -7,12 +7,15 @@
 //
 
 import Cocoa
-import Octokit
+
+struct GitRepository {
+  let name: String
+}
 
 struct RepositoriesSelectViewModel {
-  let sectionData: [[Repository]]
+  let sectionData: [[GitRepository]]
   
-  init(ownedRepositories: [Repository], starredRepositories: [Repository]) {
+  init(ownedRepositories: [GitRepository], starredRepositories: [GitRepository]) {
     self.sectionData = [ownedRepositories, starredRepositories]
   }
 }
@@ -28,7 +31,7 @@ class RepositoriesSelectViewController: NSViewController, NSTableViewDataSource,
   func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
     let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "cellId"), owner: nil) as? NSTableCellView
     
-    cell?.textField?.stringValue = self.viewModel.sectionData[0][row].name ?? ""
+    cell?.textField?.stringValue = self.viewModel.sectionData[0][row].name
     
     return cell
   }
