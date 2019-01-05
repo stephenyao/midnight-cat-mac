@@ -28,7 +28,31 @@ class DatabaseTests: XCTestCase {
     }
     
     XCTAssert(objects.count == 1)
-    XCTAssert(objects.first?.identifier == "uniqueID")
+    XCTAssert(objects.first?.primaryKey == "uniqueID")
+  }
+  
+  func testRemovingObject() {
+    let userDefaults = MockDefaults()
+    let database = Database(userDefaults: userDefaults)
+    let mockObject = MockStorable(identifier: "1")
+    let objects = [mockObject, MockStorable(identifier: "2")]
+    let data = try! PropertyListEncoder().encode(objects)
+    userDefaults.setValue(data, forKey: "MockCollection")
+    
+    database.remove(object: mockObject)
+    
+    guard let encodedData = userDefaults.value(forKey: "MockCollection") as? Data else {
+      XCTFail("no data available for key Mock")
+      return
+    }
+    
+    guard let decodedObjects = try? PropertyListDecoder().decode(Array<MockStorable>.self, from: encodedData) else {
+      XCTFail("failed to decode data to MockStorable Array")
+      return
+    }
+    
+    XCTAssert(decodedObjects.count == 1)
+    XCTAssert(decodedObjects.first?.primaryKey == "2")
   }
   
   func testObjectRetrieval() {
@@ -40,8 +64,8 @@ class DatabaseTests: XCTestCase {
     let database = Database(userDefaults: userDefaults)
     let retrievedObjects: [MockStorable] = database.objects(with: "MockCollection")
     XCTAssert(retrievedObjects.count == 2)
-    XCTAssert(retrievedObjects.first?.identifier == "1")
-    XCTAssert(retrievedObjects.last?.identifier == "2")
+    XCTAssert(retrievedObjects.first?.primaryKey == "1")
+    XCTAssert(retrievedObjects.last?.primaryKey == "2")
   }
   
 }
@@ -61,14 +85,14 @@ private final class MockDefaults: UserDefaults {
 
 private final class MockStorable: Storable, Codable {
   
-  let identifier: String
+  let primaryKey: String
   
   var collectionName: String {
     return "MockCollection"
   }
   
   init(identifier: String) {
-    self.identifier = identifier
+    self.primaryKey = identifier
   }
   
 }

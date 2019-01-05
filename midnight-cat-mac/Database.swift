@@ -12,11 +12,17 @@ protocol Storable {
   
   var collectionName: String { get }
   
+  var primaryKey: String { get }
+  
 }
 
 protocol DataStore {
   
   func save<T: Storable & Codable>(object: T)
+  
+  func remove<T: Storable & Codable>(object: T)
+  
+  func objects<T: Storable & Codable>(with collectionName: String) -> [T]
   
 }
 
@@ -31,6 +37,19 @@ final class Database: DataStore {
   func save<T: Storable & Codable>(object: T) {
     let collection: [T] = objects(with: object.collectionName)
     let newCollection = collection + [object]
+    do {
+      let data = try PropertyListEncoder().encode(newCollection)
+      self.userDefaults.setValue(data, forKey: object.collectionName)
+    } catch (let error) {
+      print("database save failed with: \(error.localizedDescription)")
+    }
+  }
+  
+  func remove<T: Storable & Codable>(object: T) {
+    let objects: [T] = self.objects(with: object.collectionName)
+    
+    let newCollection = objects.filter { $0.primaryKey != object.primaryKey }
+    
     do {
       let data = try PropertyListEncoder().encode(newCollection)
       self.userDefaults.setValue(data, forKey: object.collectionName)
