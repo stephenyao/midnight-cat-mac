@@ -8,8 +8,16 @@
 
 import Cocoa
 
-struct GitRepository {
+struct GitRepository: Storable, Codable {
+  var primaryKey: String {
+    return self.name
+  }
+  
   let name: String
+  
+  var collectionName: String {
+    return "repositories"
+  }
 }
 
 struct RepositoriesSelectViewModel {
@@ -29,11 +37,50 @@ class RepositoriesSelectViewController: NSViewController, NSTableViewDataSource,
   }
   
   func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-    let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "cellId"), owner: nil) as? NSTableCellView
+    let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "cellId"), owner: nil) as? RepositorySelectTableViewCell
     
-    cell?.textField?.stringValue = self.viewModel.sectionData[0][row].name
+    cell?.configure(repository: self.viewModel.sectionData[0][row])
     
     return cell
+  }
+  
+}
+
+protocol RepositorySelectTableViewCellDelegate: class {
+  func stateChanged(to selected: Bool, forRepository repository: GitRepository)
+}
+
+final class RepositorySelectHandler: RepositorySelectTableViewCellDelegate {
+  private let database = Database()
+  
+  func stateChanged(to selected: Bool, forRepository repository: GitRepository) {
+    if selected {
+      self.database.save(object: repository)
+    } else {
+      self.database.remove(object: repository)
+    }
+  }
+}
+
+final class RepositorySelectTableViewCell: NSTableCellView {
+  
+  weak var delegate: RepositorySelectTableViewCellDelegate?
+  
+  private var repository: GitRepository!
+  
+  func configure(repository: GitRepository) {
+    self.textField?.stringValue = repository.name
+    self.repository = repository
+  }
+  
+  @IBAction func onCheckButtonTapped(_ sender: NSButton) {
+    switch sender.state {
+    case NSButton.StateValue.on:
+      self.delegate?.stateChanged(to: true, forRepository: repository)
+    case NSButton.StateValue.off:
+      self.delegate?.stateChanged(to: false, forRepository: repository)
+    default: break
+    }
   }
   
 }
