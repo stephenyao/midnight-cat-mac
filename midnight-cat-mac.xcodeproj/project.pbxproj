@@ -28,6 +28,8 @@
 		DD442E5C21D50EC5007E4325 /* RepositoriesSelectCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD442E5B21D50EC5007E4325 /* RepositoriesSelectCoordinator.swift */; };
 		DD442E6021D618E2007E4325 /* ZeroStateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD442E5E21D618E2007E4325 /* ZeroStateViewController.swift */; };
 		DD442E6121D618E2007E4325 /* ZeroStateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD442E5F21D618E2007E4325 /* ZeroStateViewController.xib */; };
+		DDA2261A21E072C20096BD9B /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA2261921E072C20096BD9B /* Database.swift */; };
+		DDA2261C21E079170096BD9B /* DatabaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA2261B21E079170096BD9B /* DatabaseTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +71,8 @@
 		DD442E5B21D50EC5007E4325 /* RepositoriesSelectCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesSelectCoordinator.swift; sourceTree = "<group>"; };
 		DD442E5E21D618E2007E4325 /* ZeroStateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeroStateViewController.swift; sourceTree = "<group>"; };
 		DD442E5F21D618E2007E4325 /* ZeroStateViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZeroStateViewController.xib; sourceTree = "<group>"; };
+		DDA2261921E072C20096BD9B /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
+		DDA2261B21E079170096BD9B /* DatabaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,13 +134,14 @@
 		DD049DF421C4964B007E2DE6 /* midnight-cat-mac */ = {
 			isa = PBXGroup;
 			children = (
-				DD442E5D21D618CE007E4325 /* ZeroState */,
 				DD049DF521C4964B007E2DE6 /* AppDelegate.swift */,
 				DD442E4921D4B62B007E4325 /* AppState.swift */,
+				DDA2261921E072C20096BD9B /* Database.swift */,
 				DD442E1221D25A38007E4325 /* MainWindow */,
 				DD442E5421D4FF1C007E4325 /* Notifications */,
 				DD442E3521D263DE007E4325 /* Onboarding */,
 				DD442E4F21D4EF8F007E4325 /* Router */,
+				DD442E5D21D618CE007E4325 /* ZeroState */,
 				DD049DF921C4964C007E2DE6 /* Assets.xcassets */,
 				DD049DFB21C4964C007E2DE6 /* Main.storyboard */,
 				DD049DFE21C4964C007E2DE6 /* Info.plist */,
@@ -173,6 +178,7 @@
 				DD442E4121D4B14F007E4325 /* AppStateTests.swift */,
 				DD442E5221D4F08F007E4325 /* AuthenticationRoutableTests.swift */,
 				DD442E4B21D4B883007E4325 /* RouterTests.swift */,
+				DDA2261B21E079170096BD9B /* DatabaseTests.swift */,
 				DD442E4321D4B14F007E4325 /* Info.plist */,
 			);
 			path = "midnight-cat-macTests";
@@ -357,6 +363,7 @@
 				DD442E5C21D50EC5007E4325 /* RepositoriesSelectCoordinator.swift in Sources */,
 				DD442E4A21D4B62B007E4325 /* AppState.swift in Sources */,
 				DD049DF621C4964B007E2DE6 /* AppDelegate.swift in Sources */,
+				DDA2261A21E072C20096BD9B /* Database.swift in Sources */,
 				DD442E1821D25BFA007E4325 /* MainWindowController.swift in Sources */,
 				DD442E3821D26410007E4325 /* OauthApplicationDetailsViewController.swift in Sources */,
 				DD442E4E21D4E959007E4325 /* Router.swift in Sources */,
@@ -371,6 +378,7 @@
 			files = (
 				DD442E4C21D4B883007E4325 /* RouterTests.swift in Sources */,
 				DD442E4221D4B14F007E4325 /* AppStateTests.swift in Sources */,
+				DDA2261C21E079170096BD9B /* DatabaseTests.swift in Sources */,
 				DD442E5321D4F08F007E4325 /* AuthenticationRoutableTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
