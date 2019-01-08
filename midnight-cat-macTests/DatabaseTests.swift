@@ -55,7 +55,7 @@ class DatabaseTests: XCTestCase {
     XCTAssert(decodedObjects.first?.primaryKey == "2")
   }
   
-  func testObjectRetrieval() {
+  func testCollectionRetrieval() {
     let userDefaults = MockDefaults()
     let objects = [MockStorable(identifier: "1"), MockStorable(identifier: "2")]
     let data = try! PropertyListEncoder().encode(objects)
@@ -68,6 +68,25 @@ class DatabaseTests: XCTestCase {
     XCTAssert(retrievedObjects.last?.primaryKey == "2")
   }
   
+  func testObjectRetrievalSuccess() {
+    let userDefaults = MockDefaults()
+    let objects = [MockStorable(identifier: "1"), MockStorable(identifier: "2")]
+    let data = try! PropertyListEncoder().encode(objects)
+    userDefaults.setValue(data, forKey: "MockCollection")
+    
+    let database = Database(userDefaults: userDefaults)
+    let object: MockStorable? = database.object(primaryKey: "1", from: "MockCollection")
+    XCTAssert(object != nil)
+    XCTAssert(object?.primaryKey == "1")
+    XCTAssert(object?.collectionName == "MockCollection")
+  }
+  
+  func testObjectRetrievalFailure() {
+    let userDefaults = MockDefaults()
+    let database = Database(userDefaults: userDefaults)
+    let object: MockStorable? = database.object(primaryKey: "1", from: "test")
+    XCTAssert(object == nil)
+  }
 }
 
 private final class MockDefaults: UserDefaults {

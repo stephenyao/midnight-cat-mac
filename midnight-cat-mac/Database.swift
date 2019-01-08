@@ -24,6 +24,8 @@ protocol DataStore {
   
   func objects<T: Storable & Codable>(with collectionName: String) -> [T]
   
+  func object<T: Storable & Codable>(primaryKey: String, from collection: String) -> T?
+  
 }
 
 final class Database: DataStore {
@@ -56,6 +58,10 @@ final class Database: DataStore {
     }
     
     return decodedObjects
+  }
+  
+  func object<T: Storable & Codable>(primaryKey: String, from collection: String) -> T? {
+    return self.objects(with: collection).first { $0.primaryKey == primaryKey }
   }
   
   private func encodeAndSave<T: Storable & Codable>(objects: [T], collectionName: String) {
