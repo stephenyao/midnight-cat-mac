@@ -28,9 +28,10 @@ struct RepositoriesSelectViewModel {
   }
 }
 
-class RepositoriesSelectViewController: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
+class RepositoriesSelectViewController: NSViewController, NSTableViewDataSource, NSTableViewDelegate, RepositorySelectTableViewCellDelegate {
   
   var viewModel: RepositoriesSelectViewModel!
+  let database: Database = Database()
   
   func numberOfRows(in tableView: NSTableView) -> Int {
     return self.viewModel.sectionData[0].count
@@ -38,10 +39,24 @@ class RepositoriesSelectViewController: NSViewController, NSTableViewDataSource,
   
   func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
     let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "cellId"), owner: nil) as? RepositorySelectTableViewCell
+        
+    let objects: [GitRepository]  = self.database.objects(with: "repositories")
+    let isChecked = objects.first { $0.primaryKey == self.viewModel.sectionData[0][row].primaryKey } != nil
+    let state: NSButton.StateValue = isChecked ? NSButton.StateValue.on : NSButton.StateValue.off
     
-    cell?.configure(repository: self.viewModel.sectionData[0][row])
+    cell?.configure(title: self.viewModel.sectionData[0][row].name, checkedState:   state)
+    cell?.repository = self.viewModel.sectionData[0][row]
+    cell?.delegate = self
     
     return cell
+  }
+  
+  func stateChanged(to selected: Bool, forRepository repository: GitRepository) {
+    if selected {
+      self.database.save(object: repository)
+    } else {
+      self.database.remove(object: repository)
+    }
   }
   
 }
@@ -66,11 +81,13 @@ final class RepositorySelectTableViewCell: NSTableCellView {
   
   weak var delegate: RepositorySelectTableViewCellDelegate?
   
-  private var repository: GitRepository!
+  @IBOutlet var checkBox: NSButton!
   
-  func configure(repository: GitRepository) {
-    self.textField?.stringValue = repository.name
-    self.repository = repository
+  var repository: GitRepository!
+  
+  func configure(title: String, checkedState: NSButton.StateValue) {
+    self.textField?.stringValue = title
+    self.checkBox.state = checkedState
   }
   
   @IBAction func onCheckButtonTapped(_ sender: NSButton) {

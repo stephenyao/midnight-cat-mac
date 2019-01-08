@@ -73,6 +73,7 @@
                                                     <constraint firstItem="gz9-tA-kp6" firstAttribute="centerY" secondItem="66t-R0-yUQ" secondAttribute="centerY" id="qFf-TP-Pi6"/>
                                                 </constraints>
                                                 <connections>
+                                                    <outlet property="checkBox" destination="gz9-tA-kp6" id="EHj-Ba-6Au"/>
                                                     <outlet property="textField" destination="66t-R0-yUQ" id="fZE-gd-7Jw"/>
                                                 </connections>
                                             </tableCellView>
