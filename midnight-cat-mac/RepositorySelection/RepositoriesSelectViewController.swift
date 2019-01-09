@@ -8,18 +8,6 @@
 
 import Cocoa
 
-struct GitRepository: Storable, Codable {
-  var primaryKey: String {
-    return self.name
-  }
-  
-  let name: String
-  
-  var collectionName: String {
-    return "repositories"
-  }
-}
-
 struct RepositoriesSelectViewModel {
   let sectionData: [[GitRepository]]
   
@@ -50,14 +38,6 @@ class RepositoriesSelectViewController: NSViewController, NSTableViewDataSource,
     return cell
   }
   
-  func stateChanged(to selected: Bool, forRepository repository: GitRepository) {
-    if selected {
-      self.database.save(object: repository)
-    } else {
-      self.database.remove(object: repository)
-    }
-  }
-  
   func repository(at index: Int, wasSelected selected: Bool) {
     let repository = self.viewModel.sectionData[0][index]
     if selected {
@@ -66,36 +46,4 @@ class RepositoriesSelectViewController: NSViewController, NSTableViewDataSource,
       self.database.remove(object: repository)
     }
   }
-}
-
-protocol RepositorySelectTableViewCellDelegate: class {
-  func stateChanged(to selected: Bool, forRepository repository: GitRepository)
-  
-  func repository(at index: Int, wasSelected selected: Bool)
-}
-
-final class RepositorySelectTableViewCell: NSTableCellView {
-  
-  weak var delegate: RepositorySelectTableViewCellDelegate?
-  
-  @IBOutlet var checkBox: NSButton!
-  
-  private var index: Int!
-  
-  func configure(title: String, index: Int, checkedState: NSButton.StateValue) {
-    self.textField?.stringValue = title
-    self.checkBox.state = checkedState
-    self.index = index
-  }
-  
-  @IBAction func onCheckButtonTapped(_ sender: NSButton) {
-    switch sender.state {
-    case NSButton.StateValue.on:
-      self.delegate?.repository(at: self.index, wasSelected: true)
-    case NSButton.StateValue.off:
-      self.delegate?.repository(at: self.index, wasSelected: false)
-    default: break
-    }
-  }
-  
 }
