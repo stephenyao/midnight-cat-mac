@@ -9,10 +9,10 @@
 import Cocoa
 
 struct RepositoriesSelectViewModel {
-  let sectionData: [[GitRepository]]
+  let repositories: [GitRepository]
   
-  init(ownedRepositories: [GitRepository], starredRepositories: [GitRepository]) {
-    self.sectionData = [ownedRepositories, starredRepositories]
+  init(repositories: [GitRepository]) {
+    self.repositories = repositories
   }
 }
 
@@ -22,16 +22,16 @@ class RepositoriesSelectViewController: NSViewController, NSTableViewDataSource,
   let database: Database = Database()
   
   func numberOfRows(in tableView: NSTableView) -> Int {
-    return self.viewModel.sectionData[0].count
+    return self.viewModel.repositories.count
   }
   
   func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
     let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "cellId"), owner: nil) as? RepositorySelectTableViewCell
         
     let objects: [GitRepository]  = self.database.objects(with: "repositories")
-    let isChecked = objects.first { $0.primaryKey == self.viewModel.sectionData[0][row].primaryKey } != nil
+    let isChecked = objects.first { $0.primaryKey == self.viewModel.repositories[row].primaryKey } != nil
     let state: NSButton.StateValue = isChecked ? NSButton.StateValue.on : NSButton.StateValue.off
-    let repository = self.viewModel.sectionData[0][row]
+    let repository = self.viewModel.repositories[row]
     cell?.configure(title: repository.name, index: row, checkedState: state)
     cell?.delegate = self
     
@@ -39,7 +39,7 @@ class RepositoriesSelectViewController: NSViewController, NSTableViewDataSource,
   }
   
   func repository(at index: Int, wasSelected selected: Bool) {
-    let repository = self.viewModel.sectionData[0][index]
+    let repository = self.viewModel.repositories[index]
     if selected {
       self.database.save(object: repository)
     } else {

@@ -36,7 +36,7 @@ final class RepositoriesSelectCoordinator {
         let repositories = fetchedRepositories.map { GitRepository(name: $0.name ?? "") }
         DispatchQueue.main.async {
           let viewController = RepositoriesSelectViewController.init(nibName: nil, bundle: nil)
-          viewController.viewModel = RepositoriesSelectViewModel(ownedRepositories: repositories, starredRepositories: [])
+          viewController.viewModel = RepositoriesSelectViewModel(repositories: repositories)
           window.contentViewController = viewController
         }
       case .failure(let error):
