@@ -43,9 +43,8 @@ class RepositoriesSelectViewController: NSViewController, NSTableViewDataSource,
     let objects: [GitRepository]  = self.database.objects(with: "repositories")
     let isChecked = objects.first { $0.primaryKey == self.viewModel.sectionData[0][row].primaryKey } != nil
     let state: NSButton.StateValue = isChecked ? NSButton.StateValue.on : NSButton.StateValue.off
-    
-    cell?.configure(title: self.viewModel.sectionData[0][row].name, checkedState:   state)
-    cell?.repository = self.viewModel.sectionData[0][row]
+    let repository = self.viewModel.sectionData[0][row]
+    cell?.configure(title: repository.name, index: row, checkedState: state)
     cell?.delegate = self
     
     return cell
@@ -59,16 +58,8 @@ class RepositoriesSelectViewController: NSViewController, NSTableViewDataSource,
     }
   }
   
-}
-
-protocol RepositorySelectTableViewCellDelegate: class {
-  func stateChanged(to selected: Bool, forRepository repository: GitRepository)
-}
-
-final class RepositorySelectHandler: RepositorySelectTableViewCellDelegate {
-  private let database = Database()
-  
-  func stateChanged(to selected: Bool, forRepository repository: GitRepository) {
+  func repository(at index: Int, wasSelected selected: Bool) {
+    let repository = self.viewModel.sectionData[0][index]
     if selected {
       self.database.save(object: repository)
     } else {
@@ -77,25 +68,32 @@ final class RepositorySelectHandler: RepositorySelectTableViewCellDelegate {
   }
 }
 
+protocol RepositorySelectTableViewCellDelegate: class {
+  func stateChanged(to selected: Bool, forRepository repository: GitRepository)
+  
+  func repository(at index: Int, wasSelected selected: Bool)
+}
+
 final class RepositorySelectTableViewCell: NSTableCellView {
   
   weak var delegate: RepositorySelectTableViewCellDelegate?
   
   @IBOutlet var checkBox: NSButton!
   
-  var repository: GitRepository!
+  private var index: Int!
   
-  func configure(title: String, checkedState: NSButton.StateValue) {
+  func configure(title: String, index: Int, checkedState: NSButton.StateValue) {
     self.textField?.stringValue = title
     self.checkBox.state = checkedState
+    self.index = index
   }
   
   @IBAction func onCheckButtonTapped(_ sender: NSButton) {
     switch sender.state {
     case NSButton.StateValue.on:
-      self.delegate?.stateChanged(to: true, forRepository: repository)
+      self.delegate?.repository(at: self.index, wasSelected: true)
     case NSButton.StateValue.off:
-      self.delegate?.stateChanged(to: false, forRepository: repository)
+      self.delegate?.repository(at: self.index, wasSelected: false)
     default: break
     }
   }
