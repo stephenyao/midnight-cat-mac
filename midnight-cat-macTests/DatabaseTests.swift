@@ -87,6 +87,67 @@ class DatabaseTests: XCTestCase {
     let object: MockStorable? = database.object(primaryKey: "1", from: "test")
     XCTAssert(object == nil)
   }
+  
+  func testObserverNotifiedWhenObjectAdded() {
+    let database = Database(userDefaults: MockDefaults())
+    let object = MockStorable(identifier: "test")
+    let observer = MockObserver(key: "observer")
+    
+    database.add(observer: observer)
+    database.save(object: object)
+    XCTAssert(observer.value?.primaryKey == object.primaryKey)
+  }
+  
+  func testObserverNotifiedWhenObjectRemoved() {
+    let userDefaults = MockDefaults()
+    let database = Database(userDefaults: userDefaults)
+    let object1 = MockStorable(identifier: "1")
+    let object2 = MockStorable(identifier: "2")
+    let objects = [object1, object2]
+    let data = try! PropertyListEncoder().encode(objects)
+    userDefaults.setValue(data, forKey: "MockCollection")
+    
+    let observer = MockObserver(key: "observer")
+    
+    database.add(observer: observer)
+    database.remove(object: object1)
+    XCTAssert(observer.value?.primaryKey == object2.primaryKey)
+  }
+  
+  func testRemovingObserversFromDatabase() {
+    let userDefaults = MockDefaults()
+    let database = Database(userDefaults: userDefaults)
+    let observer1 = MockObserver(key: "observer1")
+    let observer2 = MockObserver(key: "observer2")
+    database.add(observer: observer1)
+    database.add(observer: observer2)
+    database.remove(observer:  MockObserver(key: "observer1"))
+    database.save(object: MockStorable(identifier: "1"))
+    
+    XCTAssert((observer1.value as? MockStorable)?.primaryKey == nil)
+    XCTAssert((observer2.value as? MockStorable)?.primaryKey == "1")
+  }
+  
+}
+
+private final class MockObserver: DataStoreObserver {
+  
+  var value: Storable?
+  
+  var collectionName: String {
+    return "MockCollection"
+  }
+  
+  let uniqueObserverKey: String
+  
+  func onCollectionChanged(objects: [Storable]) {
+    self.value = objects.first
+  }
+  
+  init(key: String) {
+    self.uniqueObserverKey = key
+  }
+  
 }
 
 private final class MockDefaults: UserDefaults {

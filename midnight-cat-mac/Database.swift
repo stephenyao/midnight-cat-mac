@@ -16,6 +16,18 @@ protocol Storable {
   
 }
 
+protocol DataStoreObserver {
+  
+  typealias CollectionChanged = ([Storable]) -> Void
+  
+  var collectionName: String { get }
+  
+  var uniqueObserverKey: String { get }
+
+  func onCollectionChanged(objects: [Storable])
+  
+}
+
 protocol DataStore {
   
   func save<T: Storable & Codable>(object: T)
@@ -26,9 +38,18 @@ protocol DataStore {
   
   func object<T: Storable & Codable>(primaryKey: String, from collection: String) -> T?
   
+  func add(observer: DataStoreObserver)
+  
 }
 
+/* Synchronous datastore. Writing and Reading happens on main thread for simplicity.
+ * The scope of this database is not expected to handle huge data sets
+ * and always writes to user defaults.
+ */
+
 final class Database: DataStore {
+  
+  private var observers: [DataStoreObserver] = []
   
   let userDefaults: UserDefaults
   
@@ -40,12 +61,14 @@ final class Database: DataStore {
     let collection: [T] = objects(with: object.collectionName)
     let newCollection = collection + [object]
     self.encodeAndSave(objects: newCollection, collectionName: object.collectionName)
+    self.observers.filter { $0.collectionName == object.collectionName }.forEach { $0.onCollectionChanged(objects: newCollection) }
   }
   
   func remove<T: Storable & Codable>(object: T) {
     let collection: [T] = self.objects(with: object.collectionName)    
     let newCollection = collection.filter { $0.primaryKey != object.primaryKey }
     self.encodeAndSave(objects: newCollection, collectionName: object.collectionName)
+    self.observers.filter { $0.collectionName == object.collectionName }.forEach { $0.onCollectionChanged(objects: newCollection) }
   }
   
   func objects<T: Storable & Codable>(with collectionName: String) -> [T] {
@@ -62,6 +85,16 @@ final class Database: DataStore {
   
   func object<T: Storable & Codable>(primaryKey: String, from collection: String) -> T? {
     return self.objects(with: collection).first { $0.primaryKey == primaryKey }
+  }
+  
+  func add(observer: DataStoreObserver) {
+    self.observers.append(observer)
+  }
+  
+  func remove(observer: DataStoreObserver) {
+    if let index = self.observers.firstIndex(where: { $0.uniqueObserverKey == observer.uniqueObserverKey }) {
+      self.observers.remove(at: index)
+    }
   }
   
   private func encodeAndSave<T: Storable & Codable>(objects: [T], collectionName: String) {
