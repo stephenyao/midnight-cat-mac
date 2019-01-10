@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		047DD69921E61B7F00E8CA48 /* RepositorySelectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047DD69821E61B7F00E8CA48 /* RepositorySelectTableViewCell.swift */; };
+		047DD69C21E61BB900E8CA48 /* GitRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047DD69B21E61BB900E8CA48 /* GitRepository.swift */; };
 		2A4FC65F18FD560B62071C21 /* Pods_midnight_cat_mac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E3CBF9020FB087239EADA0 /* Pods_midnight_cat_mac.framework */; };
 		DD049DF621C4964B007E2DE6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD049DF521C4964B007E2DE6 /* AppDelegate.swift */; };
 		DD049DFA21C4964C007E2DE6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD049DF921C4964C007E2DE6 /* Assets.xcassets */; };
@@ -43,6 +45,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		047DD69821E61B7F00E8CA48 /* RepositorySelectTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositorySelectTableViewCell.swift; sourceTree = "<group>"; };
+		047DD69B21E61BB900E8CA48 /* GitRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitRepository.swift; sourceTree = "<group>"; };
 		4FE61035D19B0F2EFC8607D4 /* Pods-midnight-cat-mac.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-midnight-cat-mac.release.xcconfig"; path = "Pods/Target Support Files/Pods-midnight-cat-mac/Pods-midnight-cat-mac.release.xcconfig"; sourceTree = "<group>"; };
 		A7E3CBF9020FB087239EADA0 /* Pods_midnight_cat_mac.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_midnight_cat_mac.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AED4F73B9F0F103CB34B112C /* Pods-midnight-cat-mac.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-midnight-cat-mac.debug.xcconfig"; path = "Pods/Target Support Files/Pods-midnight-cat-mac/Pods-midnight-cat-mac.debug.xcconfig"; sourceTree = "<group>"; };
@@ -94,6 +98,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		047DD69721E61A5C00E8CA48 /* RepositorySelection */ = {
+			isa = PBXGroup;
+			children = (
+				DD442E5B21D50EC5007E4325 /* RepositoriesSelectCoordinator.swift */,
+				DD442E5721D50E84007E4325 /* RepositoriesSelectViewController.swift */,
+				047DD69821E61B7F00E8CA48 /* RepositorySelectTableViewCell.swift */,
+				DD442E5821D50E84007E4325 /* RepositoriesSelectViewController.xib */,
+			);
+			path = RepositorySelection;
+			sourceTree = "<group>";
+		};
+		047DD69A21E61B9A00E8CA48 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				047DD69B21E61BB900E8CA48 /* GitRepository.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		B39951A5DDA00A49178692AB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -138,8 +161,10 @@
 				DD442E4921D4B62B007E4325 /* AppState.swift */,
 				DDA2261921E072C20096BD9B /* Database.swift */,
 				DD442E1221D25A38007E4325 /* MainWindow */,
-				DD442E5421D4FF1C007E4325 /* Notifications */,
+				047DD69A21E61B9A00E8CA48 /* Models */,
 				DD442E3521D263DE007E4325 /* Onboarding */,
+				DD442E5421D4FF1C007E4325 /* Notifications */,
+				047DD69721E61A5C00E8CA48 /* RepositorySelection */,
 				DD442E4F21D4EF8F007E4325 /* Router */,
 				DD442E5D21D618CE007E4325 /* ZeroState */,
 				DD049DF921C4964C007E2DE6 /* Assets.xcassets */,
@@ -165,9 +190,6 @@
 				DD442E1421D25A8B007E4325 /* LoggedOutViewController.xib */,
 				DD442E3621D26410007E4325 /* OauthApplicationDetailsViewController.swift */,
 				DD442E3721D26410007E4325 /* OauthApplicationDetailsViewController.xib */,
-				DD442E5B21D50EC5007E4325 /* RepositoriesSelectCoordinator.swift */,
-				DD442E5721D50E84007E4325 /* RepositoriesSelectViewController.swift */,
-				DD442E5821D50E84007E4325 /* RepositoriesSelectViewController.xib */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -361,6 +383,7 @@
 				DD442E5121D4EFB0007E4325 /* Authentication.swift in Sources */,
 				DD442E6021D618E2007E4325 /* ZeroStateViewController.swift in Sources */,
 				DD442E5C21D50EC5007E4325 /* RepositoriesSelectCoordinator.swift in Sources */,
+				047DD69C21E61BB900E8CA48 /* GitRepository.swift in Sources */,
 				DD442E4A21D4B62B007E4325 /* AppState.swift in Sources */,
 				DD049DF621C4964B007E2DE6 /* AppDelegate.swift in Sources */,
 				DDA2261A21E072C20096BD9B /* Database.swift in Sources */,
@@ -369,6 +392,7 @@
 				DD442E4E21D4E959007E4325 /* Router.swift in Sources */,
 				DD442E1521D25A8B007E4325 /* LoggedOutViewController.swift in Sources */,
 				DD442E5921D50E84007E4325 /* RepositoriesSelectViewController.swift in Sources */,
+				047DD69921E61B7F00E8CA48 /* RepositorySelectTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
