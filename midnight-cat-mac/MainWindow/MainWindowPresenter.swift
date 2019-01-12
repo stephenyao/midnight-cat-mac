@@ -21,12 +21,14 @@ protocol MainWindowPresenterDelegate: class {
 final class MainWindowPresenter: DataStoreObserver {
   
   private let dataStore: DataStore
+  private let authenticationState: UserAuthenticationState
   
   weak var delegate: MainWindowPresenterDelegate? {
     didSet {
+
       let objects: [GitRepository] = self.dataStore.objects(with: "repositories")
       
-      if !AppState.sharedInstance.isSignedIn {
+      if !self.authenticationState.isSignedIn {
         self.delegate?.presentLoggedOut()
       } else {
         if objects.count == 0 {
@@ -38,7 +40,9 @@ final class MainWindowPresenter: DataStoreObserver {
     }
   }
   
-  init(dataStore: DataStore = Database.sharedInstance) {
+  init(dataStore: DataStore = Database.sharedInstance,
+       authenticationState: UserAuthenticationState = AppState.sharedInstance) {
+    self.authenticationState = authenticationState
     self.dataStore = dataStore
     self.dataStore.add(observer: self)
     NotificationCenter.default.addObserver(self, selector: #selector(onSignInSuccess), name: AppNotifications.signInSuccess, object: nil)

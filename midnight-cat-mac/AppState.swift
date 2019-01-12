@@ -9,7 +9,13 @@
 import Foundation
 import Octokit
 
-final class AppState: AccessTokenStorage {
+protocol UserAuthenticationState {
+  
+  var isSignedIn: Bool { get }
+  
+}
+
+final class AppState: UserAuthenticationState, AccessTokenStorage {
   
   static var sharedInstance = AppState()
   
