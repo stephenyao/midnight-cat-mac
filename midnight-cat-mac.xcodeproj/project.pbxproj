@@ -11,6 +11,7 @@
 		047DD69C21E61BB900E8CA48 /* GitRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047DD69B21E61BB900E8CA48 /* GitRepository.swift */; };
 		04BEC45421EA181F00DC357A /* RepositoryContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BEC45221EA181F00DC357A /* RepositoryContentViewController.swift */; };
 		04BEC45521EA181F00DC357A /* RepositoryContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04BEC45321EA181F00DC357A /* RepositoryContentViewController.xib */; };
+		04BEC45721EA9BC300DC357A /* MainWindowPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BEC45621EA9BC300DC357A /* MainWindowPresenter.swift */; };
 		2A4FC65F18FD560B62071C21 /* Pods_midnight_cat_mac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E3CBF9020FB087239EADA0 /* Pods_midnight_cat_mac.framework */; };
 		DD049DF621C4964B007E2DE6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD049DF521C4964B007E2DE6 /* AppDelegate.swift */; };
 		DD049DFA21C4964C007E2DE6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD049DF921C4964C007E2DE6 /* Assets.xcassets */; };
@@ -51,6 +52,7 @@
 		047DD69B21E61BB900E8CA48 /* GitRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitRepository.swift; sourceTree = "<group>"; };
 		04BEC45221EA181F00DC357A /* RepositoryContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryContentViewController.swift; sourceTree = "<group>"; };
 		04BEC45321EA181F00DC357A /* RepositoryContentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositoryContentViewController.xib; sourceTree = "<group>"; };
+		04BEC45621EA9BC300DC357A /* MainWindowPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowPresenter.swift; sourceTree = "<group>"; };
 		4FE61035D19B0F2EFC8607D4 /* Pods-midnight-cat-mac.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-midnight-cat-mac.release.xcconfig"; path = "Pods/Target Support Files/Pods-midnight-cat-mac/Pods-midnight-cat-mac.release.xcconfig"; sourceTree = "<group>"; };
 		A7E3CBF9020FB087239EADA0 /* Pods_midnight_cat_mac.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_midnight_cat_mac.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AED4F73B9F0F103CB34B112C /* Pods-midnight-cat-mac.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-midnight-cat-mac.debug.xcconfig"; path = "Pods/Target Support Files/Pods-midnight-cat-mac/Pods-midnight-cat-mac.debug.xcconfig"; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				DD442E1721D25BFA007E4325 /* MainWindowController.swift */,
+				04BEC45621EA9BC300DC357A /* MainWindowPresenter.swift */,
 			);
 			path = MainWindow;
 			sourceTree = "<group>";
@@ -403,6 +406,7 @@
 				DD442E4A21D4B62B007E4325 /* AppState.swift in Sources */,
 				DD049DF621C4964B007E2DE6 /* AppDelegate.swift in Sources */,
 				DDA2261A21E072C20096BD9B /* Database.swift in Sources */,
+				04BEC45721EA9BC300DC357A /* MainWindowPresenter.swift in Sources */,
 				DD442E1821D25BFA007E4325 /* MainWindowController.swift in Sources */,
 				DD442E3821D26410007E4325 /* OauthApplicationDetailsViewController.swift in Sources */,
 				DD442E4E21D4E959007E4325 /* Router.swift in Sources */,
