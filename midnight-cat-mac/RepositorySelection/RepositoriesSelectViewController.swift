@@ -18,8 +18,18 @@ struct RepositoriesSelectViewModel {
 
 class RepositoriesSelectViewController: NSViewController, NSTableViewDataSource, NSTableViewDelegate, RepositorySelectTableViewCellDelegate {
   
-  var viewModel: RepositoriesSelectViewModel!
-  let database: Database = Database()
+  let viewModel: RepositoriesSelectViewModel
+  let database: DataStore
+  
+  init(viewModel: RepositoriesSelectViewModel, database: DataStore) {
+    self.viewModel = viewModel
+    self.database = database
+    super.init(nibName: nil, bundle: nil)
+  }
+  
+  required init?(coder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
   
   func numberOfRows(in tableView: NSTableView) -> Int {
     return self.viewModel.repositories.count

@@ -40,6 +40,8 @@ protocol DataStore {
   
   func add(observer: DataStoreObserver)
   
+  func remove(observer: DataStoreObserver)
+  
 }
 
 /* Synchronous datastore. Writing and Reading happens on main thread for simplicity.
@@ -52,6 +54,8 @@ final class Database: DataStore {
   private var observers: [DataStoreObserver] = []
   
   let userDefaults: UserDefaults
+  
+  static var sharedInstance = Database()
   
   init(userDefaults: UserDefaults = UserDefaults.standard) {
     self.userDefaults = userDefaults
@@ -88,7 +92,7 @@ final class Database: DataStore {
   }
   
   func add(observer: DataStoreObserver) {
-    self.observers.append(observer)
+    self.observers.append(observer)    
   }
   
   func remove(observer: DataStoreObserver) {
