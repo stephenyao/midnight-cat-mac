@@ -30,7 +30,7 @@ final class RepositoriesSelectCoordinator {
     
     let octokit = Octokit(config)
     
-    let _ = octokit.repositories { (response) in
+    let _ = octokit.myStars() { (response) in
       switch response {
       case .success(let fetchedRepositories):
         let repositories = fetchedRepositories.map { GitRepository(name: $0.name ?? "") }
