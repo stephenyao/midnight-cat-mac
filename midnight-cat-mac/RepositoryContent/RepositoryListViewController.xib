@@ -17,13 +17,6 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="E5y-Tg-aR0">
-                    <rect key="frame" x="8" y="7" width="13" height="21"/>
-                    <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSAddTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="R7P-J9-p4E">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                </button>
                 <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hCP-4n-JYm">
                     <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
                     <clipView key="contentView" id="NxJ-BN-9RY">
@@ -90,15 +83,10 @@
             </subviews>
             <constraints>
                 <constraint firstItem="hCP-4n-JYm" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="5ZF-8a-7ps"/>
-                <constraint firstItem="E5y-Tg-aR0" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="8" id="Iib-6f-xNv"/>
                 <constraint firstAttribute="bottom" secondItem="hCP-4n-JYm" secondAttribute="bottom" id="ORA-S7-aNd"/>
                 <constraint firstAttribute="trailing" secondItem="hCP-4n-JYm" secondAttribute="trailing" id="VfG-5u-rQq"/>
-                <constraint firstAttribute="bottom" secondItem="E5y-Tg-aR0" secondAttribute="bottom" constant="8" id="cUb-CA-3zd"/>
                 <constraint firstItem="hCP-4n-JYm" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="lbu-aD-1aC"/>
             </constraints>
         </customView>
     </objects>
-    <resources>
-        <image name="NSAddTemplate" width="11" height="11"/>
-    </resources>
 </document>
