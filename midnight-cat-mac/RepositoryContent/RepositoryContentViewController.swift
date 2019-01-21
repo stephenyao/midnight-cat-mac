@@ -12,6 +12,7 @@ class RepositoryContentViewController: NSSplitViewController, RepositoryListView
   
   private let database: Database = Database()
   private var repositories: [GitRepository]  = []
+  private var rightSplitViewItem: NSSplitViewItem!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -24,15 +25,21 @@ class RepositoryContentViewController: NSSplitViewController, RepositoryListView
     listViewController.delegate = self
     
     let left = NSSplitViewItem(sidebarWithViewController: listViewController)
-    let right = NSSplitViewItem(contentListWithViewController: RepositoryDetailsViewController.init(nibName: nil, bundle: nil))
+    let right = NSSplitViewItem(contentListWithViewController: RepositoryDetailsViewController(repository: nil))
     
     self.addSplitViewItem(left)
     self.addSplitViewItem(right)
+    
+    self.rightSplitViewItem = right
   }
   
   func repositoryWasSelected(atIndex index: Int) {
     let repository = self.repositories[index]
-    print("\(repository.name) was selected")
+    let detailsViewController = RepositoryDetailsViewController(repository: repository)
+    self.removeSplitViewItem(self.rightSplitViewItem)
+    let newRightSplitViewItem = NSSplitViewItem(contentListWithViewController: detailsViewController)
+    self.addSplitViewItem(newRightSplitViewItem)
+    self.rightSplitViewItem = newRightSplitViewItem
   }
   
 }

@@ -10,9 +10,21 @@ import Cocoa
 
 class RepositoryDetailsViewController: NSViewController {
   
+  private let repository: GitRepository?
+  @IBOutlet var repoNameLabel: NSTextField!
+  
+  init(repository: GitRepository?) {
+    self.repository = repository
+    super.init(nibName: nil, bundle: nil)
+  }
+  
+  required init?(coder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do view setup here.
+    self.repoNameLabel.stringValue = self.repository?.name ?? ""
   }
   
 }
