@@ -38,7 +38,7 @@ final class MainWindowPresenterTests: XCTestCase {
     let presenter = MainWindowPresenter(dataStore: MockDataStore(numberOfObjects: 0), authenticationState: MockAuthenticationState(authenticated: true))
     presenter.delegate = delegate
     XCTAssert(self.delegate.state == .zeroState)
-    presenter.onCollectionChanged(objects: [GitRepository(name: "Test")])
+    presenter.onCollectionChanged(objects: [GitRepository(name: "Test", owner: "test", cloneURL: "test")])
     XCTAssert(self.delegate.state == .repositories)
   }
   
@@ -94,7 +94,7 @@ private final class MockDataStore: DataStore {
   }
   
   func objects<T>(with collectionName: String) -> [T] where T : Decodable, T : Encodable, T : Storable {
-    return (0..<self.numberOfObjects).map { _ in GitRepository(name: NSUUID.init().uuidString) } as! [T]
+    return (0..<self.numberOfObjects).map { _ in GitRepository(name: NSUUID.init().uuidString, owner: "test", cloneURL: "test") } as! [T]
   }
   
   func object<T>(primaryKey: String, from collection: String) -> T? where T : Decodable, T : Encodable, T : Storable {

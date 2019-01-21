@@ -33,7 +33,7 @@ final class RepositoriesSelectCoordinator {
     let _ = octokit.myStars() { (response) in
       switch response {
       case .success(let fetchedRepositories):
-        let repositories = fetchedRepositories.map { GitRepository(name: $0.name ?? "") }
+        let repositories = fetchedRepositories.map { GitRepository(name: $0.name ?? "", owner: $0.owner.login, cloneURL: $0.cloneURL) }
         DispatchQueue.main.async {
           let viewController = RepositoriesSelectViewController(viewModel: RepositoriesSelectViewModel(repositories: repositories), database: Database.sharedInstance)
           window.contentViewController = viewController

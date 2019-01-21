@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import Octokit
 
 class RepositoryContentViewController: NSSplitViewController, RepositoryListViewControllerDelegate {
   
@@ -45,6 +46,21 @@ class RepositoryContentViewController: NSSplitViewController, RepositoryListView
     let newRightSplitViewItem = NSSplitViewItem(contentListWithViewController: detailsViewController)
     self.addSplitViewItem(newRightSplitViewItem)
     self.rightSplitViewItem = newRightSplitViewItem
+    
+    guard let config = AppState.sharedInstance.octokitConfig else {
+      return
+    }
+    
+    let _ = Octokit(config).pullRequests(owner: repository.owner!, repository: repository.name) { (response) in
+      switch response {
+      case .success(let pullRequests):
+        pullRequests.forEach({ (pr) in
+          print(pr.title)
+        })
+      case .failure(let error):
+        print(error)
+      }
+    }
   }
   
 }

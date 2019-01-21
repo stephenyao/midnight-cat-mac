@@ -137,7 +137,7 @@ public extension Router {
     public func load<T: Codable>(_ session: RequestKitURLSession = URLSession.shared, decoder: JSONDecoder = JSONDecoder(), expectedResultType: T.Type, completion: @escaping (_ json: T?, _ error: Error?) -> Void) -> URLSessionDataTaskProtocol? {
         guard let request = request() else {
             return nil
-        }
+        }      
 
         let task = session.dataTask(with: request) { data, response, err in
             if let response = response as? HTTPURLResponse {

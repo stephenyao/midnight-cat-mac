@@ -14,6 +14,8 @@ struct GitRepository: Storable, Codable {
   }
   
   let name: String
+  let owner: String?
+  let cloneURL: String?
   
   var collectionName: String {
     return "repositories"
