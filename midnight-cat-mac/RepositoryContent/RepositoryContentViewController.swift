@@ -45,15 +45,6 @@ class RepositoryContentViewController: NSSplitViewController, RepositoryListView
     guard let config = AppState.sharedInstance.octokitConfig else {
       return
     }
-    
-    let _ = Octokit(config).pullRequest(owner: "resi-mobile", repository: "resi-mobile-ios", number: 4733) { (response) in
-      switch response {
-      case .success(let pr):
-        print(pr.htmlURL)
-      case .failure(let error):
-        print("error")
-      }
-    }
   
     let _ = Octokit(config).pullRequests(owner: repository.owner!, repository: repository.name) { (response) in
       switch response {
