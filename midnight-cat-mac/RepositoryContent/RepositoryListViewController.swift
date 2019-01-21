@@ -12,11 +12,18 @@ struct RepositoryListViewModel {
   let repositoryNames: [String]
 }
 
+protocol RepositoryListViewControllerDelegate: class {
+  
+  func repositoryWasSelected(atIndex index: Int)
+  
+}
+
 class RepositoryListViewController: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
   
   @IBOutlet var tableView: NSTableView!
   
   let viewModel: RepositoryListViewModel
+  weak var delegate: RepositoryListViewControllerDelegate?
   
   init(viewModel: RepositoryListViewModel) {
     self.viewModel = viewModel
@@ -41,9 +48,8 @@ class RepositoryListViewController: NSViewController, NSTableViewDataSource, NST
   }
   
   func tableViewSelectionDidChange(_ notification: Notification) {
-    print("changed")
     let row = self.tableView.selectedRow
-    print(row)
+    self.delegate?.repositoryWasSelected(atIndex: row)
   }
   
 }

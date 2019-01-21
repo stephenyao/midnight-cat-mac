@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class RepositoryContentViewController: NSSplitViewController {
+class RepositoryContentViewController: NSSplitViewController, RepositoryListViewControllerDelegate {
   
   private let database: Database = Database()
   private var repositories: [GitRepository]  = []
@@ -21,12 +21,18 @@ class RepositoryContentViewController: NSSplitViewController {
     let repositoryNames = self.repositories.map { $0.name }
     let viewModel = RepositoryListViewModel(repositoryNames: repositoryNames)
     let listViewController = RepositoryListViewController(viewModel: viewModel)
+    listViewController.delegate = self
     
     let left = NSSplitViewItem(sidebarWithViewController: listViewController)
     let right = NSSplitViewItem(contentListWithViewController: RepositoryDetailsViewController.init(nibName: nil, bundle: nil))
     
     self.addSplitViewItem(left)
     self.addSplitViewItem(right)
+  }
+  
+  func repositoryWasSelected(atIndex index: Int) {
+    let repository = self.repositories[index]
+    print("\(repository.name) was selected")
   }
   
 }
