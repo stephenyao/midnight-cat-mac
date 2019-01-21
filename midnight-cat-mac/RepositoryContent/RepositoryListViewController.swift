@@ -9,35 +9,33 @@
 import Cocoa
 
 struct RepositoryListViewModel {
-  let repositories: [GitRepository]
-  
-  init(repositories: [GitRepository]) {
-    self.repositories = repositories
-  }
+  let repositoryNames: [String]
 }
 
 class RepositoryListViewController: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
   
   @IBOutlet var tableView: NSTableView!
-  private let database: Database = Database()
-  private var repositories: [GitRepository]  = []
   
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    
-    self.repositories = self.database.objects(with: "repositories")
-    self.tableView.reloadData()
+  let viewModel: RepositoryListViewModel
+  
+  init(viewModel: RepositoryListViewModel) {
+    self.viewModel = viewModel
+    super.init(nibName: nil, bundle: nil)
+  }
+  
+  required init?(coder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
   }
   
   func numberOfRows(in tableView: NSTableView) -> Int {
-    return self.repositories.count
+    return self.viewModel.repositoryNames.count
   }
   
   func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
     let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "cellId"), owner: nil) as? NSTableCellView
     
-    let repository = self.repositories[row]
-    cell?.textField?.stringValue = repository.name
+    let repositoryName = self.viewModel.repositoryNames[row]
+    cell?.textField?.stringValue = repositoryName
     
     return cell
   }
