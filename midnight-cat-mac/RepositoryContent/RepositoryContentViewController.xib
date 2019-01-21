@@ -12,16 +12,16 @@
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <splitView arrangesAllSubviews="NO" dividerStyle="paneSplitter" vertical="YES" id="4eh-BH-eB5">
+        <splitView arrangesAllSubviews="NO" dividerStyle="thin" vertical="YES" id="4eh-BH-eB5" customClass="SplitView" customModule="midnight_cat_mac" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="354" height="301"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <customView fixedFrame="YES" id="PXc-Ab-ASq">
-                    <rect key="frame" x="0.0" y="0.0" width="162" height="301"/>
+                    <rect key="frame" x="0.0" y="0.0" width="166" height="301"/>
                     <autoresizingMask key="autoresizingMask"/>
                 </customView>
                 <customView fixedFrame="YES" id="4Kd-IL-Hqm">
-                    <rect key="frame" x="172" y="0.0" width="182" height="301"/>
+                    <rect key="frame" x="167" y="0.0" width="187" height="301"/>
                     <autoresizingMask key="autoresizingMask"/>
                 </customView>
             </subviews>

@@ -25,12 +25,17 @@ class RepositoryContentViewController: NSSplitViewController, RepositoryListView
     listViewController.delegate = self
     
     let left = NSSplitViewItem(sidebarWithViewController: listViewController)
+    left.minimumThickness = 200
+    left.maximumThickness = 200
+    left.canCollapse = false
+    
     let right = NSSplitViewItem(contentListWithViewController: RepositoryDetailsViewController(repository: nil))
     
     self.addSplitViewItem(left)
     self.addSplitViewItem(right)
     
     self.rightSplitViewItem = right
+    self.splitView.dividerStyle = .thin
   }
   
   func repositoryWasSelected(atIndex index: Int) {
