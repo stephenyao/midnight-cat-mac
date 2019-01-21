@@ -8,13 +8,24 @@
 
 import Cocoa
 
-class RepositoryDetailsViewController: NSViewController {
+struct GitPullRequest {
+  let title: String
+  let url: URL?
+}
+
+struct RepositoryDetailsViewModel {
+  let cloneURL: String
+  let pullRequests: [GitPullRequest]
+}
+
+class RepositoryDetailsViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSource {
   
-  private let repository: GitRepository?
-  @IBOutlet var repoNameLabel: NSTextField!
+  private let viewModel: RepositoryDetailsViewModel
+  @IBOutlet var cloneURLLabel: NSTextField!
+  @IBOutlet var tableView: NSTableView!
   
-  init(repository: GitRepository?) {
-    self.repository = repository
+  init(viewModel: RepositoryDetailsViewModel) {
+    self.viewModel = viewModel
     super.init(nibName: nil, bundle: nil)
   }
   
@@ -24,7 +35,25 @@ class RepositoryDetailsViewController: NSViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.repoNameLabel.stringValue = self.repository?.name ?? ""
+    self.cloneURLLabel.stringValue = self.viewModel.cloneURL
   }
   
+  func numberOfRows(in tableView: NSTableView) -> Int {
+    return self.viewModel.pullRequests.count
+  }
+  
+  func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
+    let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "cellID"), owner: nil) as? NSTableCellView
+    let pullRequest = self.viewModel.pullRequests[row]
+    cell?.textField?.stringValue = pullRequest.title
+    return cell
+  }
+  
+  func tableViewSelectionDidChange(_ notification: Notification) {
+    let selectedRow = self.tableView.selectedRow
+    let pullRequest = self.viewModel.pullRequests[selectedRow]
+    if let url = pullRequest.url {
+      NSWorkspace.shared.open(url)
+    }
+  }
 }

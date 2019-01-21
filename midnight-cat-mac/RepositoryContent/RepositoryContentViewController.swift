@@ -30,7 +30,7 @@ class RepositoryContentViewController: NSSplitViewController, RepositoryListView
     left.maximumThickness = 200
     left.canCollapse = false
     
-    let right = NSSplitViewItem(contentListWithViewController: RepositoryDetailsViewController(repository: nil))
+    let right = NSSplitViewItem(contentListWithViewController: RepositoryContentEmptyDetailViewController())
     
     self.addSplitViewItem(left)
     self.addSplitViewItem(right)
@@ -41,22 +41,32 @@ class RepositoryContentViewController: NSSplitViewController, RepositoryListView
   
   func repositoryWasSelected(atIndex index: Int) {
     let repository = self.repositories[index]
-    let detailsViewController = RepositoryDetailsViewController(repository: repository)
-    self.removeSplitViewItem(self.rightSplitViewItem)
-    let newRightSplitViewItem = NSSplitViewItem(contentListWithViewController: detailsViewController)
-    self.addSplitViewItem(newRightSplitViewItem)
-    self.rightSplitViewItem = newRightSplitViewItem
     
     guard let config = AppState.sharedInstance.octokitConfig else {
       return
     }
     
+    let _ = Octokit(config).pullRequest(owner: "resi-mobile", repository: "resi-mobile-ios", number: 4733) { (response) in
+      switch response {
+      case .success(let pr):
+        print(pr.htmlURL)
+      case .failure(let error):
+        print("error")
+      }
+    }
+  
     let _ = Octokit(config).pullRequests(owner: repository.owner!, repository: repository.name) { (response) in
       switch response {
       case .success(let pullRequests):
-        pullRequests.forEach({ (pr) in
-          print(pr.title)
-        })
+        DispatchQueue.main.async {
+          self.removeSplitViewItem(self.rightSplitViewItem)
+          let pullRequests = pullRequests.map { GitPullRequest(title: $0.title ?? "", url: $0.htmlURL) }
+          let repositoryDetailViewModel = RepositoryDetailsViewModel(cloneURL: repository.cloneURL ?? "", pullRequests: pullRequests)
+          let detailsViewController = RepositoryDetailsViewController(viewModel: repositoryDetailViewModel)
+          let newRightSplitViewItem = NSSplitViewItem(contentListWithViewController: detailsViewController)
+          self.addSplitViewItem(newRightSplitViewItem)
+          self.rightSplitViewItem = newRightSplitViewItem
+        }
       case .failure(let error):
         print(error)
       }
