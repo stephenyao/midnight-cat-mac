@@ -31,7 +31,7 @@ class RepositoryContentViewController: NSSplitViewController, RepositoryListView
     left.preferredThicknessFraction = 0.2
     
     let right = NSSplitViewItem(contentListWithViewController: RepositoryContentEmptyDetailViewController())
-    right.minimumThickness = 350
+    self.setupRightSplitItemAttributes(for: right)
     
     self.addSplitViewItem(left)
     self.addSplitViewItem(right)
@@ -41,6 +41,7 @@ class RepositoryContentViewController: NSSplitViewController, RepositoryListView
   }
   
   func repositoryWasSelected(atIndex index: Int) {
+    guard index > 0 else { return }
     let repository = self.repositories[index]
     
     guard let config = AppState.sharedInstance.octokitConfig else {
@@ -68,6 +69,7 @@ class RepositoryContentViewController: NSSplitViewController, RepositoryListView
           let repositoryDetailViewModel = RepositoryDetailsViewModel(cloneURL: repository.cloneURL ?? "", pullRequests: pullRequests)
           let detailsViewController = RepositoryDetailsViewController(viewModel: repositoryDetailViewModel)
           let newRightSplitViewItem = NSSplitViewItem(contentListWithViewController: detailsViewController)
+          self.setupRightSplitItemAttributes(for: newRightSplitViewItem)
           self.addSplitViewItem(newRightSplitViewItem)
           self.rightSplitViewItem = newRightSplitViewItem
         }
@@ -75,6 +77,11 @@ class RepositoryContentViewController: NSSplitViewController, RepositoryListView
         print(error)
       }
     }
+  }
+  
+  private func setupRightSplitItemAttributes(for item: NSSplitViewItem) {
+    item.minimumThickness = 350
+    item.maximumThickness = 1000
   }
   
 }
