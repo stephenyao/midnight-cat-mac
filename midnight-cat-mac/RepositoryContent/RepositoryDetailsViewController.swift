@@ -6,7 +6,7 @@
 //  Copyright © 2019 REA-Group. All rights reserved.
 //
 
-import Cocoa
+import AppKit
 
 struct GitPullRequest {
   let title: String
@@ -16,6 +16,11 @@ struct GitPullRequest {
 struct RepositoryDetailsViewModel {
   let cloneURL: String
   let pullRequests: [GitPullRequest]
+}
+
+class PullRequestDetailCell: NSTableCellView {
+  @IBOutlet var titleLabel: NSTextField!
+  @IBOutlet var descriptionLabel: NSTextField!
 }
 
 class RepositoryDetailsViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSource {
@@ -43,9 +48,10 @@ class RepositoryDetailsViewController: NSViewController, NSTableViewDelegate, NS
   }
   
   func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-    let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "cellID"), owner: nil) as? NSTableCellView
+    let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "cellID"), owner: nil) as? PullRequestDetailCell
     let pullRequest = self.viewModel.pullRequests[row]
-    cell?.textField?.stringValue = pullRequest.title
+    cell?.titleLabel.stringValue = pullRequest.title
+    
     return cell
   }
   
