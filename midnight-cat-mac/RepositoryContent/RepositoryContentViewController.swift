@@ -41,7 +41,7 @@ class RepositoryContentViewController: NSSplitViewController, RepositoryListView
   }
   
   func repositoryWasSelected(atIndex index: Int) {
-    guard index > 0 else { return }
+    guard index != -1 else { return }
     let repository = self.repositories[index]
     
     guard let config = AppState.sharedInstance.octokitConfig else {
