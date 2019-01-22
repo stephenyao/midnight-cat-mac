@@ -26,11 +26,12 @@ class RepositoryContentViewController: NSSplitViewController, RepositoryListView
     listViewController.delegate = self
     
     let left = NSSplitViewItem(sidebarWithViewController: listViewController)
-    left.minimumThickness = 200
-    left.maximumThickness = 200
-    left.canCollapse = false
+    left.minimumThickness = 250
+    left.maximumThickness = 250
+    left.preferredThicknessFraction = 0.2
     
     let right = NSSplitViewItem(contentListWithViewController: RepositoryContentEmptyDetailViewController())
+    right.minimumThickness = 350
     
     self.addSplitViewItem(left)
     self.addSplitViewItem(right)
