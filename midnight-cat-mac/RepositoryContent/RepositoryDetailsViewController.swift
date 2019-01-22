@@ -11,6 +11,9 @@ import AppKit
 struct GitPullRequest {
   let title: String
   let url: URL?
+  let createdAt: Date
+  let author: String
+  let number: Int
 }
 
 struct RepositoryDetailsViewModel {
@@ -66,7 +69,9 @@ class RepositoryDetailsViewController: NSViewController, NSTableViewDelegate, NS
   func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
     let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "cellID"), owner: nil) as? PullRequestDetailCell
     let pullRequest = self.viewModel.pullRequests[row]
-    cell?.configure(title: pullRequest.title, description: "N/A")
+    let description = "#\(pullRequest.number) opened \(pullRequest.createdAt.getElapsedInterval()) ago by \(pullRequest.author)"
+    
+    cell?.configure(title: pullRequest.title, description: description)
     cell?.delegate = self
     
     return cell
@@ -78,5 +83,28 @@ class RepositoryDetailsViewController: NSViewController, NSTableViewDelegate, NS
     if let url = pullRequest.url {
       NSWorkspace.shared.open(url)
     }
+  }
+}
+
+extension Date {
+  
+  func getElapsedInterval() -> String {
+    
+    let interval = Calendar.current.dateComponents([.year, .month, .day], from: self, to: Date())
+    
+    if let year = interval.year, year > 0 {
+      return year == 1 ? "\(year)" + " " + "year" :
+        "\(year)" + " " + "years"
+    } else if let month = interval.month, month > 0 {
+      return month == 1 ? "\(month)" + " " + "month" :
+        "\(month)" + " " + "months"
+    } else if let day = interval.day, day > 0 {
+      return day == 1 ? "\(day)" + " " + "day" :
+        "\(day)" + " " + "days"
+    } else {
+      return "a moment ago"
+      
+    }
+    
   }
 }

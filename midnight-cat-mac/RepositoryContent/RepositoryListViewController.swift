@@ -42,7 +42,7 @@ class RepositoryListViewController: NSViewController, NSTableViewDataSource, NST
     let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "cellId"), owner: nil) as? NSTableCellView
     
     let repositoryName = self.viewModel.repositoryNames[row]
-    cell?.textField?.stringValue = repositoryName
+    cell?.textField?.stringValue = repositoryName    
     
     return cell
   }

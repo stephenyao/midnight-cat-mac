@@ -67,18 +67,18 @@
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9T6-qh-xxf">
-                                                        <rect key="frame" x="3" y="48" width="469" height="17"/>
+                                                        <rect key="frame" x="3" y="44" width="469" height="21"/>
                                                         <textFieldCell key="cell" lineBreakMode="clipping" title="Title" id="mbO-QM-Pbh">
-                                                            <font key="font" metaFont="systemMedium" size="13"/>
+                                                            <font key="font" metaFont="systemBold" size="17"/>
                                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                     </textField>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="i5V-nN-F9k">
-                                                        <rect key="frame" x="3" y="26" width="74" height="17"/>
+                                                        <rect key="frame" x="3" y="22" width="74" height="17"/>
                                                         <textFieldCell key="cell" lineBreakMode="clipping" title="Description" id="TJN-TF-jRf">
                                                             <font key="font" usesAppearanceFont="YES"/>
-                                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="textColor" red="0.60392156862745094" green="0.62352941176470589" blue="0.6470588235294118" alpha="0.95017765409999999" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                     </textField>

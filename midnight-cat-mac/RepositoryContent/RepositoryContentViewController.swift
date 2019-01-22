@@ -52,7 +52,19 @@ class RepositoryContentViewController: NSSplitViewController, RepositoryListView
       case .success(let pullRequests):
         DispatchQueue.main.async {
           self.removeSplitViewItem(self.rightSplitViewItem)
-          let pullRequests = pullRequests.map { GitPullRequest(title: $0.title ?? "", url: $0.htmlURL) }
+          let pullRequests = pullRequests.compactMap { pullRequestData -> GitPullRequest? in
+            guard
+              let title = pullRequestData.title,
+              let url = pullRequestData.htmlURL,
+              let author = pullRequestData.user?.login,
+              let createdAt = pullRequestData.createdAt,
+              let number = pullRequestData.number
+            else {
+              return nil
+            }
+            
+            return GitPullRequest(title: title, url: url, createdAt: createdAt, author: author, number: number)
+          }
           let repositoryDetailViewModel = RepositoryDetailsViewModel(cloneURL: repository.cloneURL ?? "", pullRequests: pullRequests)
           let detailsViewController = RepositoryDetailsViewController(viewModel: repositoryDetailViewModel)
           let newRightSplitViewItem = NSSplitViewItem(contentListWithViewController: detailsViewController)
