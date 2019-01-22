@@ -24,6 +24,7 @@ class MainWindowController: NSWindowController, MainWindowPresenterDelegate {
   func presentRepositories() {
     let repositoryContentViewController = RepositoryContentViewController.init(nibName: nil, bundle: nil)
     self.window?.contentViewController = repositoryContentViewController
+    self.window?.title = "Repositories"
   }
   
   func presentZeroState() {
