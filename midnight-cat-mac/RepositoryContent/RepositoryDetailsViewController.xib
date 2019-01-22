@@ -82,13 +82,25 @@
                                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                     </textField>
+                                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fxd-Oy-MIS">
+                                                        <rect key="frame" x="357" y="3" width="119" height="32"/>
+                                                        <buttonCell key="cell" type="push" title="View on Web" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="viH-cw-dL6">
+                                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                            <font key="font" metaFont="system"/>
+                                                        </buttonCell>
+                                                        <connections>
+                                                            <action selector="onViewOnWebClicked:" target="oKc-mD-O2d" id="ZTn-ut-e9u"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstItem="i5V-nN-F9k" firstAttribute="top" secondItem="9T6-qh-xxf" secondAttribute="bottom" constant="5" id="9do-BN-kg2"/>
                                                     <constraint firstItem="9T6-qh-xxf" firstAttribute="top" secondItem="oKc-mD-O2d" secondAttribute="top" constant="5" id="A2d-Wl-g1H"/>
                                                     <constraint firstAttribute="trailing" secondItem="9T6-qh-xxf" secondAttribute="trailing" constant="5" id="G3y-pb-Wd5"/>
                                                     <constraint firstItem="i5V-nN-F9k" firstAttribute="leading" secondItem="9T6-qh-xxf" secondAttribute="leading" id="IxE-D4-KRZ"/>
+                                                    <constraint firstAttribute="trailing" secondItem="fxd-Oy-MIS" secondAttribute="trailing" constant="5" id="hZQ-Xr-aFd"/>
                                                     <constraint firstItem="9T6-qh-xxf" firstAttribute="leading" secondItem="oKc-mD-O2d" secondAttribute="leading" constant="5" id="mv8-H8-atB"/>
+                                                    <constraint firstAttribute="bottom" secondItem="fxd-Oy-MIS" secondAttribute="bottom" constant="10" id="zkt-Q8-7v1"/>
                                                 </constraints>
                                                 <connections>
                                                     <outlet property="descriptionLabel" destination="i5V-nN-F9k" id="RSW-Av-TVe"/>

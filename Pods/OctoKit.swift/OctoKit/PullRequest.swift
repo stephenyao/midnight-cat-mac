@@ -42,6 +42,7 @@ import RequestKit
         case reviewCommentsURL = "review_comments_url"
         case commentsURL = "comments_url"
         case statusesURL = "statuses_url"
+        case htmlURL = "html_url"
         case number
         case state
         case title

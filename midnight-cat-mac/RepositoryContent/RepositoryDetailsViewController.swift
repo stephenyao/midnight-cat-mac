@@ -18,12 +18,28 @@ struct RepositoryDetailsViewModel {
   let pullRequests: [GitPullRequest]
 }
 
+protocol PullRequestDetailCellDelegate: class {
+  
+  func viewOnWebButtonClicked(sender: NSView)
+  
+}
+
 class PullRequestDetailCell: NSTableCellView {
   @IBOutlet var titleLabel: NSTextField!
   @IBOutlet var descriptionLabel: NSTextField!
+  weak var delegate: PullRequestDetailCellDelegate?
+  
+  func configure(title: String, description: String) {
+    self.titleLabel.stringValue = title
+    self.descriptionLabel.stringValue = description
+  }
+  
+  @IBAction func onViewOnWebClicked(_ sender: Any) {
+    self.delegate?.viewOnWebButtonClicked(sender: self)
+  }
 }
 
-class RepositoryDetailsViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSource {
+class RepositoryDetailsViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSource, PullRequestDetailCellDelegate {
   
   private let viewModel: RepositoryDetailsViewModel
   @IBOutlet var cloneURLLabel: NSTextField!
@@ -50,14 +66,15 @@ class RepositoryDetailsViewController: NSViewController, NSTableViewDelegate, NS
   func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
     let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "cellID"), owner: nil) as? PullRequestDetailCell
     let pullRequest = self.viewModel.pullRequests[row]
-    cell?.titleLabel.stringValue = pullRequest.title
+    cell?.configure(title: pullRequest.title, description: "N/A")
+    cell?.delegate = self
     
     return cell
   }
   
-  func tableViewSelectionDidChange(_ notification: Notification) {
-    let selectedRow = self.tableView.selectedRow
-    let pullRequest = self.viewModel.pullRequests[selectedRow]
+  func viewOnWebButtonClicked(sender: NSView) {
+    let row = self.tableView.row(for: sender)
+    let pullRequest = self.viewModel.pullRequests[row]
     if let url = pullRequest.url {
       NSWorkspace.shared.open(url)
     }
