@@ -84,6 +84,12 @@ class RepositoryDetailsViewController: NSViewController, NSTableViewDelegate, NS
       NSWorkspace.shared.open(url)
     }
   }
+  
+  @IBAction func onCopyCloneURLClicked(_ sender: Any) {
+    let pasteboard = NSPasteboard.general
+    pasteboard.declareTypes([.string], owner: nil)
+    pasteboard.setString(self.cloneURLLabel.stringValue, forType: .string)
+  }
 }
 
 extension Date {
