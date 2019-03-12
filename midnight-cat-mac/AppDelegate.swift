@@ -12,7 +12,7 @@ import Cocoa
 class AppDelegate: NSObject, NSApplicationDelegate {
   
   @IBOutlet weak var window: NSWindow!
-  private var selectRepositoriesWindow: NSWindow?
+  private weak var selectRepositoriesWindow: NSWindow?
   
   private var router: Router!
   
