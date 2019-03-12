@@ -123,8 +123,8 @@
 			children = (
 				DD442E5B21D50EC5007E4325 /* RepositoriesSelectCoordinator.swift */,
 				DD442E5721D50E84007E4325 /* RepositoriesSelectViewController.swift */,
-				047DD69821E61B7F00E8CA48 /* RepositorySelectTableViewCell.swift */,
 				DD442E5821D50E84007E4325 /* RepositoriesSelectViewController.xib */,
+				047DD69821E61B7F00E8CA48 /* RepositorySelectTableViewCell.swift */,
 			);
 			path = RepositorySelection;
 			sourceTree = "<group>";

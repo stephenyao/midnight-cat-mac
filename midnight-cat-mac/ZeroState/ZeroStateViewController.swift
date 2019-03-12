@@ -12,6 +12,6 @@ class ZeroStateViewController: NSViewController {
 
   @IBAction func onAddButtonTapped(_ sender: Any) {    
     let nextCoordinator = RepositoriesSelectCoordinator()
-    nextCoordinator.load(from: nil)
+    nextCoordinator.createAndLoad(from: nil)
   }
 }

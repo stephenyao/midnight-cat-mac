@@ -19,9 +19,10 @@ final class ContentContainerViewController: NSViewController {
 
 final class RepositoriesSelectCoordinator {
   
-  func load(from window: NSWindow?) {
+  @discardableResult
+  func createAndLoad(from window: NSWindow?) -> NSWindow? {
     guard let config = AppState.sharedInstance.octokitConfig else {
-      return
+      return nil
     }
     
     let window = window ?? NSWindow.init(contentViewController: ContentContainerViewController())
@@ -42,6 +43,8 @@ final class RepositoriesSelectCoordinator {
         print(error.localizedDescription)
       }
     }
+    
+    return window
   }
   
 }

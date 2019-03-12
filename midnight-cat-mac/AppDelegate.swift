@@ -12,6 +12,7 @@ import Cocoa
 class AppDelegate: NSObject, NSApplicationDelegate {
   
   @IBOutlet weak var window: NSWindow!
+  private var selectRepositoriesWindow: NSWindow?
   
   private var router: Router!
   
@@ -28,4 +29,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
   }
 
+  @IBAction func selectRepositories(_ sender: NSMenuItem) {
+    if let window = selectRepositoriesWindow {
+      window.makeKeyAndOrderFront(nil)
+      return
+    }
+    
+    let nextCoordinator = RepositoriesSelectCoordinator()
+    self.selectRepositoriesWindow = nextCoordinator.createAndLoad(from: nil)
+  }
 }
