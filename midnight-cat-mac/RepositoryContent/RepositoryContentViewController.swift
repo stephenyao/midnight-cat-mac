@@ -81,7 +81,7 @@ class RepositoryContentViewController: NSSplitViewController, RepositoryListView
   
   private func setupRightSplitItemAttributes(for item: NSSplitViewItem) {
     item.minimumThickness = 350
-    item.maximumThickness = 1000
+//    item.maximumThickness = 1000
   }
   
 }
