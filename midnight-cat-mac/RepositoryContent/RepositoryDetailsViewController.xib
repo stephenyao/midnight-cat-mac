@@ -49,7 +49,7 @@
                                 <tableViewGridLines key="gridStyleMask" dashed="YES"/>
                                 <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                 <tableColumns>
-                                    <tableColumn width="549" minWidth="40" maxWidth="1000" id="KfK-z3-zgQ">
+                                    <tableColumn width="549" minWidth="40" maxWidth="10000" id="KfK-z3-zgQ">
                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
                                             <font key="font" metaFont="smallSystem"/>
                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
