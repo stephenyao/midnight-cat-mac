@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class LoggedOutViewController: NSViewController {
+class LoginViewController: NSViewController {
   
   @IBAction func onLoginTapped(_ sender: Any) {
     let applicationDetailsViewController = OauthApplicationDetailsViewController.init(nibName: nil, bundle: nil)

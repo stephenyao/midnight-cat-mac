@@ -33,7 +33,7 @@ class MainWindowController: NSWindowController, MainWindowPresenterDelegate {
   }
   
   func presentLoggedOut() {
-    let loggedOutViewController = LoggedOutViewController.init(nibName: nil, bundle: nil)
+    let loggedOutViewController = LoginViewController.init(nibName: nil, bundle: nil)
     self.window?.contentViewController = loggedOutViewController
   }
   

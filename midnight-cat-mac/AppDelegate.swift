@@ -16,7 +16,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   
   private var router: Router!
   
-  func applicationDidFinishLaunching(_ notification: Notification) {
+  func applicationDidFinishLaunching(_ notification: Notification) {    
     let authenticationRoutable = AuthenticationRoutable(accessTokenStorage: AppState.sharedInstance)
     
     let router = Router(routables: [authenticationRoutable])
