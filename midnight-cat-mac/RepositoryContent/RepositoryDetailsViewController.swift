@@ -109,7 +109,6 @@ extension Date {
         "\(day)" + " " + "days"
     } else {
       return "a moment ago"
-      
     }
     
   }

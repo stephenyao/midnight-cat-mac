@@ -24,7 +24,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   }
 
   func application(_ application: NSApplication, open urls: [URL]) {
-    
     urls.forEach(self.router.route)
     
   }

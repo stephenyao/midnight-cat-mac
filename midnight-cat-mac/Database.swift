@@ -18,8 +18,6 @@ protocol Storable {
 
 protocol DataStoreObserver {
   
-  typealias CollectionChanged = ([Storable]) -> Void
-  
   var collectionName: String { get }
   
   var uniqueObserverKey: String { get }
