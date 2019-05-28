@@ -15,12 +15,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   private weak var selectRepositoriesWindow: NSWindow?
   
   private var router: Router!
+  private var synchronisationService: SynchronisationService!
   
   func applicationDidFinishLaunching(_ notification: Notification) {    
     let authenticationRoutable = AuthenticationRoutable(accessTokenStorage: AppState.sharedInstance)
     
     let router = Router(routables: [authenticationRoutable])
     self.router = router
+    self.synchronisationService = SynchronisationService()
+    self.synchronisationService.syncRepositories()
   }
 
   func application(_ application: NSApplication, open urls: [URL]) {

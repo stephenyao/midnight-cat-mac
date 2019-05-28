@@ -64,7 +64,7 @@ class RepositoryContentViewController: NSSplitViewController, RepositoryListView
               return nil
             }
             
-            return GitPullRequest(title: title, url: url, createdAt: createdAt, author: author, number: number)
+            return GitPullRequest(title: title, url: url, createdAt: createdAt, author: author, number: number, repositoryID: repository.id)
           }
           let repositoryDetailViewModel = RepositoryDetailsViewModel(cloneURL: repository.cloneURL ?? "", pullRequests: pullRequests)
           let detailsViewController = RepositoryDetailsViewController(viewModel: repositoryDetailViewModel)

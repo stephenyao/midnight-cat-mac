@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="RepositoryDetailsViewController" customModule="midnight_cat_mac" customModuleProvider="target">
             <connections>
                 <outlet property="cloneURLLabel" destination="C9c-8c-c9Y" id="Hdh-bQ-65S"/>
-                <outlet property="repoNameLabel" destination="JFB-SF-ula" id="ETO-PZ-gcZ"/>
                 <outlet property="tableView" destination="hgs-4h-LWG" id="3wp-oX-fUb"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
@@ -39,7 +38,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="554" height="232"/>
                     <clipView key="contentView" id="iNg-PN-bk3">
                         <rect key="frame" x="1" y="1" width="552" height="230"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="70" rowSizeStyle="automatic" viewBased="YES" id="hgs-4h-LWG">
                                 <rect key="frame" x="0.0" y="0.0" width="552" height="230"/>

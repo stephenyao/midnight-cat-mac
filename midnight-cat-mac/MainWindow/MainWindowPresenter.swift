@@ -26,7 +26,7 @@ final class MainWindowPresenter: DataStoreObserver {
   weak var delegate: MainWindowPresenterDelegate? {
     didSet {
 
-      let objects: [GitRepository] = self.dataStore.objects(with: "repositories")
+      let objects: [GitRepository] = self.dataStore.objects(with: DatabaseCollectionNames.repository)
       
       if !self.authenticationState.isSignedIn {
         self.delegate?.presentLoggedOut()
@@ -70,7 +70,7 @@ final class MainWindowPresenter: DataStoreObserver {
   }
   
   @objc private func onSignInSuccess() {
-    let objects: [GitRepository] = self.dataStore.objects(with: "repositories")
+    let objects: [GitRepository] = self.dataStore.objects(with: DatabaseCollectionNames.repository)
     if objects.count == 0 {
       self.delegate?.presentZeroState()
     } else {

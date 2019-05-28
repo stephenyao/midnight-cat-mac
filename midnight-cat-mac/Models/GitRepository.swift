@@ -13,6 +13,7 @@ struct GitRepository: Storable, Codable {
     return self.name
   }
   
+  let id: Int
   let name: String
   let owner: String?
   let cloneURL: String?

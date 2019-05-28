@@ -8,14 +8,6 @@
 
 import AppKit
 
-struct GitPullRequest {
-  let title: String
-  let url: URL?
-  let createdAt: Date
-  let author: String
-  let number: Int
-}
-
 struct RepositoryDetailsViewModel {
   let cloneURL: String
   let pullRequests: [GitPullRequest]

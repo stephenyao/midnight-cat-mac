@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		044D26B421F5E38400489984 /* RepositoryContentEmptyDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D26B221F5E38400489984 /* RepositoryContentEmptyDetailViewController.swift */; };
 		044D26B521F5E38400489984 /* RepositoryContentEmptyDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 044D26B321F5E38400489984 /* RepositoryContentEmptyDetailViewController.xib */; };
+		04595789229CEC8600B81E44 /* SynchronisationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04595788229CEC8600B81E44 /* SynchronisationService.swift */; };
+		0459578B229CF02400B81E44 /* GitPullRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0459578A229CF02400B81E44 /* GitPullRequest.swift */; };
 		047DD69921E61B7F00E8CA48 /* RepositorySelectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047DD69821E61B7F00E8CA48 /* RepositorySelectTableViewCell.swift */; };
 		047DD69C21E61BB900E8CA48 /* GitRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047DD69B21E61BB900E8CA48 /* GitRepository.swift */; };
 		04BEC45721EA9BC300DC357A /* MainWindowPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BEC45621EA9BC300DC357A /* MainWindowPresenter.swift */; };
@@ -57,6 +59,8 @@
 /* Begin PBXFileReference section */
 		044D26B221F5E38400489984 /* RepositoryContentEmptyDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryContentEmptyDetailViewController.swift; sourceTree = "<group>"; };
 		044D26B321F5E38400489984 /* RepositoryContentEmptyDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositoryContentEmptyDetailViewController.xib; sourceTree = "<group>"; };
+		04595788229CEC8600B81E44 /* SynchronisationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynchronisationService.swift; sourceTree = "<group>"; };
+		0459578A229CF02400B81E44 /* GitPullRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitPullRequest.swift; sourceTree = "<group>"; };
 		047DD69821E61B7F00E8CA48 /* RepositorySelectTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositorySelectTableViewCell.swift; sourceTree = "<group>"; };
 		047DD69B21E61BB900E8CA48 /* GitRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitRepository.swift; sourceTree = "<group>"; };
 		04BEC45621EA9BC300DC357A /* MainWindowPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowPresenter.swift; sourceTree = "<group>"; };
@@ -133,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				047DD69B21E61BB900E8CA48 /* GitRepository.swift */,
+				0459578A229CF02400B81E44 /* GitPullRequest.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -195,6 +200,7 @@
 				DD049DF521C4964B007E2DE6 /* AppDelegate.swift */,
 				DD442E4921D4B62B007E4325 /* AppState.swift */,
 				DDA2261921E072C20096BD9B /* Database.swift */,
+				04595788229CEC8600B81E44 /* SynchronisationService.swift */,
 				DD442E1221D25A38007E4325 /* MainWindow */,
 				047DD69A21E61B9A00E8CA48 /* Models */,
 				DD442E3521D263DE007E4325 /* Onboarding */,
@@ -322,9 +328,11 @@
 				TargetAttributes = {
 					DD049DF121C4964B007E2DE6 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 					};
 					DD442E3E21D4B14F007E4325 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						TestTargetID = DD049DF121C4964B007E2DE6;
 					};
 				};
@@ -424,11 +432,13 @@
 				DD442E5621D4FF30007E4325 /* Notifications.swift in Sources */,
 				DD442E5121D4EFB0007E4325 /* Authentication.swift in Sources */,
 				04BEC46621EB5EF500DC357A /* RepositoryListViewController.swift in Sources */,
+				04595789229CEC8600B81E44 /* SynchronisationService.swift in Sources */,
 				DD442E6021D618E2007E4325 /* ZeroStateViewController.swift in Sources */,
 				DD442E5C21D50EC5007E4325 /* RepositoriesSelectCoordinator.swift in Sources */,
 				047DD69C21E61BB900E8CA48 /* GitRepository.swift in Sources */,
 				DD442E4A21D4B62B007E4325 /* AppState.swift in Sources */,
 				DD049DF621C4964B007E2DE6 /* AppDelegate.swift in Sources */,
+				0459578B229CF02400B81E44 /* GitPullRequest.swift in Sources */,
 				044D26B421F5E38400489984 /* RepositoryContentEmptyDetailViewController.swift in Sources */,
 				DDA2261A21E072C20096BD9B /* Database.swift in Sources */,
 				04BEC45721EA9BC300DC357A /* MainWindowPresenter.swift in Sources */,
@@ -609,7 +619,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.silverbear.midnight-cat-mac";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -630,7 +640,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.silverbear.midnight-cat-mac";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -651,7 +661,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.silverbear.midnight-cat-macTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/midnight-cat-mac.app/Contents/MacOS/midnight-cat-mac";
 			};
 			name = Debug;
@@ -673,7 +683,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.silverbear.midnight-cat-macTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/midnight-cat-mac.app/Contents/MacOS/midnight-cat-mac";
 			};
 			name = Release;

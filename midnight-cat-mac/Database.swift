@@ -8,6 +8,11 @@
 
 import Foundation
 
+class DatabaseCollectionNames {
+  static let repository: String = "repositories"
+  static let pullRequest: String = "pull-request"
+}
+
 protocol Storable {
   
   var collectionName: String { get }
