@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Octokit
 
 struct GitPullRequest: Storable, Codable {
   var collectionName: String {
@@ -23,4 +24,23 @@ struct GitPullRequest: Storable, Codable {
   let author: String
   let number: Int
   let repositoryID: Int
+  
+  init?(octoKitPullRequest: PullRequest, repositoryID: Int) {
+    guard
+      let title = octoKitPullRequest.title,
+      let url = octoKitPullRequest.htmlURL,
+      let author = octoKitPullRequest.user?.login,
+      let createdAt = octoKitPullRequest.createdAt,
+      let number = octoKitPullRequest.number
+    else {
+      return nil
+    }
+    
+    self.title = title
+    self.url = url
+    self.createdAt = createdAt
+    self.author = author
+    self.number = number
+    self.repositoryID = repositoryID
+  }
 }

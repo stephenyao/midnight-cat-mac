@@ -46,7 +46,7 @@ class RepositoryContentViewController: NSSplitViewController, RepositoryListView
     
     guard let config = AppState.sharedInstance.octokitConfig else {
       return
-    }
+    }        
   
     let _ = Octokit(config).pullRequests(owner: repository.owner!, repository: repository.name) { (response) in
       switch response {
@@ -54,17 +54,7 @@ class RepositoryContentViewController: NSSplitViewController, RepositoryListView
         DispatchQueue.main.async {
           self.removeSplitViewItem(self.rightSplitViewItem)
           let pullRequests = pullRequests.compactMap { pullRequestData -> GitPullRequest? in
-            guard
-              let title = pullRequestData.title,
-              let url = pullRequestData.htmlURL,
-              let author = pullRequestData.user?.login,
-              let createdAt = pullRequestData.createdAt,
-              let number = pullRequestData.number
-            else {
-              return nil
-            }
-            
-            return GitPullRequest(title: title, url: url, createdAt: createdAt, author: author, number: number, repositoryID: repository.id)
+            return GitPullRequest(octoKitPullRequest: pullRequestData, repositoryID: repository.id)
           }
           let repositoryDetailViewModel = RepositoryDetailsViewModel(cloneURL: repository.cloneURL ?? "", pullRequests: pullRequests)
           let detailsViewController = RepositoryDetailsViewController(viewModel: repositoryDetailViewModel)

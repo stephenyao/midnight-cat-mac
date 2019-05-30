@@ -28,7 +28,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
   func application(_ application: NSApplication, open urls: [URL]) {
     urls.forEach(self.router.route)
-    
   }
 
   @IBAction func selectRepositories(_ sender: NSMenuItem) {

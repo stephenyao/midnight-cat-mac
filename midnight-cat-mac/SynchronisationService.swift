@@ -24,12 +24,13 @@ class SynchronisationService {
     let repositories: [GitRepository] = self.dataStore.objects(with: DatabaseCollectionNames.repository)
     
     for repository in repositories {
-      Octokit(config).pullRequests(owner: repository.owner!, repository: repository.name) { response in
+      let _ = Octokit(config).pullRequests(owner: repository.owner!, repository: repository.name) { response in
         switch response {
         case .success(let pullRequests):
-          print(pullRequests)
+          let pullRequests = pullRequests.compactMap { GitPullRequest(octoKitPullRequest: $0, repositoryID: repository.id) }
+          pullRequests.forEach(self.dataStore.save)
         case .failure(let error):
-          print("error")
+          print("synchronisation error: \(error.localizedDescription)")
         }
       }
     }
