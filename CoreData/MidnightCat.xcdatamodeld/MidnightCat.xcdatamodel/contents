@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14490.99" systemVersion="18F203" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="PullRequestManagedObject" representedClassName="PullRequestManagedObject" syncable="YES">
+        <attribute name="author" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="number" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="repositoryID" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="URI" syncable="YES"/>
+        <relationship name="repository" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RepositoryManagedObject" inverseName="pullRequests" inverseEntity="RepositoryManagedObject" syncable="YES"/>
+    </entity>
+    <entity name="RepositoryManagedObject" representedClassName="RepositoryManagedObject" syncable="YES">
+        <attribute name="cloneURL" optional="YES" attributeType="URI" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="owner" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="pullRequests" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PullRequestManagedObject" inverseName="repository" inverseEntity="PullRequestManagedObject" syncable="YES"/>
+        <fetchedProperty name="fetchedProperty" optional="YES" syncable="YES">
+            <fetchRequest name="fetchedPropertyFetchRequest" entity="RepositoryManagedObject"/>
+        </fetchedProperty>
+    </entity>
+    <elements>
+        <element name="PullRequestManagedObject" positionX="-63" positionY="-18" width="128" height="148"/>
+        <element name="RepositoryManagedObject" positionX="-54" positionY="-9" width="128" height="146"/>
+    </elements>
+</model>

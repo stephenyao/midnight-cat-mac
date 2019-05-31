@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import CoreData
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -22,8 +23,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     let router = Router(routables: [authenticationRoutable])
     self.router = router
-    self.synchronisationService = SynchronisationService()
-    self.synchronisationService.syncRepositories()
   }
 
   func application(_ application: NSApplication, open urls: [URL]) {
@@ -39,4 +38,25 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let nextCoordinator = RepositoriesSelectCoordinator()
     self.selectRepositoriesWindow = nextCoordinator.createAndLoad(from: nil)
   }
+  
+  func applicationWillTerminate(_ notification: Notification) {
+    self.saveContext()
+  }
+
+  // MARK: - Core Data Saving support
+  
+  func saveContext () {
+    let context = CoreDataManagedObjectContext.sharedInstance.context
+    if context.hasChanges {
+      do {
+        try context.save()
+      } catch {
+        // Replace this implementation with code to handle the error appropriately.
+        // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+        let nserror = error as NSError
+        fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+      }
+    }
+  }
+
 }

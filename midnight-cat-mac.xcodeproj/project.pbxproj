@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		043DF22922A0DE6C00734A67 /* MidnightCat.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 043DF22722A0DE6C00734A67 /* MidnightCat.xcdatamodeld */; };
+		043DF23122A0DEB800734A67 /* RepositoryManagedObject+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043DF22D22A0DEB800734A67 /* RepositoryManagedObject+CoreDataClass.swift */; };
+		043DF23222A0DEB800734A67 /* RepositoryManagedObject+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043DF22E22A0DEB800734A67 /* RepositoryManagedObject+CoreDataProperties.swift */; };
+		043DF23322A0DEB800734A67 /* PullRequestManagedObject+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043DF22F22A0DEB800734A67 /* PullRequestManagedObject+CoreDataProperties.swift */; };
+		043DF23422A0DEB800734A67 /* PullRequestManagedObject+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043DF23022A0DEB800734A67 /* PullRequestManagedObject+CoreDataClass.swift */; };
+		043DF23622A0DFD500734A67 /* CoreDataManagedObjectContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043DF23522A0DFD500734A67 /* CoreDataManagedObjectContext.swift */; };
 		044D26B421F5E38400489984 /* RepositoryContentEmptyDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D26B221F5E38400489984 /* RepositoryContentEmptyDetailViewController.swift */; };
 		044D26B521F5E38400489984 /* RepositoryContentEmptyDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 044D26B321F5E38400489984 /* RepositoryContentEmptyDetailViewController.xib */; };
 		04595789229CEC8600B81E44 /* SynchronisationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04595788229CEC8600B81E44 /* SynchronisationService.swift */; };
@@ -57,6 +63,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		043DF22822A0DE6C00734A67 /* MidnightCat.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MidnightCat.xcdatamodel; sourceTree = "<group>"; };
+		043DF22D22A0DEB800734A67 /* RepositoryManagedObject+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RepositoryManagedObject+CoreDataClass.swift"; sourceTree = "<group>"; };
+		043DF22E22A0DEB800734A67 /* RepositoryManagedObject+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RepositoryManagedObject+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		043DF22F22A0DEB800734A67 /* PullRequestManagedObject+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PullRequestManagedObject+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		043DF23022A0DEB800734A67 /* PullRequestManagedObject+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PullRequestManagedObject+CoreDataClass.swift"; sourceTree = "<group>"; };
+		043DF23522A0DFD500734A67 /* CoreDataManagedObjectContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManagedObjectContext.swift; sourceTree = "<group>"; };
 		044D26B221F5E38400489984 /* RepositoryContentEmptyDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryContentEmptyDetailViewController.swift; sourceTree = "<group>"; };
 		044D26B321F5E38400489984 /* RepositoryContentEmptyDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositoryContentEmptyDetailViewController.xib; sourceTree = "<group>"; };
 		04595788229CEC8600B81E44 /* SynchronisationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynchronisationService.swift; sourceTree = "<group>"; };
@@ -122,6 +134,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		043DF20B22A0DB2E00734A67 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				043DF22722A0DE6C00734A67 /* MidnightCat.xcdatamodeld */,
+				043DF23022A0DEB800734A67 /* PullRequestManagedObject+CoreDataClass.swift */,
+				043DF22F22A0DEB800734A67 /* PullRequestManagedObject+CoreDataProperties.swift */,
+				043DF22E22A0DEB800734A67 /* RepositoryManagedObject+CoreDataProperties.swift */,
+				043DF22D22A0DEB800734A67 /* RepositoryManagedObject+CoreDataClass.swift */,
+				043DF23522A0DFD500734A67 /* CoreDataManagedObjectContext.swift */,
+			);
+			name = CoreData;
+			path = ../CoreData;
+			sourceTree = "<group>";
+		};
 		047DD69721E61A5C00E8CA48 /* RepositorySelection */ = {
 			isa = PBXGroup;
 			children = (
@@ -197,6 +223,7 @@
 		DD049DF421C4964B007E2DE6 /* midnight-cat-mac */ = {
 			isa = PBXGroup;
 			children = (
+				043DF20B22A0DB2E00734A67 /* CoreData */,
 				DD049DF521C4964B007E2DE6 /* AppDelegate.swift */,
 				DD442E4921D4B62B007E4325 /* AppState.swift */,
 				DDA2261921E072C20096BD9B /* Database.swift */,
@@ -433,22 +460,28 @@
 				DD442E5121D4EFB0007E4325 /* Authentication.swift in Sources */,
 				04BEC46621EB5EF500DC357A /* RepositoryListViewController.swift in Sources */,
 				04595789229CEC8600B81E44 /* SynchronisationService.swift in Sources */,
+				043DF23622A0DFD500734A67 /* CoreDataManagedObjectContext.swift in Sources */,
 				DD442E6021D618E2007E4325 /* ZeroStateViewController.swift in Sources */,
 				DD442E5C21D50EC5007E4325 /* RepositoriesSelectCoordinator.swift in Sources */,
 				047DD69C21E61BB900E8CA48 /* GitRepository.swift in Sources */,
 				DD442E4A21D4B62B007E4325 /* AppState.swift in Sources */,
 				DD049DF621C4964B007E2DE6 /* AppDelegate.swift in Sources */,
+				043DF23422A0DEB800734A67 /* PullRequestManagedObject+CoreDataClass.swift in Sources */,
 				0459578B229CF02400B81E44 /* GitPullRequest.swift in Sources */,
 				044D26B421F5E38400489984 /* RepositoryContentEmptyDetailViewController.swift in Sources */,
 				DDA2261A21E072C20096BD9B /* Database.swift in Sources */,
+				043DF22922A0DE6C00734A67 /* MidnightCat.xcdatamodeld in Sources */,
 				04BEC45721EA9BC300DC357A /* MainWindowPresenter.swift in Sources */,
 				DD442E1821D25BFA007E4325 /* MainWindowController.swift in Sources */,
 				04BEC46221EAC3EF00DC357A /* RepositoryDetailsViewController.swift in Sources */,
 				04BEC45C21EAAD5F00DC357A /* RepositoryContentViewController.swift in Sources */,
 				DD442E3821D26410007E4325 /* OauthApplicationDetailsViewController.swift in Sources */,
+				043DF23222A0DEB800734A67 /* RepositoryManagedObject+CoreDataProperties.swift in Sources */,
+				043DF23122A0DEB800734A67 /* RepositoryManagedObject+CoreDataClass.swift in Sources */,
 				DD442E4E21D4E959007E4325 /* Router.swift in Sources */,
 				DD442E1521D25A8B007E4325 /* LoginViewController.swift in Sources */,
 				DD442E5921D50E84007E4325 /* RepositoriesSelectViewController.swift in Sources */,
+				043DF23322A0DEB800734A67 /* PullRequestManagedObject+CoreDataProperties.swift in Sources */,
 				047DD69921E61B7F00E8CA48 /* RepositorySelectTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -719,6 +752,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		043DF22722A0DE6C00734A67 /* MidnightCat.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				043DF22822A0DE6C00734A67 /* MidnightCat.xcdatamodel */,
+			);
+			currentVersion = 043DF22822A0DE6C00734A67 /* MidnightCat.xcdatamodel */;
+			path = MidnightCat.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = DD049DEA21C4964B007E2DE6 /* Project object */;
 }
