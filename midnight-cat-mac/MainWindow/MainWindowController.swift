@@ -17,10 +17,6 @@ class MainWindowController: NSWindowController, MainWindowPresenterDelegate {
     self.presenter.delegate = self
   }
   
-  private func presentLoggedInState() {
-    presentZeroState()
-  }
-  
   func presentRepositories() {
     let repositoryContentViewController = RepositoryContentViewController.init(nibName: nil, bundle: nil)
     self.window?.contentViewController = repositoryContentViewController
