@@ -67,7 +67,6 @@ class SelectRepositoryViewController: NSViewController, NSTableViewDataSource, N
   func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
     let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "cellId"), owner: nil) as? RepositorySelectTableViewCell
     let (name, state) = (self.viewModel.repositoryNameAtIndex(index: row), self.viewModel.selectedStateAt(index: row))
-    cell?.configure(title: name, index: row, checkedState: state)
     cell?.configure(title: name, checkedState: state) { state in
       print(state)
     }
