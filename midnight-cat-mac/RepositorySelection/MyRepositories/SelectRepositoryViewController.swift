@@ -28,7 +28,15 @@ struct SelectRepositoryViewModel {
   }
   
   func itemIsSelectedAtIndex(index: Int) -> Bool {
-    return false
+    do {
+      let repository = self.repositories[index]
+      let fetchRequest: NSFetchRequest<RepositoryManagedObject> = RepositoryManagedObject.fetchRequest()
+      fetchRequest.predicate = NSPredicate(format: "id == %d", repository.id)
+      let results = try self.managedObjectContext.fetch(fetchRequest)
+      return results.count > 0
+    } catch {
+      return false
+    }
   }
   
   func selectedStateAt(index: Int) -> NSButton.StateValue {
@@ -40,6 +48,26 @@ struct SelectRepositoryViewModel {
   }
   
   func onCellStateChanged(atIndex index: Int) {
+    do {
+      let repository = self.repositories[index]
+      let fetchRequest: NSFetchRequest<RepositoryManagedObject> = RepositoryManagedObject.fetchRequest()
+      fetchRequest.predicate = NSPredicate(format: "id == %d", repository.id)
+      let results = try self.managedObjectContext.fetch(fetchRequest)
+      if results.count == 0 {
+        let entity = NSEntityDescription.insertNewObject(forEntityName: String(describing: RepositoryManagedObject.self), into: self.managedObjectContext) as! RepositoryManagedObject
+        entity.name = repository.name
+        entity.id = Int16(repository.id)
+        entity.cloneURL = URL(string: repository.cloneURL!)
+        entity.selected = true
+        entity.owner = repository.owner
+        try self.managedObjectContext.save()
+      } else {
+        self.managedObjectContext.delete(results.first!)
+      }
+    } catch {
+      
+    }
+    
     self.input.send(value: ())
   }
 }
