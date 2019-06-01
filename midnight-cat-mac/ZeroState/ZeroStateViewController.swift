@@ -9,9 +9,8 @@
 import Cocoa
 
 class ZeroStateViewController: NSViewController {
-
-  @IBAction func onAddButtonTapped(_ sender: Any) {    
-    let nextCoordinator = RepositoriesSelectCoordinator()
-    nextCoordinator.createAndLoad(from: nil)
+  @IBAction func onAddButtonTapped(_ sender: Any) {
+    let controller = SelectRepositoriesWindowController.sharedInstance
+    controller.showWindow(self)
   }
 }

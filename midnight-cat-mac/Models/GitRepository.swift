@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Octokit
 
 struct GitRepository: Storable, Codable {
   var primaryKey: String {
@@ -20,5 +21,12 @@ struct GitRepository: Storable, Codable {
   
   var collectionName: String {
     return "repositories"
+  }
+  
+  init?(repository: Repository) {
+    self.id = repository.id
+    self.name = repository.name ?? ""
+    self.owner = repository.owner.login ?? ""
+    self.cloneURL = repository.cloneURL
   }
 }

@@ -13,6 +13,8 @@ protocol RepositorySelectTableViewCellDelegate: class {
   func repository(at index: Int, wasSelected selected: Bool)
 }
 
+typealias RepositorySelectCellOnTap = (NSButton.StateValue) -> Void
+
 final class RepositorySelectTableViewCell: NSTableCellView {
   
   weak var delegate: RepositorySelectTableViewCellDelegate?
@@ -20,11 +22,18 @@ final class RepositorySelectTableViewCell: NSTableCellView {
   @IBOutlet var checkBox: NSButton!
   
   private var index: Int!
+  private var onTap: RepositorySelectCellOnTap!
   
   func configure(title: String, index: Int, checkedState: NSButton.StateValue) {
     self.textField?.stringValue = title
     self.checkBox.state = checkedState
     self.index = index
+  }
+  
+  func configure(title: String, checkedState: NSButton.StateValue, onTap: @escaping RepositorySelectCellOnTap) {
+    self.textField?.stringValue = title
+    self.checkBox.state = checkedState
+    self.onTap = onTap
   }
   
   @IBAction func onCheckButtonTapped(_ sender: NSButton) {
@@ -35,6 +44,8 @@ final class RepositorySelectTableViewCell: NSTableCellView {
       self.delegate?.repository(at: self.index, wasSelected: false)
     default: break
     }
+    
+    self.onTap(sender.state)
   }
   
 }

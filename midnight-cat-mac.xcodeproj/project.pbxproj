@@ -256,12 +256,12 @@
 		DD049DF421C4964B007E2DE6 /* midnight-cat-mac */ = {
 			isa = PBXGroup;
 			children = (
-				043DF23E22A2935A00734A67 /* Extensions */,
 				DD049DF521C4964B007E2DE6 /* AppDelegate.swift */,
 				DD442E4921D4B62B007E4325 /* AppState.swift */,
 				DDA2261921E072C20096BD9B /* Database.swift */,
 				04595788229CEC8600B81E44 /* SynchronisationService.swift */,
 				043DF20B22A0DB2E00734A67 /* CoreData */,
+				043DF23E22A2935A00734A67 /* Extensions */,
 				DD442E1221D25A38007E4325 /* MainWindow */,
 				047DD69A21E61B9A00E8CA48 /* Models */,
 				DD442E3521D263DE007E4325 /* Onboarding */,

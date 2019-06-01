@@ -43,17 +43,10 @@ class SelectRepositoriesWindowController: NSWindowController {
     let _ = octokit.myStars() { (response) in
       switch response {
       case .success(let fetchedRepositories):
-        do {
-          fetchedRepositories.forEach(self.save)
-          let batchDeleteRequest = NSBatchDeleteRequest.init(fetchRequest: RepositoryManagedObject.fetchRequest())
-          try self.context.execute(batchDeleteRequest)
-          try self.context.save()
-        } catch (let error) {
-          print(error.localizedDescription)
-        }
-        
+        let repositories = fetchedRepositories.compactMap(GitRepository.init)
         DispatchQueue.main.async {
-          let viewController = SelectRepositoryViewController.init()
+          let viewModel = SelectRepositoryViewModel.init(repositories: repositories)
+          let viewController = SelectRepositoryViewController.init(viewModel: viewModel)
           self.window?.contentViewController = viewController
         }
       case .failure(let error):
