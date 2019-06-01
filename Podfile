@@ -7,4 +7,5 @@ target 'midnight-cat-mac' do
 
   # Pods for midnight-cat-mac
   pod 'OctoKit.swift'
+  pod 'ReactiveSwift', '~> 6.0'
 end

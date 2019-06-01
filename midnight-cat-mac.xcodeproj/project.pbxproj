@@ -474,11 +474,13 @@
 				"${PODS_ROOT}/Target Support Files/Pods-midnight-cat-mac/Pods-midnight-cat-mac-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/NBNRequestKit/RequestKit.framework",
 				"${BUILT_PRODUCTS_DIR}/OctoKit.swift/Octokit.framework",
+				"${BUILT_PRODUCTS_DIR}/ReactiveSwift/ReactiveSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RequestKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Octokit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

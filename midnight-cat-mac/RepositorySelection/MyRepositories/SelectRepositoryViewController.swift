@@ -7,12 +7,20 @@
 //
 
 import Cocoa
+import ReactiveSwift
 
 struct SelectRepositoryViewModel {
-  let repositories: [GitRepository]
   
+  let signal: Signal<Void, Never>
+  private let input: Signal<Void, Never>.Observer
+  private let repositories: [GitRepository]
+  private let managedObjectContext: NSManagedObjectContext = CoreDataManagedObjectContext.sharedInstance.context
+
   init(repositories: [GitRepository]) {
     self.repositories = repositories
+    let (output, input) = Signal<Void, Never>.pipe()
+    self.signal = output
+    self.input = input
   }
   
   var itemCount: Int {
@@ -30,12 +38,15 @@ struct SelectRepositoryViewModel {
   func repositoryNameAtIndex(index: Int) -> String {
     return self.repositories[index].name
   }
+  
+  func onCellStateChanged(atIndex index: Int) {
+    self.input.send(value: ())
+  }
 }
 
 class SelectRepositoryViewController: NSViewController, NSTableViewDataSource, NSTableViewDelegate, NSFetchedResultsControllerDelegate {
   
   private var fetchResultsController: NSFetchedResultsController<RepositoryManagedObject>!
-  private let managedObjectContext: NSManagedObjectContext = CoreDataManagedObjectContext.sharedInstance.context
   private let viewModel: SelectRepositoryViewModel
   
   @IBOutlet var tableView: NSTableView!
@@ -58,6 +69,9 @@ class SelectRepositoryViewController: NSViewController, NSTableViewDataSource, N
 //    fetchResultsController.delegate = self
 //    try! fetchResultsController.performFetch()
 //    self.fetchResultsController = fetchResultsController
+    self.viewModel.signal.observeValues {
+      self.tableView.reloadData()
+    }
   }
   
   func numberOfRows(in tableView: NSTableView) -> Int {
@@ -68,7 +82,7 @@ class SelectRepositoryViewController: NSViewController, NSTableViewDataSource, N
     let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "cellId"), owner: nil) as? RepositorySelectTableViewCell
     let (name, state) = (self.viewModel.repositoryNameAtIndex(index: row), self.viewModel.selectedStateAt(index: row))
     cell?.configure(title: name, checkedState: state) { state in
-      print(state)
+      self.viewModel.onCellStateChanged(atIndex: row)
     }
     
     return cell
