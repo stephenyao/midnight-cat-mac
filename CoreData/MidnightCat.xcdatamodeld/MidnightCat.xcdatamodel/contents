@@ -14,6 +14,7 @@
         <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="owner" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="selected" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="pullRequests" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PullRequestManagedObject" inverseName="repository" inverseEntity="PullRequestManagedObject" syncable="YES"/>
         <fetchedProperty name="fetchedProperty" optional="YES" syncable="YES">
             <fetchRequest name="fetchedPropertyFetchRequest" entity="RepositoryManagedObject"/>
@@ -21,6 +22,6 @@
     </entity>
     <elements>
         <element name="PullRequestManagedObject" positionX="-63" positionY="-18" width="128" height="148"/>
-        <element name="RepositoryManagedObject" positionX="-54" positionY="-9" width="128" height="146"/>
+        <element name="RepositoryManagedObject" positionX="-54" positionY="-9" width="128" height="164"/>
     </elements>
 </model>

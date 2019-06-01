@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="SelectRepositoryViewController" customModule="midnight_cat_mac" customModuleProvider="target">
+            <connections>
+                <outlet property="tableView" destination="XuZ-hT-xKZ" id="PiR-lp-KGr"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gdE-KK-N5A">
+                    <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
+                    <clipView key="contentView" id="MKS-le-4hF">
+                        <rect key="frame" x="1" y="1" width="478" height="270"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnReordering="NO" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" id="XuZ-hT-xKZ">
+                                <rect key="frame" x="0.0" y="0.0" width="478" height="270"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <size key="intercellSpacing" width="3" height="2"/>
+                                <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                                <tableColumns>
+                                    <tableColumn width="475" minWidth="40" maxWidth="1000" id="InH-yd-0Sb">
+                                        <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
+                                            <font key="font" metaFont="smallSystem"/>
+                                            <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                        </tableHeaderCell>
+                                        <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" title="Text Cell" id="E7b-UK-tk5">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                        <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                        <prototypeCellViews>
+                                            <tableCellView identifier="cellId" id="NcD-Rp-yLe" customClass="RepositorySelectTableViewCell" customModule="midnight_cat_mac" customModuleProvider="target">
+                                                <rect key="frame" x="1" y="1" width="475" height="17"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <subviews>
+                                                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="k9N-AY-HHW">
+                                                        <rect key="frame" x="0.0" y="0.0" width="475" height="17"/>
+                                                        <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" identifier="cellId" title="Cell" id="iJh-yJ-DVq">
+                                                            <font key="font" metaFont="system"/>
+                                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                    </textField>
+                                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Eia-m0-kir">
+                                                        <rect key="frame" x="445" y="0.0" width="22" height="18"/>
+                                                        <buttonCell key="cell" type="check" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="isN-DC-6Gj">
+                                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                            <font key="font" metaFont="system"/>
+                                                        </buttonCell>
+                                                        <connections>
+                                                            <action selector="onCheckButtonTapped:" target="NcD-Rp-yLe" id="3pR-Y5-qMh"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="k9N-AY-HHW" firstAttribute="leading" secondItem="NcD-Rp-yLe" secondAttribute="leading" constant="2" id="0zm-SJ-hCm"/>
+                                                    <constraint firstItem="Eia-m0-kir" firstAttribute="centerY" secondItem="k9N-AY-HHW" secondAttribute="centerY" id="8RN-1q-MD5"/>
+                                                    <constraint firstItem="k9N-AY-HHW" firstAttribute="centerY" secondItem="NcD-Rp-yLe" secondAttribute="centerY" id="AMs-ZQ-36v"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Eia-m0-kir" secondAttribute="trailing" constant="10" id="ci5-zZ-6L1"/>
+                                                    <constraint firstItem="k9N-AY-HHW" firstAttribute="centerX" secondItem="NcD-Rp-yLe" secondAttribute="centerX" id="dvB-Tu-KtN"/>
+                                                </constraints>
+                                                <connections>
+                                                    <outlet property="checkBox" destination="Eia-m0-kir" id="dxK-v3-Qky"/>
+                                                    <outlet property="textField" destination="k9N-AY-HHW" id="qux-ki-dG6"/>
+                                                </connections>
+                                            </tableCellView>
+                                        </prototypeCellViews>
+                                    </tableColumn>
+                                </tableColumns>
+                                <connections>
+                                    <outlet property="dataSource" destination="-2" id="hc2-JU-4qq"/>
+                                    <outlet property="delegate" destination="-2" id="ySt-Sy-QHY"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                    </clipView>
+                    <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="Tdo-VZ-Vu9">
+                        <rect key="frame" x="1" y="119" width="223" height="15"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                    <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="bp5-U7-047">
+                        <rect key="frame" x="224" y="17" width="15" height="102"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                </scrollView>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="gdE-KK-N5A" secondAttribute="trailing" id="2J2-Co-EXn"/>
+                <constraint firstItem="gdE-KK-N5A" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="7DH-oa-KeU"/>
+                <constraint firstAttribute="bottom" secondItem="gdE-KK-N5A" secondAttribute="bottom" id="Pgg-jl-BeQ"/>
+                <constraint firstItem="gdE-KK-N5A" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="YHY-SD-EpF"/>
+            </constraints>
+            <point key="canvasLocation" x="237" y="115"/>
+        </customView>
+    </objects>
+</document>

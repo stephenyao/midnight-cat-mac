@@ -42,7 +42,7 @@ class OauthApplicationDetailsViewController: NSViewController {
     let nextCoordinator = RepositoriesSelectCoordinator()
     if let window = self.view.window {
       nextCoordinator.createAndLoad(from: window)
-    }
+    }      
   }
   
   @objc private func onSignInFailure() {
