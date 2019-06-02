@@ -55,6 +55,7 @@
 		DD442E6021D618E2007E4325 /* ZeroStateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD442E5E21D618E2007E4325 /* ZeroStateViewController.swift */; };
 		DD442E6121D618E2007E4325 /* ZeroStateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD442E5F21D618E2007E4325 /* ZeroStateViewController.xib */; };
 		DD4D28B522A394350063AA3E /* NSEntityDescription+ManagedObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4D28B422A394350063AA3E /* NSEntityDescription+ManagedObjects.swift */; };
+		DD4D28B722A39BF60063AA3E /* CoreDataManagedObjectFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4D28B622A39BF60063AA3E /* CoreDataManagedObjectFetcher.swift */; };
 		DDA2261A21E072C20096BD9B /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA2261921E072C20096BD9B /* Database.swift */; };
 		DDA2261C21E079170096BD9B /* DatabaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA2261B21E079170096BD9B /* DatabaseTests.swift */; };
 /* End PBXBuildFile section */
@@ -125,6 +126,7 @@
 		DD442E5E21D618E2007E4325 /* ZeroStateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeroStateViewController.swift; sourceTree = "<group>"; };
 		DD442E5F21D618E2007E4325 /* ZeroStateViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZeroStateViewController.xib; sourceTree = "<group>"; };
 		DD4D28B422A394350063AA3E /* NSEntityDescription+ManagedObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSEntityDescription+ManagedObjects.swift"; sourceTree = "<group>"; };
+		DD4D28B622A39BF60063AA3E /* CoreDataManagedObjectFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManagedObjectFetcher.swift; sourceTree = "<group>"; };
 		DDA2261921E072C20096BD9B /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		DDA2261B21E079170096BD9B /* DatabaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -158,6 +160,7 @@
 				043DF22D22A0DEB800734A67 /* RepositoryManagedObject+CoreDataClass.swift */,
 				043DF23522A0DFD500734A67 /* CoreDataManagedObjectContext.swift */,
 				DD4D28B422A394350063AA3E /* NSEntityDescription+ManagedObjects.swift */,
+				DD4D28B622A39BF60063AA3E /* CoreDataManagedObjectFetcher.swift */,
 			);
 			name = CoreData;
 			path = ../CoreData;
@@ -263,8 +266,8 @@
 				DD442E4921D4B62B007E4325 /* AppState.swift */,
 				DDA2261921E072C20096BD9B /* Database.swift */,
 				04595788229CEC8600B81E44 /* SynchronisationService.swift */,
-				043DF20B22A0DB2E00734A67 /* CoreData */,
 				043DF23E22A2935A00734A67 /* Extensions */,
+				043DF20B22A0DB2E00734A67 /* CoreData */,
 				DD442E1221D25A38007E4325 /* MainWindow */,
 				047DD69A21E61B9A00E8CA48 /* Models */,
 				DD442E3521D263DE007E4325 /* Onboarding */,
@@ -511,6 +514,7 @@
 				0459578B229CF02400B81E44 /* GitPullRequest.swift in Sources */,
 				044D26B421F5E38400489984 /* RepositoryContentEmptyDetailViewController.swift in Sources */,
 				DDA2261A21E072C20096BD9B /* Database.swift in Sources */,
+				DD4D28B722A39BF60063AA3E /* CoreDataManagedObjectFetcher.swift in Sources */,
 				043DF24022A2936E00734A67 /* NSWindowController+Extensions.swift in Sources */,
 				043DF22922A0DE6C00734A67 /* MidnightCat.xcdatamodeld in Sources */,
 				04BEC45721EA9BC300DC357A /* MainWindowPresenter.swift in Sources */,

@@ -15,6 +15,7 @@ struct SelectRepositoryViewModel {
   private let input: Signal<Void, Never>.Observer
   private let repositories: [GitRepository]
   private let managedObjectContext: NSManagedObjectContext = CoreDataManagedObjectContext.sharedInstance.context
+  private let managedObjectFetcher: CoreDataManagedObjectFetcher = CoreDataManagedObjectFetcher.sharedInstance
 
   init(repositories: [GitRepository]) {
     self.repositories = repositories
@@ -50,14 +51,11 @@ struct SelectRepositoryViewModel {
   func onCellStateChanged(atIndex index: Int) {
     do {
       let repository = self.repositories[index]
-      let fetchRequest: NSFetchRequest<RepositoryManagedObject> = RepositoryManagedObject.fetchRequest()
-      fetchRequest.predicate = NSPredicate(format: "id == %d", repository.id)
-      let results = try self.managedObjectContext.fetch(fetchRequest)
-      if results.count == 0 {
+      if let repository = self.managedObjectFetcher.repositoryManagedObject(withID: repository.id, managedObjectContext: self.managedObjectContext) {
+        self.managedObjectContext.delete(repository)
+      } else {
         NSEntityDescription.repositoryEntity(forRepository: repository, withContext: self.managedObjectContext)
         try self.managedObjectContext.save()
-      } else {
-        self.managedObjectContext.delete(results.first!)
       }
     } catch (let error) {
       print(error.localizedDescription)
