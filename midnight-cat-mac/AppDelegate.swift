@@ -30,13 +30,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   }
 
   @IBAction func selectRepositories(_ sender: NSMenuItem) {
-    if let window = selectRepositoriesWindow {
-      window.makeKeyAndOrderFront(nil)
-      return
-    }
-    
-    let nextCoordinator = RepositoriesSelectCoordinator()
-    self.selectRepositoriesWindow = nextCoordinator.createAndLoad(from: nil)
+    let controller = SelectRepositoriesWindowController.sharedInstance
+    controller.showWindow(self)
   }
   
   func applicationWillTerminate(_ notification: Notification) {
@@ -51,8 +46,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
       do {
         try context.save()
       } catch {
-        // Replace this implementation with code to handle the error appropriately.
-        // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
         let nserror = error as NSError
         fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
       }

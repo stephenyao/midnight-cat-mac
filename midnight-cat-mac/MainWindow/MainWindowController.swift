@@ -10,7 +10,7 @@ import Cocoa
 
 class MainWindowController: NSWindowController, MainWindowPresenterDelegate {
   
-  private let presenter: MainWindowPresenter = MainWindowPresenter(dataStore: Database.sharedInstance)
+  private let presenter: MainWindowPresenter = MainWindowPresenter.init()
   
   override func windowDidLoad() {
     super.windowDidLoad()
