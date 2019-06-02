@@ -26,7 +26,6 @@
 		047DD69921E61B7F00E8CA48 /* RepositorySelectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047DD69821E61B7F00E8CA48 /* RepositorySelectTableViewCell.swift */; };
 		047DD69C21E61BB900E8CA48 /* GitRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047DD69B21E61BB900E8CA48 /* GitRepository.swift */; };
 		04BEC45721EA9BC300DC357A /* MainWindowPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BEC45621EA9BC300DC357A /* MainWindowPresenter.swift */; };
-		04BEC45921EA9E0500DC357A /* MainWindowPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BEC45821EA9E0500DC357A /* MainWindowPresenterTests.swift */; };
 		04BEC45C21EAAD5F00DC357A /* RepositoryContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BEC45A21EAAD5F00DC357A /* RepositoryContentViewController.swift */; };
 		04BEC45D21EAAD5F00DC357A /* RepositoryContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04BEC45B21EAAD5F00DC357A /* RepositoryContentViewController.xib */; };
 		04BEC46221EAC3EF00DC357A /* RepositoryDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BEC46021EAC3EF00DC357A /* RepositoryDetailsViewController.swift */; };
@@ -53,7 +52,6 @@
 		DD442E6121D618E2007E4325 /* ZeroStateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD442E5F21D618E2007E4325 /* ZeroStateViewController.xib */; };
 		DD4D28B522A394350063AA3E /* NSEntityDescription+ManagedObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4D28B422A394350063AA3E /* NSEntityDescription+ManagedObjects.swift */; };
 		DD4D28B722A39BF60063AA3E /* CoreDataManagedObjectFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4D28B622A39BF60063AA3E /* CoreDataManagedObjectFetcher.swift */; };
-		DDA2261C21E079170096BD9B /* DatabaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA2261B21E079170096BD9B /* DatabaseTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,7 +84,6 @@
 		047DD69821E61B7F00E8CA48 /* RepositorySelectTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositorySelectTableViewCell.swift; sourceTree = "<group>"; };
 		047DD69B21E61BB900E8CA48 /* GitRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitRepository.swift; sourceTree = "<group>"; };
 		04BEC45621EA9BC300DC357A /* MainWindowPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowPresenter.swift; sourceTree = "<group>"; };
-		04BEC45821EA9E0500DC357A /* MainWindowPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowPresenterTests.swift; sourceTree = "<group>"; };
 		04BEC45A21EAAD5F00DC357A /* RepositoryContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryContentViewController.swift; sourceTree = "<group>"; };
 		04BEC45B21EAAD5F00DC357A /* RepositoryContentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositoryContentViewController.xib; sourceTree = "<group>"; };
 		04BEC46021EAC3EF00DC357A /* RepositoryDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailsViewController.swift; sourceTree = "<group>"; };
@@ -120,7 +117,6 @@
 		DD442E5F21D618E2007E4325 /* ZeroStateViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZeroStateViewController.xib; sourceTree = "<group>"; };
 		DD4D28B422A394350063AA3E /* NSEntityDescription+ManagedObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSEntityDescription+ManagedObjects.swift"; sourceTree = "<group>"; };
 		DD4D28B622A39BF60063AA3E /* CoreDataManagedObjectFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManagedObjectFetcher.swift; sourceTree = "<group>"; };
-		DDA2261B21E079170096BD9B /* DatabaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -290,9 +286,7 @@
 				DD442E4121D4B14F007E4325 /* AppStateTests.swift */,
 				DD442E5221D4F08F007E4325 /* AuthenticationRoutableTests.swift */,
 				DD442E4B21D4B883007E4325 /* RouterTests.swift */,
-				DDA2261B21E079170096BD9B /* DatabaseTests.swift */,
 				DD442E4321D4B14F007E4325 /* Info.plist */,
-				04BEC45821EA9E0500DC357A /* MainWindowPresenterTests.swift */,
 			);
 			path = "midnight-cat-macTests";
 			sourceTree = "<group>";
@@ -517,9 +511,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD442E4C21D4B883007E4325 /* RouterTests.swift in Sources */,
-				04BEC45921EA9E0500DC357A /* MainWindowPresenterTests.swift in Sources */,
 				DD442E4221D4B14F007E4325 /* AppStateTests.swift in Sources */,
-				DDA2261C21E079170096BD9B /* DatabaseTests.swift in Sources */,
 				DD442E5321D4F08F007E4325 /* AuthenticationRoutableTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
