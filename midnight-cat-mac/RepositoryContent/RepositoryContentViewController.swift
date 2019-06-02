@@ -8,7 +8,6 @@
 
 import Cocoa
 import Octokit
-import CoreData
 
 class RepositoryContentViewController: NSSplitViewController, RepositoryListViewControllerDelegate {
   
@@ -21,7 +20,8 @@ class RepositoryContentViewController: NSSplitViewController, RepositoryListView
     
     self.repositories = self.database.objects(with: "repositories")
     
-    let viewModel = RepositoryListViewModel()
+    let repositoryNames = self.repositories.map { $0.name }
+    let viewModel = RepositoryListViewModel(repositoryNames: repositoryNames)
     let listViewController = RepositoryListViewController(viewModel: viewModel)
     listViewController.delegate = self
     

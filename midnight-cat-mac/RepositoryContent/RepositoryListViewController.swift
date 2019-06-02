@@ -7,40 +7,9 @@
 //
 
 import Cocoa
-import ReactiveSwift
 
-class RepositoryListViewModel: NSObject, NSFetchedResultsControllerDelegate {
-  
-  let signal: Signal<Void, Never>
-  
-  private let input: Signal<Void, Never>.Observer
-  private let fetchResultsController: NSFetchedResultsController<RepositoryManagedObject>
-  
-  var numberOfItems: Int {
-    return self.fetchResultsController.fetchedObjects?.count ?? 0
-  }
-  
-  init(managedObjectContext: NSManagedObjectContext = CoreDataManagedObjectContext.sharedInstance.context) {
-    let (output, input) = Signal<Void, Never>.pipe()
-    self.signal = output
-    self.input = input
-    
-    let fetchRequest: NSFetchRequest<RepositoryManagedObject> = RepositoryManagedObject.fetchRequest()
-    fetchRequest.sortDescriptors = [NSSortDescriptor.init(key: "name", ascending: true)]
-    let fetchResultsController = NSFetchedResultsController.init(fetchRequest: fetchRequest, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
-    do {
-      try fetchResultsController.performFetch()
-    } catch {}
-    self.fetchResultsController = fetchResultsController
-  }
-  
-  func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-    self.input.send(value: ())
-  }
-  
-  func nameOfRepositoryAt(row: Int) -> String {
-    return self.fetchResultsController.object(at: IndexPath(item: row, section: 0)).name ?? ""
-  }
+struct RepositoryListViewModel {
+  let repositoryNames: [String]
 }
 
 protocol RepositoryListViewControllerDelegate: class {
@@ -65,21 +34,14 @@ class RepositoryListViewController: NSViewController, NSTableViewDataSource, NST
     fatalError("init(coder:) has not been implemented")
   }
   
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    self.viewModel.signal.observe { _ in
-      self.tableView.reloadData()
-    }
-  }
-  
   func numberOfRows(in tableView: NSTableView) -> Int {
-    return self.viewModel.numberOfItems
+    return self.viewModel.repositoryNames.count
   }
   
   func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
     let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "cellId"), owner: nil) as? NSTableCellView
     
-    let repositoryName = self.viewModel.nameOfRepositoryAt(row: row)
+    let repositoryName = self.viewModel.repositoryNames[row]
     cell?.textField?.stringValue = repositoryName    
     
     return cell
