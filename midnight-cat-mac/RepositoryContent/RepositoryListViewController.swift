@@ -9,7 +9,19 @@
 import Cocoa
 
 struct RepositoryListViewModel {
-  let repositoryNames: [String]
+  private let repositoryNames: [String]
+  
+  init(repositoryNames: [String]) {
+    self.repositoryNames = repositoryNames
+  }
+  
+  var numberOfItems: Int {
+    return self.repositoryNames.count
+  }
+  
+  func nameOfRepositoryAt(row: Int) -> String {
+    return self.repositoryNames[row]
+  }
 }
 
 protocol RepositoryListViewControllerDelegate: class {
@@ -40,13 +52,13 @@ class RepositoryListViewController: NSViewController, NSTableViewDataSource, NST
   }
   
   func numberOfRows(in tableView: NSTableView) -> Int {
-    return self.viewModel.repositoryNames.count
+    return self.viewModel.numberOfItems
   }
   
   func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
     let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "cellId"), owner: nil) as? NSTableCellView
     
-    let repositoryName = self.viewModel.repositoryNames[row]
+    let repositoryName = self.viewModel.nameOfRepositoryAt(row: row)
     cell?.textField?.stringValue = repositoryName    
     
     return cell
