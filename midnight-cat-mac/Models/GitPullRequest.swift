@@ -9,15 +9,7 @@
 import Foundation
 import Octokit
 
-struct GitPullRequest: Storable, Codable {
-  var collectionName: String {
-    return DatabaseCollectionNames.repository
-  }
-  
-  var primaryKey: String {
-    return self.url.absoluteString
-  }
-  
+struct GitPullRequest: Codable {
   let title: String
   let url: URL!
   let createdAt: Date

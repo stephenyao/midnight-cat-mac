@@ -9,19 +9,11 @@
 import Foundation
 import Octokit
 
-struct GitRepository: Storable, Codable {
-  var primaryKey: String {
-    return self.name
-  }
-  
+struct GitRepository: Codable {
   let id: Int
   let name: String
   let owner: String?
   let cloneURL: String?
-  
-  var collectionName: String {
-    return "repositories"
-  }
   
   init?(repository: Repository) {
     self.id = repository.id
