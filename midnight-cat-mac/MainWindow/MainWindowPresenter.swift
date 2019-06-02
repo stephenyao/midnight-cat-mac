@@ -26,7 +26,6 @@ final class MainWindowPresenter: NSObject, NSFetchedResultsControllerDelegate {
   
   weak var delegate: MainWindowPresenterDelegate? {
     didSet {
-      
       if !self.authenticationState.isSignedIn {
         self.delegate?.presentLoggedOut()
       } else {

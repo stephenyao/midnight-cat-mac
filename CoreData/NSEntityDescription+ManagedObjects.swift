@@ -19,4 +19,14 @@ extension NSEntityDescription {
     entity.owner = repository.owner
     return entity
   }
+  
+  @discardableResult static func pullRequestEntity(forPullRequest pullRequest: GitPullRequest, withContext context: NSManagedObjectContext) -> PullRequestManagedObject {
+    let entity = NSEntityDescription.insertNewObject(forEntityName: String(describing: PullRequestManagedObject.self), into: context) as! PullRequestManagedObject
+    entity.createdAt = NSDate(timeIntervalSinceReferenceDate: pullRequest.createdAt.timeIntervalSinceReferenceDate)
+    entity.author = pullRequest.author
+    entity.number = Int16(pullRequest.number)
+    entity.title = pullRequest.title
+    entity.url = pullRequest.url
+    return entity
+  }
 }

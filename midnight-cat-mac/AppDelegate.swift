@@ -23,6 +23,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     let router = Router(routables: [authenticationRoutable])
     self.router = router
+    
+    let synchronisationService = SynchronisationService()
+    synchronisationService.syncRepositories()
+    self.synchronisationService = synchronisationService
   }
 
   func application(_ application: NSApplication, open urls: [URL]) {
