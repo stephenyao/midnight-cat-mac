@@ -22,7 +22,12 @@ class RepositoryListViewController: NSViewController, NSTableViewDataSource, NST
   
   @IBOutlet var tableView: NSTableView!
   
-  let viewModel: RepositoryListViewModel
+  var viewModel: RepositoryListViewModel {
+    didSet {
+      self.tableView.reloadData()
+    }
+  }
+  
   weak var delegate: RepositoryListViewControllerDelegate?
   
   init(viewModel: RepositoryListViewModel) {

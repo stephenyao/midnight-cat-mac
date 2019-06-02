@@ -8,22 +8,69 @@
 
 import Cocoa
 import Octokit
+import ReactiveSwift
+
+typealias RepositoryNames = [String]
+
+class RepositoryContentViewModel: NSObject, NSFetchedResultsControllerDelegate {
+  
+  let repositoryNamesOutput: Signal<RepositoryNames, Never>
+  
+  private let input: Signal<RepositoryNames, Never>.Observer
+  private let fetchResultsController: NSFetchedResultsController<RepositoryManagedObject>
+  
+  var numberOfItems: Int {
+    return self.fetchResultsController.fetchedObjects?.count ?? 0
+  }
+  
+  init(managedObjectContext: NSManagedObjectContext = CoreDataManagedObjectContext.sharedInstance.context) {
+    let (output, input) = Signal<RepositoryNames, Never>.pipe()
+    self.repositoryNamesOutput = output
+    self.input = input
+    
+    let fetchRequest: NSFetchRequest<RepositoryManagedObject> = RepositoryManagedObject.fetchRequest()
+    fetchRequest.sortDescriptors = [NSSortDescriptor.init(key: "name", ascending: true)]
+    let fetchResultsController = NSFetchedResultsController.init(fetchRequest: fetchRequest, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
+    do {
+      try fetchResultsController.performFetch()
+    } catch {}
+    self.fetchResultsController = fetchResultsController
+  }
+  
+  func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+    let names = self.repositoryNames()
+    self.input.send(value: names)
+  }
+  
+  func nameOfRepositoryAt(row: Int) -> String {
+    return self.fetchResultsController.object(at: IndexPath(item: row, section: 0)).name ?? ""
+  }
+  
+  func repositoryNames() -> [String] {
+    return self.fetchResultsController.fetchedObjects?.compactMap { $0.name } ?? []
+  }
+}
 
 class RepositoryContentViewController: NSSplitViewController, RepositoryListViewControllerDelegate {
   
   private let database: Database = Database()
   private var repositories: [GitRepository]  = []
   private var rightSplitViewItem: NSSplitViewItem!
+  private let viewModel = RepositoryContentViewModel()
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
     self.repositories = self.database.objects(with: "repositories")
     
-    let repositoryNames = self.repositories.map { $0.name }
+    let repositoryNames = self.viewModel.repositoryNames()
     let viewModel = RepositoryListViewModel(repositoryNames: repositoryNames)
     let listViewController = RepositoryListViewController(viewModel: viewModel)
     listViewController.delegate = self
+    
+    self.viewModel.repositoryNamesOutput.observeValues { names in
+      listViewController.viewModel = RepositoryListViewModel(repositoryNames: repositoryNames)
+    }
     
     let left = NSSplitViewItem(sidebarWithViewController: listViewController)
     left.minimumThickness = 250
