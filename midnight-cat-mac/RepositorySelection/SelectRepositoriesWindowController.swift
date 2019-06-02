@@ -54,9 +54,4 @@ class SelectRepositoriesWindowController: NSWindowController {
       }
     }
   }
-  
-  private func save(repository: Repository) {
-    let managedObject = NSEntityDescription.insertNewObject(forEntityName: String(describing: RepositoryManagedObject.self), into: self.context) as! RepositoryManagedObject
-    managedObject.name = repository.name
-  }
 }
