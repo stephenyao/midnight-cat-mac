@@ -54,6 +54,7 @@
 		DD442E5C21D50EC5007E4325 /* RepositoriesSelectCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD442E5B21D50EC5007E4325 /* RepositoriesSelectCoordinator.swift */; };
 		DD442E6021D618E2007E4325 /* ZeroStateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD442E5E21D618E2007E4325 /* ZeroStateViewController.swift */; };
 		DD442E6121D618E2007E4325 /* ZeroStateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD442E5F21D618E2007E4325 /* ZeroStateViewController.xib */; };
+		DD4D28B522A394350063AA3E /* NSEntityDescription+ManagedObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4D28B422A394350063AA3E /* NSEntityDescription+ManagedObjects.swift */; };
 		DDA2261A21E072C20096BD9B /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA2261921E072C20096BD9B /* Database.swift */; };
 		DDA2261C21E079170096BD9B /* DatabaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA2261B21E079170096BD9B /* DatabaseTests.swift */; };
 /* End PBXBuildFile section */
@@ -123,6 +124,7 @@
 		DD442E5B21D50EC5007E4325 /* RepositoriesSelectCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesSelectCoordinator.swift; sourceTree = "<group>"; };
 		DD442E5E21D618E2007E4325 /* ZeroStateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeroStateViewController.swift; sourceTree = "<group>"; };
 		DD442E5F21D618E2007E4325 /* ZeroStateViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZeroStateViewController.xib; sourceTree = "<group>"; };
+		DD4D28B422A394350063AA3E /* NSEntityDescription+ManagedObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSEntityDescription+ManagedObjects.swift"; sourceTree = "<group>"; };
 		DDA2261921E072C20096BD9B /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		DDA2261B21E079170096BD9B /* DatabaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -155,6 +157,7 @@
 				043DF22E22A0DEB800734A67 /* RepositoryManagedObject+CoreDataProperties.swift */,
 				043DF22D22A0DEB800734A67 /* RepositoryManagedObject+CoreDataClass.swift */,
 				043DF23522A0DFD500734A67 /* CoreDataManagedObjectContext.swift */,
+				DD4D28B422A394350063AA3E /* NSEntityDescription+ManagedObjects.swift */,
 			);
 			name = CoreData;
 			path = ../CoreData;
@@ -516,6 +519,7 @@
 				04BEC45C21EAAD5F00DC357A /* RepositoryContentViewController.swift in Sources */,
 				DD442E3821D26410007E4325 /* OauthApplicationDetailsViewController.swift in Sources */,
 				043DF23222A0DEB800734A67 /* RepositoryManagedObject+CoreDataProperties.swift in Sources */,
+				DD4D28B522A394350063AA3E /* NSEntityDescription+ManagedObjects.swift in Sources */,
 				043DF24322A29FD500734A67 /* SelectRepositoriesLoadingViewController.swift in Sources */,
 				043DF23922A1E66600734A67 /* SelectRepositoriesWindowController.swift in Sources */,
 				043DF23122A0DEB800734A67 /* RepositoryManagedObject+CoreDataClass.swift in Sources */,

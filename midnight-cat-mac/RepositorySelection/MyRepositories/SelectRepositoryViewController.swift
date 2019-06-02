@@ -54,18 +54,13 @@ struct SelectRepositoryViewModel {
       fetchRequest.predicate = NSPredicate(format: "id == %d", repository.id)
       let results = try self.managedObjectContext.fetch(fetchRequest)
       if results.count == 0 {
-        let entity = NSEntityDescription.insertNewObject(forEntityName: String(describing: RepositoryManagedObject.self), into: self.managedObjectContext) as! RepositoryManagedObject
-        entity.name = repository.name
-        entity.id = Int16(repository.id)
-        entity.cloneURL = URL(string: repository.cloneURL!)
-        entity.selected = true
-        entity.owner = repository.owner
+        NSEntityDescription.repositoryEntity(forRepository: repository, withContext: self.managedObjectContext)
         try self.managedObjectContext.save()
       } else {
         self.managedObjectContext.delete(results.first!)
       }
-    } catch {
-      
+    } catch (let error) {
+      print(error.localizedDescription)
     }
     
     self.input.send(value: ())
