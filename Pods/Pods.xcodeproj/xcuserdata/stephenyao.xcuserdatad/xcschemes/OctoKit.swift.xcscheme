@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "57991F79BD06432A33365E29F0FD9C59"
+               BlueprintIdentifier = "E4801B315B869E6437B600161412073C"
                BuildableName = "Octokit.framework"
                BlueprintName = "OctoKit.swift"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "57991F79BD06432A33365E29F0FD9C59"
+            BlueprintIdentifier = "E4801B315B869E6437B600161412073C"
             BuildableName = "Octokit.framework"
             BlueprintName = "OctoKit.swift"
             ReferencedContainer = "container:Pods.xcodeproj">
