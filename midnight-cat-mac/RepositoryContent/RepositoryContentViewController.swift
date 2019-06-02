@@ -49,20 +49,32 @@ class RepositoryContentViewModel: NSObject, NSFetchedResultsControllerDelegate {
   func repositoryNames() -> [String] {
     return self.fetchResultsController.fetchedObjects?.compactMap { $0.name } ?? []
   }
+  
+  func repositoryName(atRow row: Int) -> String {
+    return self.repositoryNames()[row]
+  }
+  
+  func repositoryOwner(atRow row: Int) -> String {
+    return self.fetchResultsController.object(at: IndexPath(item: row, section: 0)).owner ?? ""
+  }
+  
+  func repositoryCloneURL(atRow row: Int) -> URL? {
+    return self.fetchResultsController.object(at: IndexPath(item: row, section: 0)).cloneURL
+  }
+  
+  func repositoryID(atRow row: Int) -> Int {
+    return Int(self.fetchResultsController.object(at: IndexPath(item: row, section: 0)).id)
+  }
 }
 
 class RepositoryContentViewController: NSSplitViewController, RepositoryListViewControllerDelegate {
   
-  private let database: Database = Database()
-  private var repositories: [GitRepository]  = []
   private var rightSplitViewItem: NSSplitViewItem!
   private let viewModel = RepositoryContentViewModel()
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    self.repositories = self.database.objects(with: "repositories")
-    
+
     let repositoryNames = self.viewModel.repositoryNames()
     let viewModel = RepositoryListViewModel(repositoryNames: repositoryNames)
     let listViewController = RepositoryListViewController(viewModel: viewModel)
@@ -89,21 +101,25 @@ class RepositoryContentViewController: NSSplitViewController, RepositoryListView
   
   func repositoryWasSelected(atIndex index: Int) {
     guard index != -1 else { return }
-    let repository = self.repositories[index]
+    let (name, owner, repositoryID, cloneURL) =
+      (self.viewModel.repositoryName(atRow: index),
+       self.viewModel.repositoryOwner(atRow: index),
+       self.viewModel.repositoryID(atRow: index),
+       self.viewModel.repositoryCloneURL(atRow: index))
     
     guard let config = AppState.sharedInstance.octokitConfig else {
       return
     }        
   
-    let _ = Octokit(config).pullRequests(owner: repository.owner!, repository: repository.name) { (response) in
+    let _ = Octokit(config).pullRequests(owner: owner, repository: name) { (response) in
       switch response {
       case .success(let pullRequests):
         DispatchQueue.main.async {
           self.removeSplitViewItem(self.rightSplitViewItem)
           let pullRequests = pullRequests.compactMap { pullRequestData -> GitPullRequest? in
-            return GitPullRequest(octoKitPullRequest: pullRequestData, repositoryID: repository.id)
+            return GitPullRequest(octoKitPullRequest: pullRequestData, repositoryID: repositoryID)
           }
-          let repositoryDetailViewModel = RepositoryDetailsViewModel(cloneURL: repository.cloneURL ?? "", pullRequests: pullRequests)
+          let repositoryDetailViewModel = RepositoryDetailsViewModel(cloneURL: cloneURL?.absoluteString ?? "", pullRequests: pullRequests)
           let detailsViewController = RepositoryDetailsViewController(viewModel: repositoryDetailViewModel)
           let newRightSplitViewItem = NSSplitViewItem(contentListWithViewController: detailsViewController)
           self.setupRightSplitItemAttributes(for: newRightSplitViewItem)
