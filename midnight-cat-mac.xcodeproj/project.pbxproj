@@ -49,9 +49,6 @@
 		DD442E5121D4EFB0007E4325 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD442E5021D4EFB0007E4325 /* Authentication.swift */; };
 		DD442E5321D4F08F007E4325 /* AuthenticationRoutableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD442E5221D4F08F007E4325 /* AuthenticationRoutableTests.swift */; };
 		DD442E5621D4FF30007E4325 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD442E5521D4FF30007E4325 /* Notifications.swift */; };
-		DD442E5921D50E84007E4325 /* RepositoriesSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD442E5721D50E84007E4325 /* RepositoriesSelectViewController.swift */; };
-		DD442E5A21D50E84007E4325 /* RepositoriesSelectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD442E5821D50E84007E4325 /* RepositoriesSelectViewController.xib */; };
-		DD442E5C21D50EC5007E4325 /* RepositoriesSelectCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD442E5B21D50EC5007E4325 /* RepositoriesSelectCoordinator.swift */; };
 		DD442E6021D618E2007E4325 /* ZeroStateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD442E5E21D618E2007E4325 /* ZeroStateViewController.swift */; };
 		DD442E6121D618E2007E4325 /* ZeroStateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD442E5F21D618E2007E4325 /* ZeroStateViewController.xib */; };
 		DD4D28B522A394350063AA3E /* NSEntityDescription+ManagedObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4D28B422A394350063AA3E /* NSEntityDescription+ManagedObjects.swift */; };
@@ -120,9 +117,6 @@
 		DD442E5021D4EFB0007E4325 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		DD442E5221D4F08F007E4325 /* AuthenticationRoutableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationRoutableTests.swift; sourceTree = "<group>"; };
 		DD442E5521D4FF30007E4325 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
-		DD442E5721D50E84007E4325 /* RepositoriesSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesSelectViewController.swift; sourceTree = "<group>"; };
-		DD442E5821D50E84007E4325 /* RepositoriesSelectViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositoriesSelectViewController.xib; sourceTree = "<group>"; };
-		DD442E5B21D50EC5007E4325 /* RepositoriesSelectCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesSelectCoordinator.swift; sourceTree = "<group>"; };
 		DD442E5E21D618E2007E4325 /* ZeroStateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeroStateViewController.swift; sourceTree = "<group>"; };
 		DD442E5F21D618E2007E4325 /* ZeroStateViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZeroStateViewController.xib; sourceTree = "<group>"; };
 		DD4D28B422A394350063AA3E /* NSEntityDescription+ManagedObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSEntityDescription+ManagedObjects.swift"; sourceTree = "<group>"; };
@@ -166,18 +160,6 @@
 			path = ../CoreData;
 			sourceTree = "<group>";
 		};
-		043DF23722A1E64100734A67 /* MyRepositories */ = {
-			isa = PBXGroup;
-			children = (
-				043DF23822A1E66600734A67 /* SelectRepositoriesWindowController.swift */,
-				043DF23A22A28D9900734A67 /* SelectRepositoryViewController.swift */,
-				043DF23B22A28D9900734A67 /* SelectRepositoryViewController.xib */,
-				043DF24122A29FD500734A67 /* SelectRepositoriesLoadingViewController.swift */,
-				043DF24222A29FD500734A67 /* SelectRepositoriesLoadingViewController.xib */,
-			);
-			path = MyRepositories;
-			sourceTree = "<group>";
-		};
 		043DF23E22A2935A00734A67 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -189,10 +171,11 @@
 		047DD69721E61A5C00E8CA48 /* RepositorySelection */ = {
 			isa = PBXGroup;
 			children = (
-				043DF23722A1E64100734A67 /* MyRepositories */,
-				DD442E5B21D50EC5007E4325 /* RepositoriesSelectCoordinator.swift */,
-				DD442E5721D50E84007E4325 /* RepositoriesSelectViewController.swift */,
-				DD442E5821D50E84007E4325 /* RepositoriesSelectViewController.xib */,
+				043DF23822A1E66600734A67 /* SelectRepositoriesWindowController.swift */,
+				043DF23A22A28D9900734A67 /* SelectRepositoryViewController.swift */,
+				043DF23B22A28D9900734A67 /* SelectRepositoryViewController.xib */,
+				043DF24122A29FD500734A67 /* SelectRepositoriesLoadingViewController.swift */,
+				043DF24222A29FD500734A67 /* SelectRepositoriesLoadingViewController.xib */,
 				047DD69821E61B7F00E8CA48 /* RepositorySelectTableViewCell.swift */,
 			);
 			path = RepositorySelection;
@@ -428,7 +411,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD442E5A21D50E84007E4325 /* RepositoriesSelectViewController.xib in Resources */,
 				043DF24422A29FD500734A67 /* SelectRepositoriesLoadingViewController.xib in Resources */,
 				04BEC46321EAC3EF00DC357A /* RepositoryDetailsViewController.xib in Resources */,
 				DD049DFA21C4964C007E2DE6 /* Assets.xcassets in Resources */,
@@ -506,7 +488,6 @@
 				04595789229CEC8600B81E44 /* SynchronisationService.swift in Sources */,
 				043DF23622A0DFD500734A67 /* CoreDataManagedObjectContext.swift in Sources */,
 				DD442E6021D618E2007E4325 /* ZeroStateViewController.swift in Sources */,
-				DD442E5C21D50EC5007E4325 /* RepositoriesSelectCoordinator.swift in Sources */,
 				047DD69C21E61BB900E8CA48 /* GitRepository.swift in Sources */,
 				DD442E4A21D4B62B007E4325 /* AppState.swift in Sources */,
 				DD049DF621C4964B007E2DE6 /* AppDelegate.swift in Sources */,
@@ -530,7 +511,6 @@
 				DD442E4E21D4E959007E4325 /* Router.swift in Sources */,
 				043DF23C22A28D9900734A67 /* SelectRepositoryViewController.swift in Sources */,
 				DD442E1521D25A8B007E4325 /* LoginViewController.swift in Sources */,
-				DD442E5921D50E84007E4325 /* RepositoriesSelectViewController.swift in Sources */,
 				043DF23322A0DEB800734A67 /* PullRequestManagedObject+CoreDataProperties.swift in Sources */,
 				047DD69921E61B7F00E8CA48 /* RepositorySelectTableViewCell.swift in Sources */,
 			);

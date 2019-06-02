@@ -39,10 +39,9 @@ class OauthApplicationDetailsViewController: NSViewController {
   }
   
   @objc private func onSignInSuccess() {
-    let nextCoordinator = RepositoriesSelectCoordinator()
-    if let window = self.view.window {
-      nextCoordinator.createAndLoad(from: window)
-    }      
+    self.view.window?.close()
+    let controller = SelectRepositoriesWindowController.sharedInstance
+    controller.showWindow(self)
   }
   
   @objc private func onSignInFailure() {

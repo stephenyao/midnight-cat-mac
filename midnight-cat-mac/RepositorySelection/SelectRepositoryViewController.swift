@@ -84,12 +84,6 @@ class SelectRepositoryViewController: NSViewController, NSTableViewDataSource, N
   override func viewDidLoad() {
     super.viewDidLoad()
     self.title = "Select Repositories"
-//    let fetchRequest: NSFetchRequest<RepositoryManagedObject> = RepositoryManagedObject.fetchRequest()
-//    fetchRequest.sortDescriptors = [NSSortDescriptor.init(key: "name", ascending: true)]
-//    let fetchResultsController = NSFetchedResultsController.init(fetchRequest: fetchRequest, managedObjectContext: self.managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
-//    fetchResultsController.delegate = self
-//    try! fetchResultsController.performFetch()
-//    self.fetchResultsController = fetchResultsController
     self.viewModel.signal.observeValues {
       self.tableView.reloadData()
     }
