@@ -22,4 +22,14 @@ class CoreDataManagedObjectFetcher {
       return nil
     }
   }
+  
+  func managedObjects<T: NSManagedObject>(managedObjectContext context: NSManagedObjectContext) -> [T]? {
+    do {
+      let fetchRequest: NSFetchRequest<T> = T.fetchRequest() as! NSFetchRequest<T>
+      let results = try context.fetch(fetchRequest)
+      return results
+    } catch {
+      return nil
+    }
+  }
 }
